@@ -2,13 +2,13 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [NOME DO PROJETO]
-* **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
+* **Projeto:** CalculaDor
+* **Repositório GitHub:** https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2026-1-ti1-7620100-getech-1
 * **Membros da equipe:**
 
-  * [Fulano](https://github.com/fulano) ⚠️ EXEMPLO ⚠️
-  * [Beltrano](https://github.com/beltrano) ⚠️ EXEMPLO ⚠️
-  * [Cicrano](https://github.com/cicrano) ⚠️ EXEMPLO ⚠️
+  * [Lucas Araujo Asth](https://github.com/Lucasasth3)
+  * [Gustavo Fernandes Vieira](https://github.com/vGustav1)
+  * [Matheus Henrique Castilho Ricoy Guerra](https://github.com/Cirker1226)
 
 A documentação do projeto é estruturada da seguinte forma:
 
@@ -28,90 +28,79 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Como um sistema digital simples e integrado pode ajudar o microempreendedor brasileiro a tomar decisões financeiras mais seguras no dia a dia do seu negócio?
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
->
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Pequenos e microempreendedores brasileiros enfrentam dificuldades sérias para gerenciar seus negócios. A maioria ainda usa cadernos, planilhas soltas e anotações no celular para controlar vendas, estoque e fiados, ferramentas que não se comunicam entre si e deixam o dono do negócio sem uma visão clara do que está acontecendo.
+
+Sem um sistema que una essas informações, o empreendedor não sabe exatamente quanto está ganhando, perde mercadoria por falta de controle e toma decisões baseadas em palpites. Além disso, o Brasil possui um dos sistemas tributários mais complexos do mundo, o que gera medo constante de erros fiscais e multas, especialmente para quem toca o negócio sozinho.
 
 ## Objetivos
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+O objetivo geral deste projeto é desenvolver um sistema web de gestão voltado para pequenos e microempreendedores, que centralize em um só lugar o controle de vendas, estoque, fiado e financeiro de forma simples e acessível.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
->
-> **Orientações**:
->
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Como objetivos específicos, o projeto busca:
+
+- Permitir que o empreendedor visualize sua margem de lucro real, descontando custos e impostos automaticamente de seu faturamento.
+- Criar um controle de estoque com alertas inteligentes, evitando tanto a falta quanto o excesso de produtos parados.
+- Oferecer uma interface simples o suficiente para ser usada por quem ainda utiliza caderno e calculadora no dia a dia.
 
 ## Justificativa
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Ao pesquisar sobre os desafios dos pequenos negócios no Brasil, o grupo percebeu que a maioria dos empreendedores que conhecemos no dia a dia, donos de mercadinhos, lojas de bairro, cosméticos, oficinas, etc... Acabam sofrendo com o mesmo problema: trabalha muito, vende, mas não sabe se está tendo lucro de verdade. Essa dor é próxima, real e afeta milhões de brasileiros, o que tornou o tema urgente e relevante para o grupo desenvolver uma solução.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
->
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Este projeto busca desenvolver um sistema web de gestão que una vendas, estoque e financeiro em um único lugar, apresentando funcionalidades como controle de estoque com alertas, registro de fiado e visualização do lucro real de forma automática, para microempreendedores que precisam organizar seu negócio mas não têm tempo ou familiaridade com a tecnologia.
+
+Pesquisas do SEBRAE apontam que a ausência de controle de fluxo de caixa e a dificuldade em separar contas pessoais das empresariais são as principais causas de falência precoce de pequenos negócios. Empresas que monitoram custos e despesas diariamente apresentam taxas de sucesso até 30% maiores.
+
+Além disso, o Brasil é o país onde as empresas gastam mais tempo com burocracia fiscal no mundo, cerca de 1.500 horas por ano. Esse peso cai diretamente sobre o pequeno empresário, que precisa focar na operação do negócio.
+
+A pesquisa TIC Empresas realizada no ano de 2024 reforça que muitos pequenos negócios ainda utilizam sistemas desconectados, como planilhas isoladas, o que gera desperdício de recursos e "dinheiro parado" em estoque. Diante disso, o grupo identificou a necessidade urgente de uma ferramenta que una vendas, estoque e financeiro em um único lugar, de forma intuitiva e acessível para quem não tem familiaridade com tecnologia.
 
 ## Público-Alvo
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+O sistema é voltado para microempreendedores brasileiros de diferentes perfis, que gerenciam seus negócios de forma independente e sofrem com a falta de organização financeira e operacional.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva o mercado para o qual a solução está sendo desenvolvida, detalhando um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc. Adicione informações sobre o público-alvo por meio de uma descrição textual ou por meio do mapa de stakeholders, ou como o grupo achar mais conveniente.
->
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Com base nas pesquisas realizadas, foram identificados três perfis principais de usuários:
+
+- **Empreendedores com baixa familiaridade com tecnologia** (ex: donos de lojas de materiais de construção, mercadinhos de bairro): usam caderno e calculadora, têm desconfiança de sistemas complexos e precisam de uma solução rápida e simples de aprender.
+- **Empreendedores digitais em crescimento** (ex: donas de lojas de cosméticos, brechós online): já usam o celular para vender, mas sofrem com informações dispersas em vários aplicativos diferentes.
+- **Empresários focados em expansão** (ex: donos de lojas de artigos esportivos): buscam dados concretos para tomar decisões estratégicas e escalar o negócio sem perder o controle financeiro.
 
 # Product Discovery
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
+Para compreender com maior profundidade o problema enfrentado pelos pequenos e médios empreendedores brasileiros, utilizamos a metodologia de Design Thinking, estruturando nosso processo em quatro artefatos principais.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nessa etapa, vamos trabalhar com a metdologia de Design Thinking para compreender com maior profundidade o problema a ser tratado. Nesse processo, vamos elaborar:
->
-> * **Matriz CSD**: também conhecida por Matriz de Alinhamento, é uma ferramenta utilizada no Design Thinking para organizar informações e facilitar o processo de tomada de decisão e solução de problemas;
-> * **Mapa de stakeholders**: ferramenta que nos permite compreender o grupo de pessoas e entidades que devemos estudar e conversar para entender mais sobre o problema
-> * **Entrevistas qualitativas**: série de entrevistas qualitativas para validar suposições e solucionar as dúvidas com as principais pessoas envolvidas;
-> * **Highlights de pesquisa**: um compilado do levantamento realizado por meio das entrevistas.
+A **Matriz de Alinhamento (CSD)** foi o ponto de partida para organizar o que sabemos, o que suspeitamos e o que ainda precisamos descobrir. Entre nossas certezas, identificamos que um sistema com relatórios automáticos ajuda na visualização do desempenho do negócio, que o controle financeiro é fundamental para a sobrevivência de uma empresa e que informações organizadas apoiam diretamente a tomada de decisões.
+
+Já nossas suposições apontam que muitos microempreendedores não utilizam sistemas automatizados por considerá-los caros ou complexos demais, que a maioria mistura finanças pessoais com empresariais e que boa parte não analisa dados ou relatórios para tomar decisões. 
+
+Por fim, nossas principais dúvidas giram em torno de questões como o nível de alfabetização digital do nosso cliente-alvo, a disposição do pequeno empresário em confiar dados financeiros a uma plataforma web e o que de fato motivaria esse empreendedor a abandonar o método atual em favor de uma solução digital.
+
+O **Mapa de Stakeholders** nos permitiu identificar e classificar todos os grupos envolvidos no ecossistema do problema. As pessoas fundamentais são os próprios microempreendedores e seus funcionários, que vivem diariamente as dores da desorganização financeira e operacional. 
+
+As pessoas importantes, que podem facilitar ou dificultar a adoção da solução, incluem investidores e sócios, fornecedores de mercadorias, empresas de software de pagamento e o SEBRAE, parceiro estratégico no desenvolvimento de pequenos negócios.
+
+Por fim, as pessoas influenciadoras, incluem órgãos reguladores, sindicatos, bancos, instituições de crédito, governo, Receita Federal, mídia especializada e comunidades de empreendedores.
+
+A pesquisa revelou que pequenos negócios não fecham por falta de vendas, mas por desorganização financeira e estoque mal gerido. O excesso de burocracia tributária agrava ainda mais esse cenário. Ferramentas complexas são rapidamente abandonadas simplicidade é essencial. Faturamento alto não garante lucro: sem centralização de vendas, estoque e financeiro em um único lugar, o empreendedor trabalha no escuro e toma decisões baseadas em palpites.
 
 ## Etapa de Definição
 
 ### Personas
 
-**✳️✳️✳️ APRESENTE OS DIAGRAMAS DE PERSONAS ✳️✳️✳️**
+![Proposta de valor](images/personas.png)
 
-![Exemplo de proposta de valor](images/exemplo-persona.png)
+O projeto identificou três personas que representam os principais perfis de microempreendedores impactados pelo problema.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Relacione as personas identificadas no seu projeto e os respectivos mapas de empatia. Lembre-se que você deve ser enumerar e descrever precisamente e de forma personalizada todos os principais envolvidos com a solução almeja.
->
-> **Orientações**:
->
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Criar personas (Hotmart)](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+Lucas Ferdinando, dono de materiais de construção, representa o empreendedor tradicional que ainda depende de caderno e calculadora, cuja maior dor é não saber sua margem de lucro real e perder dinheiro com fiado esquecido. 
+
+Isabella Silva, empresária de cosméticos, representa o perfil jovem e digital, mas que sofre com informações dispersas em múltiplos canais e precisa centralizar vendas, estoque e atendimento em um único lugar. 
+
+Bernardo Josias, dono de artigos esportivos, representa o empreendedor em expansão, cujo principal problema é o capital imobilizado em estoque parado por falta de dados concretos para decisões de compra. 
+
+Os três compartilham as mesmas dores centrais mapeadas nos mapas de empatia: ausência de visão financeira real, processos manuais que consomem tempo e a necessidade urgente de uma ferramenta simples, intuitiva e que centralize todas as informações do negócio.
 
 # Product Design
 
@@ -121,31 +110,37 @@ Nesse momento, vamos transformar os insights e validações obtidos em soluçõe
 
 Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
-| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE`        | PARA ...`MOTIVO/VALOR`               |
-| --------------------- | ------------------------------------------ | -------------------------------------- |
-| Usuário do sistema   | Registrar minhas tarefas ⚠️ EXEMPLO ⚠️ | Não esquecer de fazê-las             |
-| Administrador         | Alterar permissões ⚠️ EXEMPLO ⚠️      | Permitir que possam administrar contas |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão das necessidades de cada persona. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
->
-> **Orientações**:
->
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
+| EU COMO... `PERSONA` | QUERO/PRECISO... `FUNCIONALIDADE` | PARA... `MOTIVO/VALOR` |
+| --------------------- | ---------------------------------- | ----------------------- |
+| Isabella Silva, proprietária de loja de cosméticos que lida com informações dispersas | Centralizar o registro de vendas físicas e digitais em um único aplicativo | Ter uma gestão clara, organizada e automatizada do meu negócio na palma da mão |
+| Bernardo Josias, empresário focado em expansão que sofre com estoque parado | Visualizar relatórios de giro de estoque e lucratividade real | Tomar decisões baseadas em dados confiáveis e evitar desperdício de capital |
+| Lucas Ferdinando, empreendedor que ainda utiliza cadernos e teme sistemas complexos | Uma interface simples para registrar vendas e "fiados" com backup em nuvem | Eliminar a insegurança no fechamento de caixa e conseguir delegar tarefas com confiança |
+| Ricardo, dono de uma oficina mecânica preocupado com a rentabilidade de cada serviço | Uma forma de transformar orçamentos em ordens de serviço, separando custo de peças e mão de obra | Cobrar o valor justo do cliente e saber o lucro real exato de cada reparo |
+| Mariana, confeiteira autônoma que vende por encomenda e precisa gerenciar a produção | Uma agenda integrada com prazos de entrega e controle de sinais recebidos | Não esquecer pedidos e garantir que o valor cobrado cubra os ingredientes e o tempo de produção |
+| Seu Jorge, proprietário de uma mercearia de bairro que precisa atender rápido e estar legalizado | Emissão simplificada de nota fiscal integrada ao leitor de código de barras | Evitar filas no balcão e cumprir as obrigações fiscais sem complicação |
+| Camila, dona de um brechó que precisa manter o catálogo de peças únicas atualizado | Cadastrar fotos e descrições individuais para cada item com baixa automática após a venda | Evitar vender o mesmo produto para duas pessoas e manter o estoque real |
+| Felipe, dono de uma pequena cafeteria que começou a contratar funcionários | Controle de acesso de funcionários, delegando tarefas sem expor dados financeiros sensíveis | Que meus atendentes operem o sistema com segurança enquanto eu foco na gestão |
+| Dona Neuza, costureira que convive com a cultura do "pagar depois" | Um histórico de "fiado" com lembretes de cobrança via mensagem | Reduzir a inadimplência e não esquecer de cobrar os serviços realizados |
 
 ## Proposta de Valor
 
-**✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
+##### Proposta de valor para Lucas Ferdinando
 
-##### Proposta de valor para Persona XPTO ⚠️ EXEMPLO ⚠️
+Lucas precisa substituir o caderno e a calculadora por uma solução simples e sem necessidade de treinamento técnico. O sistema oferece controle de estoque em tempo real, gestão de fiados, relatórios automáticos via WhatsApp e fechamento de caixa ágil. Com isso, ele ganha confiança para delegar tarefas, visão clara da sua margem de lucro real e organização financeira sem abandonar a agilidade no atendimento.
 
-![Exemplo de proposta de valor](images/exemplo-proposta-valor.png)
+![Proposta de Valor Lucas](images/lucas.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O mapa da proposta de valor é uma ferramenta que nos ajuda a definir qual tipo de produto ou serviço melhor atende às personas definidas anteriormente.
+##### Proposta de valor para Isabella Silva
+
+Isabella precisa centralizar informações que hoje estão dispersas em vários canais. O sistema oferece CRM, relatórios visuais de desempenho, catálogo digital e sincronização entre loja física e online. Com isso, ela ganha controle do negócio na palma da mão, toma decisões com mais segurança e libera tempo para focar em conteúdo, tendências e crescimento.
+
+![Proposta de Valor Isabella](images/isabela.png)
+
+##### Proposta de valor para Bernardo Josias
+
+Bernardo precisa de dados concretos para parar de imobilizar capital em estoque parado e se preparar para expandir. O sistema oferece alertas inteligentes de reposição, ranking de vendas por produto, calculadora de pedidos e integração entre loja física e online. Com isso, ele ganha giro de estoque otimizado, lucratividade previsível e autonomia para tomar decisões estratégicas de expansão.
+
+![Proposta de Valor Bernado](images/bernado.png)
 
 ## Projeto de Interface
 
@@ -155,50 +150,30 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-**✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
+##### TELA GERAL
 
-##### TELA XPTO ⚠️ EXEMPLO ⚠️
+O sistema é composto por seis telas principais. O Login e o Sign Up são as telas de entrada, com campos simples de autenticação e cadastro.
 
-Descrição para a tela XPTO
+A Home apresenta o painel principal com menu lateral de navegação e um gráfico de lucros para visão geral do negócio. A tela de Estoque exibe dois painéis comparativos junto à lista de itens cadastrados e acesso rápido para adicionar novos produtos.
 
-![Exemplo de wireframe](images/exemplo-wireframe.png)
+O Cadastro de Produtos conta com campos de texto e espaço para upload de imagem. A tela de Despesas organiza os gastos em categorias fixas como fornecedor, aluguel e funcionários, com a possibilidade de adicionar categorias personalizadas. 
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
->
-> **Orientações**:
->
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+Por fim, o Calendário oferece uma visão semanal para o usuário registrar e acompanhar os compromissos do dia a dia do negócio
+
+![Wireframe](images/wireframe.png)
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
+O fluxo começa com o Início, onde o sistema verifica se o usuário já possui conta. Caso não tenha, é direcionado para a Tela de Registro; caso já tenha, segue para a Tela de Login. Após a autenticação, o usuário acessa a Home, ponto central de navegação do sistema, a partir da qual pode acessar três módulos principais: Estoque, Despesas e Calendário.
 
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+![Fluxo de telas](images/userflow.png)
+![Fluxo de Telas do MarvelApp](images/flowmap.png)
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
+O protótipo interativo do Sistema Inteligente de Gestão permite navegar pelas principais telas da aplicação. A partir do fluxo de autenticação, o usuário acessa a Home e pode explorar os módulos de Estoque, Despesas e Calendário, simulando o dia a dia real de um pequeno empreendedor no controle do seu negócio.
 
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/8435682)
 
 # Metodologia
 
