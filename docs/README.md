@@ -195,14 +195,16 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 ## Gerenciamento do Projeto
 
-Divisão de papéis no grupo:
+## Divisão de Papéis
 
-Lucas Araujo Asth - Etapa de Entendimento e Exploração / Ideia do Projeto / PDF e Apresentação / Projeto de Interface
-Gustavo Fernandes Vieira - Etapa de entendimento e exploração / Ideia do projeto / Projeto de Interface
-Matheus - Etapa de entendimento e exploração / Documentação / Projeto de Interface
-Gabriel Cotta - N/A
-Caio Olimpo - N/A
-Bernado - N/A
+| Membro | Responsabilidades |
+| ------ | ----------------- |
+| Lucas Araujo Asth | Etapa de Entendimento e Exploração, Ideia do Projeto, PDF e Apresentação, Projeto de Interface |
+| Gustavo Fernandes Vieira | Etapa de Entendimento e Exploração, Ideia do Projeto, Projeto de Interface |
+| Matheus Henrique | Etapa de Entendimento e Exploração, Documentação, Projeto de Interface |
+| Gabriel Cotta | — |
+| Caio Olimpo | — |
+| Bernardo Guerra | — |
 
 ![Kanban](images/kanban.png)
 
