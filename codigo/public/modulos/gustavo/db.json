@@ -1,0 +1,20 @@
+{
+  "despesas": [
+    {
+      "id": 1,
+      "valor_da_despesa": 100.00,
+      "nome_da_despesa": "Conserto do ar-condicionado",
+      "data": "2026-08-21",
+      "tipo_da_despesa": "Outros",
+      "observacao": "Manutenção preventiva semestral"
+    },
+    {
+      "id": 2,
+      "valor_da_despesa": 2500.00,
+      "nome_da_despesa": "Aluguel Agosto",
+      "data": "2026-08-05",
+      "tipo_da_despesa": "Aluguel",
+      "observacao": "Pagamento adiantado"
+    }
+  ]
+}
