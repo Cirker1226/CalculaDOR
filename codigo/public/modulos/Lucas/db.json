@@ -1,0 +1,37 @@
+{
+  "contatos": [
+    {
+      "nome": "Votorantim Cimentos",
+      "telefone": "31971019524",
+      "valor": "200",
+      "vencimento": "2026-05-09",
+      "categoria": "A Pagar",
+      "website": "NF-9982",
+      "id": "DT0OfMm7X6s"
+    },
+    {
+      "nome": "Lucas caixas",
+      "telefone": "31971019524",
+      "valor": "300",
+      "vencimento": "2026-05-10",
+      "categoria": "A Pagar",
+      "website": "NF-9982",
+      "id": "EPmO4RCHn2Q"
+    },
+    {
+      "nome": "garrafas plasticaas",
+      "telefone": "31971019524",
+      "valor": "500",
+      "vencimento": "2026-05-05",
+      "categoria": "Vencido",
+      "website": "NF-9982",
+      "id": "QF0iFpQBJDI"
+    }
+  ],
+  "configuracoes_sistema": [],
+  "estoque": [],
+  "clientes": [],
+  "vendas_pdv": [],
+  "financeiro_fluxo": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão Financeira PRO + Contatos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body onload="init()" class="bg-light">
+    <main class="container py-5">
+        <h1 class="mb-4 text-center fw-bold text-dark">Gestão de Pagamentos e Fornecedores</h1>
+        
+        <div id="msg"></div>
+
+        <!-- DASHBOARD CARDS -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm bg-primary text-white p-3">
+                    <small>A Pagar</small>
+                    <h2 id="total-apagar">R$ 0,00</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm bg-success text-white p-3">
+                    <small>Total Pago</small>
+                    <h2 id="total-pago">R$ 0,00</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm bg-danger text-white p-3">
+                    <small>Vencidos</small>
+                    <h2 id="total-vencidos">R$ 0,00</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <form id="form-contato" class="bg-white p-4 shadow-sm rounded-4 border-0 mb-5">
+            <div class="row g-3">
+                <div class="col-md-1">
+                    <label class="form-label">ID</label>
+                    <input type="text" class="form-control bg-light" id="inputId" disabled>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Fornecedor (*)</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Nome da Empresa" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">WhatsApp/Telefone</label>
+                    <input type="text" class="form-control" id="inputTelefone" placeholder="Ex: 31988887777">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Valor (R$)</label>
+                    <input type="number" step="0.01" class="form-control" id="inputValor" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Vencimento</label>
+                    <input type="date" class="form-control" id="inputVencimento" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" id="inputCategoria">
+                        <option value="A Pagar">A Pagar</option>
+                        <option value="Pago">Pago</option>
+                        <option value="Vencido">Vencido</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Link do Boleto/NF</label>
+                    <input type="url" class="form-control" id="inputLink" placeholder="http://...">
+                </div>
+            </div>
+            <div class="mt-4 d-flex gap-2">
+                <button type="button" class="btn btn-success px-4" id="btnInsert"><i class="bi bi-save"></i> Salvar</button>
+                <button type="button" class="btn btn-warning px-4" id="btnUpdate">Alterar</button>
+                <button type="button" class="btn btn-danger px-4" id="btnDelete">Excluir</button>
+                <button type="button" class="btn btn-light px-4 border" id="btnClear">Limpar</button>
+            </div>
+        </form>
+
+        <!-- FILTROS E TABELA -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="m-0 text-secondary">Registros</h4>
+            <div class="d-flex gap-2">
+                <input type="text" id="filtroBusca" class="form-control" placeholder="Buscar fornecedor...">
+            </div>
+        </div>
+
+        <div class="table-responsive bg-white rounded-4 shadow-sm">
+            <table class="table table-hover mb-0 align-middle" id="grid-contatos">
+                <thead class="table-dark text-uppercase">
+                    <tr>
+                        <th class="ps-4">#</th>
+                        <th>Fornecedor</th>
+                        <th>Vencimento</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th class="pe-4 text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="table-contatos"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- MODAL DE DETALHES -->
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow border-0">
+                <div class="modal-header border-0 bg-dark text-white rounded-top-4">
+                    <h5 class="modal-title" id="modalNome">Detalhes do Fornecedor</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <div id="modalDetalhes"></div>
+                </div>
+                <div class="modal-footer border-0 d-flex justify-content-center pb-4">
+                    <a id="btnZap" target="_blank" class="btn btn-success rounded-pill px-4">
+                        <i class="bi bi-whatsapp"></i> Falar com Fornecedor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT CORRIGIDO: Removido o /dist/ extra -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Inicializa o Modal globalmente para ser usado nas funções
+        let modalSuporte;
+
+        function exibeContatos() {
+            let table = document.getElementById("table-contatos");
+            let busca = document.getElementById("filtroBusca").value.toLowerCase();
+
+            readContato(dados => {
+                table.innerHTML = "";
+                let sPagar = 0, sPago = 0, sVencido = 0;
+
+                dados.forEach(c => {
+                    const v = parseFloat(c.valor) || 0;
+                    if (c.categoria === 'Pago') sPago += v;
+                    else if (c.categoria === 'Vencido') sVencido += v;
+                    else sPagar += v;
+
+                    if (c.nome.toLowerCase().includes(busca)) {
+                        let cor = c.categoria === 'Pago' ? 'bg-success' : (c.categoria === 'Vencido' ? 'bg-danger' : 'bg-warning text-dark');
+                        table.innerHTML += `
+                            <tr>
+                                <td class="ps-4 text-muted small">${c.id.substring(0,5)}...</td>
+                                <td class="fw-bold" onclick="preencherForm('${c.id}')" style="cursor:pointer">${c.nome}</td>
+                                <td>${new Date(c.vencimento).toLocaleDateString('pt-BR')}</td>
+                                <td>${v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+                                <td><span class="badge ${cor}">${c.categoria}</span></td>
+                                <td class="pe-4 text-center">
+                                    <button type="button" class="btn btn-sm btn-outline-dark border-0" onclick="abrirDetalhes('${c.id}')">
+                                        <i class="bi bi-person-lines-fill fs-5"></i>
+                                    </button>
+                                </td>
+                            </tr>`;
+                    }
+                });
+
+                document.getElementById('total-apagar').innerText = sPagar.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                document.getElementById('total-pago').innerText = sPago.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                document.getElementById('total-vencidos').innerText = sVencido.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+            });
+        }
+
+        function abrirDetalhes(id) {
+            fetch(`${apiUrl}/${id}`).then(res => res.json()).then(c => {
+                document.getElementById('modalNome').innerText = c.nome;
+                document.getElementById('modalDetalhes').innerHTML = `
+                    <p class="text-muted mb-1">Status: <b>${c.categoria}</b></p>
+                    <h2 class="mb-3 text-primary">${(parseFloat(c.valor) || 0).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h2>
+                    <p>Vencimento: ${new Date(c.vencimento).toLocaleDateString('pt-BR')}</p>
+                    ${c.website ? `<a href="${c.website}" target="_blank" class="btn btn-sm btn-link">📎 Abrir Anexo/Link</a>` : ''}
+                `;
+                
+                const tel = c.telefone ? c.telefone.replace(/\D/g, '') : '';
+                const linkZap = `https://api.whatsapp.com/send?phone=55${tel}&text=Olá%20${c.nome},%20referente%20ao%20pagamento%20de%20R$%20${c.valor}`;
+                document.getElementById('btnZap').href = tel ? linkZap : '#';
+                document.getElementById('btnZap').style.display = tel ? 'inline-block' : 'none';
+                
+                modalSuporte.show();
+            });
+        }
+
+        function preencherForm(id) {
+            fetch(`${apiUrl}/${id}`).then(res => res.json()).then(c => {
+                document.getElementById('inputId').value = c.id;
+                document.getElementById('inputNome').value = c.nome;
+                document.getElementById('inputTelefone').value = c.telefone || '';
+                document.getElementById('inputValor').value = c.valor;
+                document.getElementById('inputVencimento').value = c.vencimento;
+                document.getElementById('inputCategoria').value = c.categoria;
+                document.getElementById('inputLink').value = c.website || '';
+                window.scrollTo(0,0);
+            });
+        }
+
+        function init() {
+            modalSuporte = new bootstrap.Modal(document.getElementById('modalContato'));
+            document.getElementById("filtroBusca").onkeyup = exibeContatos;
+
+            document.getElementById("btnInsert").onclick = () => {
+                const c = {
+                    nome: document.getElementById('inputNome').value,
+                    telefone: document.getElementById('inputTelefone').value,
+                    valor: document.getElementById('inputValor').value,
+                    vencimento: document.getElementById('inputVencimento').value,
+                    categoria: document.getElementById('inputCategoria').value,
+                    website: document.getElementById('inputLink').value
+                };
+                if(c.nome && c.valor) createContato(c, exibeContatos);
+                else alert("Preencha fornecedor e valor.");
+            };
+
+            document.getElementById("btnUpdate").onclick = () => {
+                let id = document.getElementById("inputId").value;
+                if(!id) return alert("Selecione um registro na tabela clicando no nome.");
+                const c = {
+                    nome: document.getElementById('inputNome').value,
+                    telefone: document.getElementById('inputTelefone').value,
+                    valor: document.getElementById('inputValor').value,
+                    vencimento: document.getElementById('inputVencimento').value,
+                    categoria: document.getElementById('inputCategoria').value,
+                    website: document.getElementById('inputLink').value
+                };
+                updateContato(id, c, exibeContatos);
+            };
+
+            document.getElementById("btnDelete").onclick = () => {
+                let id = document.getElementById("inputId").value;
+                if(id && confirm("Excluir registro?")) deleteContato(id, exibeContatos);
+            };
+
+            document.getElementById("btnClear").onclick = () => {
+                document.getElementById("form-contato").reset();
+                document.getElementById("inputId").value = "";
+            };
+
+            exibeContatos();
+        }
+    </script>
+</body>
+</html>
