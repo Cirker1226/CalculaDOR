@@ -20,7 +20,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body onload="init()">
@@ -97,20 +97,6 @@
                 class="form-check-input"
                 type="radio"
                 name="tipoDespesa"
-                id="tipoFornecedor"
-                value="Fornecedor"
-                checked
-              />
-              <label class="form-check-label" for="tipoFornecedor"
-                >Fornecedor</label
-              >
-            </div>
-
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="tipoDespesa"
                 id="tipoFuncionario"
                 value="Funcionario"
               />
@@ -149,7 +135,6 @@
           </div>
         </div>
 
-
         <div class="form-group row">
           <div class="col-sm-12">
             <input
@@ -176,13 +161,6 @@
               id="btnClear"
               value="Limpar Form"
             />
-            <a href="search.html"
-              ><input
-                type="button"
-                class="btn btn-warning"
-                id="btnClear"
-                value="Pesquisar Despesa"
-            /></a>
           </div>
         </div>
       </form>
@@ -217,16 +195,13 @@
 
     <script src="apps.js"></script>
     <script>
-    
-    function exibeDespesas() {
-        
+      function exibeDespesas() {
         const tableDespesas = document.getElementById("table-despesas");
         tableDespesas.innerHTML = "";
 
-        
         readDespesa((dados) => {
-            dados.forEach(despesa => {
-                tableDespesas.innerHTML += `
+          dados.forEach((despesa) => {
+            tableDespesas.innerHTML += `
                     <tr>
                         <td scope="row">${despesa.id}</td>
                         <td>${despesa.nome}</td>
@@ -234,89 +209,102 @@
                         <td>${despesa.data}</td>
                         <td>${despesa.tipo}</td>
                     </tr>`;
-            });
+          });
         });
-    }
+      }
 
-    function init() {
+      function init() {
         const formDespesa = document.getElementById("form-despesa");
 
-        
-        document.getElementById("btnInsert").addEventListener("click", function () {
+        document
+          .getElementById("btnInsert")
+          .addEventListener("click", function () {
             if (!formDespesa.checkValidity()) {
-                displayMessage("Preencha o formulário corretamente.");
-                return;
+              displayMessage("Preencha o formulário corretamente.");
+              return;
             }
 
-            
-            const tipoSelecionado = document.querySelector('input[name="tipoDespesa"]:checked').value;
+
+            const tipoSelecionado = document.querySelector(
+              'input[name="tipoDespesa"]:checked',
+            ).value;
 
             let despesa = {
-                nome: document.getElementById("inputNomeDaDespesa").value,
-                valor: document.getElementById("inputValorDaDespesa").value,
-                data: document.getElementById("inputData").value,
-                obs: document.getElementById("inputObs").value,
-                tipo: tipoSelecionado 
+              nome: document.getElementById("inputNomeDaDespesa").value,
+              valor: document.getElementById("inputValorDaDespesa").value,
+              data: document.getElementById("inputData").value,
+              obs: document.getElementById("inputObs").value,
+              tipo: tipoSelecionado,
             };
 
             createDespesa(despesa, exibeDespesas);
             formDespesa.reset();
-        });
+          });
 
-        // --- BOTÃO ALTERAR ---
-        document.getElementById("btnUpdate").addEventListener("click", function () {
+        document
+          .getElementById("btnUpdate")
+          .addEventListener("click", function () {
             let campoId = document.getElementById("inputId").value;
             if (campoId == "") {
-                displayMessage("Selecione uma despesa na tabela primeiro.");
-                return;
+              displayMessage("Selecione uma despesa na tabela primeiro.");
+              return;
             }
 
-            const tipoSelecionado = document.querySelector('input[name="tipoDespesa"]:checked').value;
+            const tipoSelecionado = document.querySelector(
+              'input[name="tipoDespesa"]:checked',
+            ).value;
 
             let despesa = {
-                nome: document.getElementById("inputNomeDaDespesa").value,
-                valor: document.getElementById("inputValorDaDespesa").value,
-                data: document.getElementById("inputData").value,
-                obs: document.getElementById("inputObs").value,
-                tipo: tipoSelecionado
+              nome: document.getElementById("inputNomeDaDespesa").value,
+              valor: document.getElementById("inputValorDaDespesa").value,
+              data: document.getElementById("inputData").value,
+              obs: document.getElementById("inputObs").value,
+              tipo: tipoSelecionado,
             };
 
             updateDespesa(campoId, despesa, exibeDespesas);
             formDespesa.reset();
-        });
+          });
 
-        
-        document.getElementById("btnDelete").addEventListener("click", function () {
+        document
+          .getElementById("btnDelete")
+          .addEventListener("click", function () {
             let campoId = document.getElementById("inputId").value;
             if (campoId == "") {
-                displayMessage("Selecione uma despesa para excluir.");
-                return;
+              displayMessage("Selecione uma despesa para excluir.");
+              return;
             }
             deleteDespesa(campoId, exibeDespesas);
             formDespesa.reset();
-        });
+          });
 
-        
-        document.getElementById("btnClear").addEventListener("click", () => formDespesa.reset());
+        document
+          .getElementById("btnClear")
+          .addEventListener("click", () => formDespesa.reset());
 
-        
-        document.getElementById("grid-despesas").addEventListener("click", function (e) {
+        document
+          .getElementById("grid-despesas")
+          .addEventListener("click", function (e) {
             if (e.target.tagName == "TD") {
-                let colunas = e.target.parentNode.querySelectorAll("td");
+              let colunas = e.target.parentNode.querySelectorAll("td");
 
-                document.getElementById("inputId").value = colunas[0].innerText;
-                document.getElementById("inputNomeDaDespesa").value = colunas[1].innerText;
-                document.getElementById("inputValorDaDespesa").value = colunas[2].innerText.replace('R$ ', '');
-                document.getElementById("inputData").value = colunas[3].innerText;
-                
-                const tipoNaTabela = colunas[4].innerText;
-                const radio = document.querySelector(`input[value="${tipoNaTabela}"]`);
-                if (radio) radio.checked = true;
+              document.getElementById("inputId").value = colunas[0].innerText;
+              document.getElementById("inputNomeDaDespesa").value =
+                colunas[1].innerText;
+              document.getElementById("inputValorDaDespesa").value =
+                colunas[2].innerText.replace("R$ ", "");
+              document.getElementById("inputData").value = colunas[3].innerText;
+
+              const tipoNaTabela = colunas[4].innerText;
+              const radio = document.querySelector(
+                `input[value="${tipoNaTabela}"]`,
+              );
+              if (radio) radio.checked = true;
             }
-        });
+          });
 
         exibeDespesas();
-    }
-</script>
+      }
+    </script>
   </body>
 </html>
