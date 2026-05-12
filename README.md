@@ -1,19 +1,22 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23461891)
-# Nome do projeto
+# CALCULADOR
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+A gente desenvolveu um sistema de Gestão de Pagamentos e Fornecedores focado em facilitar a vida de quem tem um pequeno negócio e precisa organizar as contas sem complicação. A ideia não é só ter uma lista parada, mas sim uma ferramenta onde você consegue cadastrar, editar e excluir tudo em tempo real, vendo a saúde do bolso na hora.
+
+O que faz o projeto brilhar é o Dashboard no topo da tela. Em vez de você ter que somar conta por conta, o sistema já faz o cálculo sozinho e te mostra em cards coloridos o que está pago, o que ainda tem que pagar e o que já venceu. Além disso, a gente pensou no dia a dia do usuário: se precisar falar com um fornecedor, temos a solução. É tecnologia simples, mas que resolve problema de verdade.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Lucas Araujo Asth
+* Gustavo Fernandes Vieira
+* Matheus Henrique Castilho Ricoy Guerra
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Rommel Vieira Craneiro
+* Roselene Henrique Pereira Costa
+* Diego Augusto De faria Barros
+* Cleiton Silva Tavares
 
 
 
