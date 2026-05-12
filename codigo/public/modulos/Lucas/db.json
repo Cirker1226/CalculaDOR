@@ -27,10 +27,5 @@
       "website": "NF-9982",
       "id": "QF0iFpQBJDI"
     }
-  ],
-  "configuracoes_sistema": [],
-  "estoque": [],
-  "vendas_pdv": [],
-  "financeiro_fluxo": [],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
