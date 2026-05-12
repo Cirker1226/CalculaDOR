@@ -1,4 +1,6 @@
-const apiUrl = 'http://localhost:3000/contatos';
+const GITHUB_USER = 'Lucasasth3';
+const REPO_NAME = 'projeto-sprint-1';
+const apiUrl = `https://my-json-server.typicode.com/${GITHUB_USER}/${REPO_NAME}/contatos`;
 
 function displayMessage(mensagem) {
     let msg = document.getElementById('msg');
