@@ -24,8 +24,7 @@ A documentação do projeto é estruturada da seguinte forma:
 
 # Contexto
 
-Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa e público-alvo.
-
+O projeto é um sistema de gestão financeira que ajuda pequenos negócios a organizarem as suas contas e fornecedores de forma simples. Através de uma interface dinâmica, o utilizador pode registar, editar e excluir pagamentos, mantendo tudo salvo num banco de dados via JSON Server. Mais do que um simples registo, a ferramenta é um aliado estratégico na saúde financeira do negócio, pois permite ao empreendedor visualizar o fluxo de caixa em tempo real através do dashboard. Ao identificar rapidamente contas vencidas e o montante total a pagar, o cliente evita juros desnecessários e mantém uma gestão de capital de giro muito mais eficiente. Essa clareza visual transforma dados em decisões inteligentes, garantindo que a empresa tenha fôlego financeiro para crescer de forma sustentável e organizada.
 ## Problema
 
 Como um sistema digital simples e integrado pode ajudar o microempreendedor brasileiro a tomar decisões financeiras mais seguras no dia a dia do seu negócio?
