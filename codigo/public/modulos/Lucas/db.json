@@ -1,14 +1,13 @@
 {
   "contatos": [
     {
-      "id": "A1B2C3",
       "nome": "Votorantim Cimentos",
       "telefone": "31971019524",
       "valor": "200.00",
       "vencimento": "2026-05-09",
-      "categoria": "A Pagar",
+      "categoria": "Pago",
       "website": "https://www.votorantimcimentos.com.br/",
-      "id_original": "DT0OfMm7X6s"
+      "id": "A1B2C3"
     },
     {
       "id": "D4E5F6",
@@ -31,14 +30,13 @@
       "id_original": "QF0iFpQBJDI"
     },
     {
-      "id": "J0K1L2",
       "nome": "PUC Minas - Portal",
       "telefone": "3133194444",
-      "valor": "1200.00",
+      "valor": "1200",
       "vencimento": "2026-06-05",
       "categoria": "A Pagar",
       "website": "https://pucminas.instructure.com/courses/268510/pages/criterios-de-avaliacao-sprints-1-e-2",
-      "id_original": "PUC-9982"
+      "id": "yC5WkH8LXmc"
     }
   ],
   "configuracoes_sistema": [],

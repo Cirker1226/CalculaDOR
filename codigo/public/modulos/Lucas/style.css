@@ -27,7 +27,7 @@ label { font-weight: bold; font-size: 0.9rem; }
 
 #grid-contatos tbody tr { cursor: pointer; }
 
-/* Cores para o Status */
+
 .bg-pago { background-color: #198754 !important; color: white; padding: 5px; border-radius: 5px; }
 .bg-apagar { background-color: #ffc107 !important; color: black; padding: 5px; border-radius: 5px; }
 .bg-vencido { background-color: #dc3545 !important; color: white; padding: 5px; border-radius: 5px; }

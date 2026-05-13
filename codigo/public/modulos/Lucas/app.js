@@ -1,19 +1,15 @@
 const apiUrl = 'http://localhost:3000/contatos';
-
-// Exibe alertas de feedback para o usuário
+// Exibe alertas para o usuário
 function displayMessage(mensagem) {
     let msg = document.getElementById('msg');
     msg.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
         ${mensagem}
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>`;
-    // Autoclose após 3 segundos
+
+    
     setTimeout(() => {
-        const alert = document.querySelector('.alert');
-        if (alert) {
-            const bsAlert = new bootstrap.Alert(alert);
-            bsAlert.close();
-        }
+        msg.innerHTML = '';
     }, 3000);
 }
 
@@ -28,7 +24,7 @@ function readContato(processaDados) {
         });
 }
 
-// CRIA novo contato
+// CRIA novo contato(Lembrar de melhorar no sprint2)
 function createContato(contato, refreshFunction) {
     fetch(apiUrl, {
         method: 'POST',
@@ -84,7 +80,7 @@ function exibeContatos() {
             else if (c.categoria === 'Vencido') sVencido += v;
             else sPagar += v;
 
-            // Filtro de busca por nome de fornecedor
+            
             if (c.nome.toLowerCase().includes(busca)) {
                 let corBadge = c.categoria === 'Pago' ? 'bg-success' : (c.categoria === 'Vencido' ? 'bg-danger' : 'bg-warning text-dark');
                 
@@ -113,12 +109,12 @@ function exibeContatos() {
     });
 }
 
-// Interação com o "bonequinho" - Abre o Modal de detalhes
+// ao apertar o bonequinho - Abre o Modal de detalhes(Voltar aqui após pedir ajuda ao Rommel)
 function abrirDetalhes(id) {
     fetch(`${apiUrl}/${id}`).then(res => res.json()).then(c => {
         document.getElementById('modalNome').innerText = c.nome;
         
-        // Verifica se existe um link e cria a tag HTML, caso contrário exibe aviso
+        // Verifica se existe um link e cria a tag HTML, se não ele vai exibe aviso
         const linkHTML = c.website 
             ? `<a href="${c.website}" target="_blank" class="text-break">${c.website}</a>` 
             : '<span class="text-muted">Não informado</span>';
@@ -134,7 +130,7 @@ function abrirDetalhes(id) {
             </div>
         `;
 
-        // Lógica do botão WhatsApp (mantém a que já tínhamos)
+        // Lógica do botão WhatsApp (ajuda do gustavo e perguntar se pode usar para sprint2)
         const btnZap = document.getElementById('btnZap');
         if (c.telefone) {
             const telLimpo = c.telefone.replace(/\D/g, '');
@@ -164,11 +160,11 @@ function preencherForm(id) {
     });
 }
 
-// Função de Inicialização (Chamada pelo onload do Body no index.html)
+// Função de Inicialização (Chamada pelo onload do Body no index)
 function init() {
     modalSuporte = new bootstrap.Modal(document.getElementById('modalContato'));
     
-    // Evento de busca em tempo real (KeyUp/Input)
+    // Evento de busca em tempo real
     document.getElementById("filtroBusca").oninput = exibeContatos;
 
     // Ação: Botão SALVAR
