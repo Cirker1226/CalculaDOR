@@ -16,11 +16,11 @@ authors:
     affiliation: PUC Minas
     family-names: Vieira Carneiro
     given-names: Rommel
-- name-suffix: Professor
+  - name-suffix: Professor
     affiliation: PUC Minas
     family-names: Augusto de Faria Barros 
     given-names: Diego
-- name-suffix: Professor
+  - name-suffix: Professor
     affiliation: PUC Minas
     family-names: Henrique Pereira Costa
     given-names: Roselene
