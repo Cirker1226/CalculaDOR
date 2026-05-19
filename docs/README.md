@@ -201,7 +201,6 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | Lucas Araujo Asth | Etapa de Entendimento e Exploração, Ideia do Projeto, PDF e Apresentação, Projeto de Interface |
 | Gustavo Fernandes Vieira | Etapa de Entendimento e Exploração, Ideia do Projeto, Projeto de Interface |
 | Matheus Henrique | Etapa de Entendimento e Exploração, Documentação, Projeto de Interface |
-| Gabriel Cotta | — |
 | Caio Olimpo | — |
 | Bernardo Guerra | — |
 
