@@ -1,9 +1,11 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23461891)
 # CALCULADOR
 
-O CalculaDor é um sistema de Gestão Financeira focado em facilitar a vida de pequenos empreendedores que precisam organizar as contas do negócio de forma simples, prática e eficiente. A ideia não é só ter uma lista parada, mas sim uma ferramenta onde você consegue cadastrar, editar e excluir tudo em tempo real, vendo a saúde do bolso na hora.
+O CalculaDor é um sistema de gestão financeira desenvolvido para auxiliar pequenos empreendedores no controle das finanças do negócio de forma simples, prática e eficiente. A plataforma permite cadastrar, editar e excluir informações em tempo real, oferecendo uma visão clara e organizada da situação financeira da empresa.
 
-O grande diferencial do CalculaDor está no Dashboard inteligente presente no topo da tela. Em vez de você ter que somar conta por conta, o sistema já faz o cálculo sozinho e te mostra em cards coloridos o que está pago, o que ainda tem que pagar e o que já venceu. Além de oferecer controle financeiro em tempo real, o projeto também foi pensado para atender as necessidades do dia a dia de pequenos empreendedores. O sistema facilita a comunicação com fornecedores e ainda permite o gerenciamento completo do estoque do negócio, ajudando o usuário a acompanhar produtos, quantidades e movimentações de forma prática e organizada.
+O principal diferencial do sistema está em seu Dashboard Inteligente, responsável por apresentar de maneira visual e dinâmica os dados financeiros mais importantes. Por meio de cards informativos e indicadores automáticos, o usuário consegue acompanhar valores pagos, contas pendentes e despesas vencidas sem a necessidade de realizar cálculos manualmente.
+
+Além do controle financeiro, o projeto também contempla funcionalidades voltadas para o gerenciamento de estoque e organização de produtos, permitindo acompanhar movimentações, quantidades disponíveis e informações essenciais do negócio em um único ambiente. Dessa forma, o CalculaDor busca proporcionar mais praticidade, controle e eficiência na rotina de pequenos empreendedores.
 
 ## Alunos integrantes da equipe
 
