@@ -1,14 +1,24 @@
 {
   "produtos": [
     {
-      "id": "BVRLWnpEa1E",
-      "produto": "Camisa Polo",
-      "sku": "CAM-001",
-      "categoria": "Vestuário",
-      "quantidade": "100",
-      "fornecedor": "CLN Clothes",
+      "id": "A7KLM92XQ",
+      "produto": "Notebook Dell Inspiron 15",
+      "sku": "NTB-101",
+      "categoria": "Eletrônicos",
+      "quantidade": "25",
+      "fornecedor": "Tech Distribuidora",
       "unidade": "unidade",
-      "descricao": "Camisa Polo azul marinha - CLN"
+      "descricao": "Notebook Dell Inspiron 15 com 16GB RAM e SSD 512GB"
+    },
+    {
+      "id": "ZP84NVL21",
+      "produto": "Cadeira Gamer Thunder",
+      "sku": "CDR-205",
+      "categoria": "Móveis",
+      "quantidade": "40",
+      "fornecedor": "Moveis Prime",
+      "unidade": "unidade",
+      "descricao": "Cadeira gamer ergonômica com ajuste de altura e apoio lombar"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

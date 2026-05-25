@@ -18,6 +18,7 @@
       }
     }
   ],
+
   "estoques": [
     {
       "id": "1",
@@ -50,18 +51,30 @@
       "ultima_atualizacao": "2025-04-18"
     }
   ],
+
   "produtos": [
     {
-      "id": "BVRLWnpEa1E",
-      "produto": "Camisa Polo",
-      "sku": "CAM-001",
-      "categoria": "Vestuário",
-      "quantidade": 100,
-      "fornecedor": "CLN Clothes",
+      "id": "A7KLM92XQ",
+      "produto": "Notebook Dell Inspiron 15",
+      "sku": "NTB-101",
+      "categoria": "Eletrônicos",
+      "quantidade": 25,
+      "fornecedor": "Tech Distribuidora",
       "unidade": "unidade",
-      "descricao": "Camisa Polo azul marinha - CLN"
+      "descricao": "Notebook Dell Inspiron 15 com 16GB RAM e SSD 512GB"
+    },
+    {
+      "id": "ZP84NVL21",
+      "produto": "Cadeira Gamer Thunder",
+      "sku": "CDR-205",
+      "categoria": "Móveis",
+      "quantidade": 40,
+      "fornecedor": "Moveis Prime",
+      "unidade": "unidade",
+      "descricao": "Cadeira gamer ergonômica com ajuste de altura e apoio lombar"
     }
   ],
+
   "clientes": [
     {
       "id": "1",
@@ -69,7 +82,7 @@
       "whatsapp": "31988887777",
       "email": "neuza@email.com",
       "endereco": "Rua das Flores, 45 - Santa Efigênia, BH",
-      "cep": "30.260-060",
+      "cep": "30260060",
       "total_comprado_historico": 4780.5,
       "quantidade_pedidos": 12,
       "ultima_compra": "2025-04-10",
@@ -81,17 +94,18 @@
       "whatsapp": "31977775555",
       "email": "construtorahorizonte@email.com",
       "endereco": "Av. do Contorno, 500 - Funcionários, BH",
-      "cep": "30.110-080",
+      "cep": "30110080",
       "total_comprado_historico": 87600,
       "quantidade_pedidos": 54,
       "ultima_compra": "2025-04-22",
       "classificacao": "Cliente Premium"
     }
   ],
+
   "vendas_pdvs": [
     {
       "id": "1",
-      "data_hora": "2024-05-23T14:30:00Z",
+      "data_hora": "2025-05-23T14:30:00Z",
       "cliente_id": 1,
       "vendedor": "Matheus Henrique",
       "itens": [
@@ -140,6 +154,7 @@
       "status": "Aguardando Pagamento"
     }
   ],
+
   "financeiro_fluxos": [
     {
       "id": "1",
@@ -162,11 +177,11 @@
       "status": "Recebido"
     }
   ],
-  {
+
   "despesas": [
     {
       "nome": "Limpeza",
-      "valor": "1000",
+      "valor": 1000,
       "data": "2026-05-09",
       "obs": "Oi",
       "tipo": "Outros",
@@ -174,15 +189,14 @@
     },
     {
       "nome": "Aluguel",
-      "valor": "1000",
+      "valor": 1000,
       "data": "2026-05-16",
-      "obs": "Aluguel da maquina ",
+      "obs": "Aluguel da máquina",
       "tipo": "Aluguel",
       "id": "njsGhwFewBM"
     }
   ],
-  "$schema": "./node_modules/json-server/schema.json"
-}
+
   "receitas": [
     {
       "id": "1",
@@ -195,9 +209,10 @@
       "categoria": "venda",
       "forma_pagamento": "pix",
       "cliente": "Matheus",
-      "items": "Camisa Polo"
+      "items": "Notebook Dell Inspiron 15"
     }
   ],
+
   "resultados_financeiros": [
     {
       "id": "1",
@@ -211,6 +226,7 @@
       }
     }
   ],
+
   "fornecedores": [
     {
       "id": "1",
@@ -233,6 +249,7 @@
       "ativo": true
     }
   ],
+
   "agendamentos": [
     {
       "id": "1",
@@ -246,5 +263,7 @@
       "responsavel": "Ateliê Criativo",
       "status": "pendente"
     }
-  ]
+  ],
+
+  "$schema": "./node_modules/json-server/schema.json"
 }
