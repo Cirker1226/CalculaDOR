@@ -1,25 +1,239 @@
 {
-  "usuarios": [
+  "configuracoes_sistemas": [
     {
-      "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "id": "1",
+      "proprietario": "Lucas Ferdinando",
+      "empresa": {
+        "nome_fantasia": "Lucas Materiais de Construção",
+        "cnpj": "12.345.678/0001-90",
+        "endereco": "Av. Principal, 1000 - Bairro Industrial",
+        "cidade": "Belo Horizonte - MG",
+        "segmento": "Materiais de Construção e Ferramentas",
+        "telefone_comercial": "3133334444",
+        "site_oficial": "https://www.lucasmateriais.com.br"
+      },
+      "preferencias": {
+        "estoque_critico": true,
+        "integracao_whatsapp": true
+      }
+    }
+  ],
+  "estoques": [
+    {
+      "id": "1",
+      "codigo_barras": "7891234567890",
+      "produto": "Cimento CP II 50kg",
+      "categoria": "Cimento e Argamassa",
+      "marca": "Votorantim",
+      "preco_custo": 28.9,
+      "preco_venda": 48.5,
+      "quantidade_atual": 320,
+      "estoque_minimo": 50,
+      "unidade": "Saco",
+      "localizacao_deposito": "Galpão A - Prateleira 01",
+      "fornecedor_id": 1,
+      "ultima_atualizacao": "2025-04-20"
     },
     {
-      "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "id": "2",
+      "codigo_barras": "7899876543210",
+      "produto": "Tijolo Cerâmico 9 Furos",
+      "categoria": "Alvenaria",
+      "marca": "Cerâmica São João",
+      "preco_custo": 0.75,
+      "preco_venda": 1.4,
+      "quantidade_atual": 8500,
+      "estoque_minimo": 2000,
+      "unidade": "Unidade",
+      "localizacao_deposito": "Pátio Externo - Setor B",
+      "fornecedor_id": 2,
+      "ultima_atualizacao": "2025-04-18"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "BVRLWnpEa1E",
+      "produto": "Camisa Polo",
+      "sku": "CAM-001",
+      "categoria": "Vestuário",
+      "quantidade": 100,
+      "fornecedor": "CLN Clothes",
+      "unidade": "unidade",
+      "descricao": "Camisa Polo azul marinha - CLN"
+    }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "nome": "Dona Neuza Souza",
+      "whatsapp": "31988887777",
+      "email": "neuza@email.com",
+      "endereco": "Rua das Flores, 45 - Santa Efigênia, BH",
+      "cep": "30.260-060",
+      "total_comprado_historico": 4780.5,
+      "quantidade_pedidos": 12,
+      "ultima_compra": "2025-04-10",
+      "classificacao": "Cliente Fiel"
     },
     {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "id": "2",
+      "nome": "Construtora Horizonte LTDA",
+      "whatsapp": "31977775555",
+      "email": "construtorahorizonte@email.com",
+      "endereco": "Av. do Contorno, 500 - Funcionários, BH",
+      "cep": "30.110-080",
+      "total_comprado_historico": 87600,
+      "quantidade_pedidos": 54,
+      "ultima_compra": "2025-04-22",
+      "classificacao": "Cliente Premium"
+    }
+  ],
+  "vendas_pdvs": [
+    {
+      "id": "1",
+      "data_hora": "2024-05-23T14:30:00Z",
+      "cliente_id": 1,
+      "vendedor": "Matheus Henrique",
+      "itens": [
+        {
+          "produto_id": 1,
+          "produto_nome": "Cimento CP II 50kg",
+          "quantidade": 10,
+          "preco_unitario": 48.5,
+          "subtotal": 485
+        },
+        {
+          "produto_id": 2,
+          "produto_nome": "Tijolo Cerâmico 9 Furos",
+          "quantidade": 100,
+          "preco_unitario": 1.4,
+          "subtotal": 140
+        }
+      ],
+      "valor_total": 625,
+      "metodo_pagamento": "Cartão de Débito",
+      "status": "Concluída"
+    },
+    {
+      "id": "2",
+      "data_hora": "2025-04-23T14:40:00-03:00",
+      "cliente_id": 2,
+      "vendedor": "Lucas Ash",
+      "itens": [
+        {
+          "produto_id": 1,
+          "produto_nome": "Cimento CP II 50kg",
+          "quantidade": 50,
+          "preco_unitario": 44.62,
+          "subtotal": 2231
+        },
+        {
+          "produto_id": 2,
+          "produto_nome": "Tijolo Cerâmico 9 Furos",
+          "quantidade": 3000,
+          "preco_unitario": 1.29,
+          "subtotal": 3870
+        }
+      ],
+      "valor_total": 6101,
+      "metodo_pagamento": "Boleto 30 dias",
+      "status": "Aguardando Pagamento"
+    }
+  ],
+  "financeiro_fluxos": [
+    {
+      "id": "1",
+      "data": "2025-04-10",
+      "descricao": "Pagamento Fornecedor (Votorantim)",
+      "valor": 1500,
+      "tipo": "Saída",
+      "categoria": "Reposição de Estoque",
+      "forma_pagamento": "Transferência Bancária",
+      "status": "Pago"
+    },
+    {
+      "id": "2",
+      "data": "2025-04-23",
+      "descricao": "Recebimento Venda (Neuza Souza)",
+      "valor": 625,
+      "tipo": "Entrada",
+      "categoria": "Venda Balcão",
+      "forma_pagamento": "Cartão de Débito",
+      "status": "Recebido"
+    }
+  ],
+  "despesas": [
+    {
+      "id": "ugzLhwahqGA",
+      "nome": "Aluguel da máquina ",
+      "valor": 1500,
+      "data": "2026-05-16",
+      "obs": "Aluguel da maquina da empresa X",
+      "tipo": "Aluguel"
+    }
+  ],
+  "receitas": [
+    {
+      "id": "1",
+      "tipo": "receita",
+      "descricao": "Venda de produto / serviço",
+      "valor": 1500,
+      "data_emissao": "2025-05-01",
+      "data_recebimento": "2025-05-10",
+      "status": "recebido",
+      "categoria": "venda",
+      "forma_pagamento": "pix",
+      "cliente": "Matheus",
+      "items": "Camisa Polo"
+    }
+  ],
+  "resultados_financeiros": [
+    {
+      "id": "1",
+      "periodo": "primeiro semestre",
+      "resumo": {
+        "receita_total": 18400,
+        "despesa_total": 11200,
+        "lucro_liquido": 7200,
+        "total_a_receber": 4300,
+        "total_vencido": 1100
+      }
+    }
+  ],
+  "fornecedores": [
+    {
+      "id": "1",
+      "nome": "Votorantim Cimentos",
+      "cnpj": "00.111.222/0001-33",
+      "contato_nome": "Rafael Mendes",
+      "contato_email": "rafael.mendes@votorantim.com.br",
+      "contato_whatsapp": "(11) 99100-2233",
+      "categoria_fornecida": "Cimento e Agregados",
+      "ativo": true
+    },
+    {
+      "id": "2",
+      "nome": "Cerâmica São João",
+      "cnpj": "11.222.333/0001-44",
+      "contato_nome": "Marcos Peixoto",
+      "contato_email": "marcos@ceramicasaojoao.com.br",
+      "contato_whatsapp": "(31) 98800-1122",
+      "categoria_fornecida": "Tijolos, Blocos e Cerâmica",
+      "ativo": true
+    }
+  ],
+  "agendamentos": [
+    {
+      "id": "1",
+      "titulo": "Artesanato em Crochê",
+      "descricao": "Entrega de peça artesanal personalizada.",
+      "cliente": "Maria Souza",
+      "dataEntrega": "2026-06-15",
+      "horarioEntrega": "14:00",
+      "localEntrega": "Rua das Flores, 120",
+      "categoria": "Artesanato",
+      "responsavel": "Ateliê Criativo",
+      "status": "pendente"
     }
   ]
 }
