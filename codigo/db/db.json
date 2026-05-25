@@ -162,16 +162,27 @@
       "status": "Recebido"
     }
   ],
+  {
   "despesas": [
     {
-      "id": "ugzLhwahqGA",
-      "nome": "Aluguel da máquina ",
-      "valor": 1500,
+      "nome": "Limpeza",
+      "valor": "1000",
+      "data": "2026-05-09",
+      "obs": "Oi",
+      "tipo": "Outros",
+      "id": "i6L7hkNZlIE"
+    },
+    {
+      "nome": "Aluguel",
+      "valor": "1000",
       "data": "2026-05-16",
-      "obs": "Aluguel da maquina da empresa X",
-      "tipo": "Aluguel"
+      "obs": "Aluguel da maquina ",
+      "tipo": "Aluguel",
+      "id": "njsGhwFewBM"
     }
   ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
   "receitas": [
     {
       "id": "1",
