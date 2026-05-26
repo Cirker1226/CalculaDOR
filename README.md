@@ -19,6 +19,3 @@ Além do controle financeiro, o projeto também contempla funcionalidades voltad
 * Roselene Henrique Pereira Costa
 * Diego Augusto De faria Barros
 * Cleiton Silva Tavares
-
-* [Sintaxe básica de gravação e formatação no GitHub - GitHub Docs](https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* [Markdown® Básico: Sintaxe, Uso &amp; Exemplos [Passo a Passo]](https://markdown.net.br/sintaxe-basica/)
