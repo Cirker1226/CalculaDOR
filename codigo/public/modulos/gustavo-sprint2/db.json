@@ -1,0 +1,29 @@
+{
+  "despesas": [
+    {
+      "nome": "Aluguel da máquina ",
+      "valor": "1500",
+      "data": "2026-05-16",
+      "obs": "Aluguel da maquina da empresa X",
+      "tipo": "Aluguel",
+      "id": "ugzLhwahqGA"
+    },
+    {
+      "nome": "Salario do funcionario X",
+      "valor": "1800",
+      "data": "2026-05-23",
+      "obs": "Salario ",
+      "tipo": "Funcionario",
+      "id": "-up4XK0u-RM"
+    },
+    {
+      "nome": "Coisas",
+      "valor": "1500",
+      "data": "2026-05-21",
+      "obs": "Coisas",
+      "tipo": "Funcionario",
+      "id": "QsWFoIDqy3s"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
