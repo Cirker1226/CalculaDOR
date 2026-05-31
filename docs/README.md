@@ -85,7 +85,7 @@ Por fim, as pessoas influenciadoras, incluem órgãos reguladores, sindicatos, b
 
 A pesquisa revelou que pequenos negócios não fecham por falta de vendas, mas por desorganização financeira e estoque mal gerido. O excesso de burocracia tributária agrava ainda mais esse cenário. Ferramentas complexas são rapidamente abandonadas simplicidade é essencial. Faturamento alto não garante lucro: sem centralização de vendas, estoque e financeiro em um único lugar, o empreendedor trabalha no escuro e toma decisões baseadas em palpites.
 
-![Matriz de Alinhamento (CSD)](files/matriz.pdf)
+[Matriz de Alinhamento (CSD)](files/matriz.pdf)
 
 ## Etapa de Definição
 
@@ -103,7 +103,7 @@ Bernardo Josias, dono de artigos esportivos, representa o empreendedor em expans
 
 Os três compartilham as mesmas dores centrais mapeadas nos mapas de empatia: ausência de visão financeira real, processos manuais que consomem tempo e a necessidade urgente de uma ferramenta simples, intuitiva e que centralize todas as informações do negócio.
 
-![Proposta de Valor](files/persona.pdf)
+[Personas e Proposta de Valor](files/persona.pdf)
 
 # Product Design
 
@@ -144,6 +144,8 @@ Isabella precisa centralizar informações que hoje estão dispersas em vários 
 Bernardo precisa de dados concretos para parar de imobilizar capital em estoque parado e se preparar para expandir. O sistema oferece alertas inteligentes de reposição, ranking de vendas por produto, calculadora de pedidos e integração entre loja física e online. Com isso, ele ganha giro de estoque otimizado, lucratividade previsível e autonomia para tomar decisões estratégicas de expansão.
 
 ![Proposta de Valor Bernado](images/bernado.png)
+
+[Personas e Proposta de Valor](files/persona.pdf)
 
 ## Projeto de Interface
 
