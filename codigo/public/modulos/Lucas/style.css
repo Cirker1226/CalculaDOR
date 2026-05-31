@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container1 {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-right: 1px solid #e2eaf5;
+    padding: 20px 12px;
+}
+
+label { font-weight: bold; font-size: 0.9rem; }
+
+::placeholder { color: lightskyblue !important; }
+
+#msg { height: 60px; }
+
+#grid-contatos tbody tr { cursor: pointer; }
+
+
+.bg-pago { background-color: #198754 !important; color: white; padding: 5px; border-radius: 5px; }
+.bg-apagar { background-color: #ffc107 !important; color: black; padding: 5px; border-radius: 5px; }
+.bg-vencido { background-color: #dc3545 !important; color: white; padding: 5px; border-radius: 5px; }

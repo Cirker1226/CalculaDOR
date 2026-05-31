@@ -1,0 +1,48 @@
+{
+  "contatos": [
+    {
+      "nome": "Votorantim Cimentos",
+      "telefone": "31971019524",
+      "valor": "200.00",
+      "vencimento": "2026-05-09",
+      "categoria": "Pago",
+      "website": "https://www.votorantimcimentos.com.br/",
+      "id": "A1B2C3"
+    },
+    {
+      "id": "D4E5F6",
+      "nome": "Lucas caixas",
+      "telefone": "31971019524",
+      "valor": "300.00",
+      "vencimento": "2026-05-10",
+      "categoria": "Pago",
+      "website": "https://www.lojadocaixote.com.br/",
+      "id_original": "EPmO4RCHn2Q"
+    },
+    {
+      "id": "G7H8I9",
+      "nome": "Garrafas Plásticas S.A.",
+      "telefone": "31971019524",
+      "valor": "500.00",
+      "vencimento": "2026-05-05",
+      "categoria": "Vencido",
+      "website": "https://www.plasticosbh.com.br/produtos",
+      "id_original": "QF0iFpQBJDI"
+    },
+    {
+      "nome": "PUC Minas - Portal",
+      "telefone": "3133194444",
+      "valor": "1200",
+      "vencimento": "2026-06-05",
+      "categoria": "A Pagar",
+      "website": "https://pucminas.instructure.com/courses/268510/pages/criterios-de-avaliacao-sprints-1-e-2",
+      "id": "yC5WkH8LXmc"
+    }
+  ],
+  "configuracoes_sistema": [],
+  "estoque": [],
+  "clientes": [],
+  "vendas_pdv": [],
+  "financeiro_fluxo": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

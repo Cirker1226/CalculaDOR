@@ -1,0 +1,33 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: CALCULADOR
+authors:
+  - family-names: Araujo Asth
+    given-names: Lucas
+  - family-names: Henrique Castilho Ricoy Guerra
+    given-names: Matheus
+  - family-names: Fernandes Vieira
+    given-names: Gustavo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Silva Tavares
+    given-names: Cleiton
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Vieira Carneiro
+    given-names: Rommel
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Augusto de Faria Barros 
+    given-names: Diego
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Henrique Pereira Costa
+    given-names: Roselene
+keywords:
+  - Organização
+  - Persistência
+repository-code: https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2026-1-ti1-7620100-getech-1
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2026-06-28

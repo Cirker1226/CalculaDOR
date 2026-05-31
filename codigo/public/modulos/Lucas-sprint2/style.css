@@ -1,0 +1,66 @@
+:root {
+    --bg-body: #f1f4f9;
+    --primary-color: #0d6efd;
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: 'Inter', sans-serif;
+    color: #2d3436;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.25rem;
+}
+
+/* Estilização da Tabela */
+.table thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #636e72;
+    padding: 1rem;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.table tbody td {
+    padding: 1.25rem 1rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.badge {
+    padding: 0.5em 0.8em;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+/* Efeito de Hover */
+.table-hover tbody tr:hover {
+    background-color: #f8fbff !important;
+}
+
+/* Card Metrics */
+.card-metric {
+    transition: transform 0.2s;
+}
+
+.card-metric:hover {
+    transform: translateY(-5px);
+}
+
+.btn-group .btn {
+    border-radius: 8px !important;
+    margin: 0 2px;
+}
