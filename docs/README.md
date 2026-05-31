@@ -20,7 +20,7 @@ A documentação do projeto é estruturada da seguinte forma:
 6. Solução
 7. Referências Bibliográficas
 
-✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
+[Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
 
 # Contexto
 
@@ -85,6 +85,8 @@ Por fim, as pessoas influenciadoras, incluem órgãos reguladores, sindicatos, b
 
 A pesquisa revelou que pequenos negócios não fecham por falta de vendas, mas por desorganização financeira e estoque mal gerido. O excesso de burocracia tributária agrava ainda mais esse cenário. Ferramentas complexas são rapidamente abandonadas simplicidade é essencial. Faturamento alto não garante lucro: sem centralização de vendas, estoque e financeiro em um único lugar, o empreendedor trabalha no escuro e toma decisões baseadas em palpites.
 
+![Matriz de Alinhamento (CSD)](files/matriz.pdf)
+
 ## Etapa de Definição
 
 ### Personas
@@ -100,6 +102,8 @@ Isabella Silva, empresária de cosméticos, representa o perfil jovem e digital,
 Bernardo Josias, dono de artigos esportivos, representa o empreendedor em expansão, cujo principal problema é o capital imobilizado em estoque parado por falta de dados concretos para decisões de compra. 
 
 Os três compartilham as mesmas dores centrais mapeadas nos mapas de empatia: ausência de visão financeira real, processos manuais que consomem tempo e a necessidade urgente de uma ferramenta simples, intuitiva e que centralize todas as informações do negócio.
+
+![Proposta de Valor](files/persona.pdf)
 
 # Product Design
 
@@ -198,9 +202,10 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 | Membro | Responsabilidades |
 | ------ | ----------------- |
-| Lucas Araujo Asth | Etapa de Entendimento e Exploração, Ideia do Projeto, PDF e Apresentação, Projeto de Interface |
-| Gustavo Fernandes Vieira | Etapa de Entendimento e Exploração, Ideia do Projeto, Projeto de Interface |
-| Matheus Henrique | Etapa de Entendimento e Exploração, Documentação, Projeto de Interface |
+| Lucas Araujo Asth | Etapa de Entendimento e Exploração, Ideia do Projeto, PDF e Apresentação, Projeto de Interface, Cadastro de Fornecedor, Amostragem dos produtos |
+| Gustavo Fernandes Vieira | Etapa de Entendimento e Exploração, Ideia do Projeto, Projeto de Interface, Cadastro de Despesas,  Amostragem das despesas | 
+| Matheus Henrique | Etapa de Entendimento e Exploração, Documentação, Projeto de Interface, Cadastro de Produtos, Cadastro de evento no calendario |
+| Gabriel Lima Cotta | — |
 | Caio Olimpo | — |
 | Bernardo Guerra | — |
 
