@@ -246,6 +246,14 @@
       "obs": "Aluguel da máquina",
       "tipo": "Aluguel",
       "id": "njsGhwFewBM"
+    },
+    {
+      "nome": "Coisas",
+      "valor": "1900",
+      "data": "2026-06-20",
+      "obs": "Coisas teste",
+      "tipo": "Outros",
+      "id": "17s8arOvahU"
     }
   ],
   "receitas": [
