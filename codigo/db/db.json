@@ -18,7 +18,6 @@
       }
     }
   ],
-
   "estoques": [
     {
       "id": "1",
@@ -27,33 +26,7 @@
       "categoria": "Cimento e Argamassa",
       "quantidade_atual": 32,
       "quantidade_movimentada_30d": 12,
-      "preco_custo": 35.00,
-      "preco_venda": 48.5,
-      "ultima_atualizacao": "2026-05-20"
-    },
-    {
-      "id": "2",
-      "produto": "Tijolo Cerâmico 9 Furos",
-      "sku": "TIJ-002",
-      "categoria": "Alvenaria",
-      "quantidade_atual": 40, 
-      "quantidade_movimentada_30d": 4500,
-      "preco_custo": 0.90,
-      "preco_venda": 1.4,
-      "ultima_atualizacao": "2026-05-18"
-    }
-    
-  ],
-
-  "estoques": [
-    {
-      "id": "1",
-      "produto": "Cimento CP II 50kg",
-      "sku": "CIM-001",
-      "categoria": "Cimento e Argamassa",
-      "quantidade_atual": 32,
-      "quantidade_movimentada_30d": 12,
-      "preco_custo": 35.0,
+      "preco_custo": 35,
       "preco_venda": 48.5,
       "ultima_atualizacao": "2026-05-20"
     },
@@ -75,8 +48,8 @@
       "categoria": "Areia e Pedra",
       "quantidade_atual": 150,
       "quantidade_movimentada_30d": 600,
-      "preco_custo": 8.0,
-      "preco_venda": 15.0,
+      "preco_custo": 8,
+      "preco_venda": 15,
       "ultima_atualizacao": "2026-05-25"
     },
     {
@@ -86,8 +59,8 @@
       "categoria": "Pintura",
       "quantidade_atual": 10,
       "quantidade_movimentada_30d": 5,
-      "preco_custo": 120.0,
-      "preco_venda": 190.0,
+      "preco_custo": 120,
+      "preco_venda": 190,
       "ultima_atualizacao": "2026-03-10"
     },
     {
@@ -97,8 +70,8 @@
       "categoria": "Pisos e Revestimentos",
       "quantidade_atual": 1200,
       "quantidade_movimentada_30d": 1500,
-      "preco_custo": 22.0,
-      "preco_venda": 38.0,
+      "preco_custo": 22,
+      "preco_venda": 38,
       "ultima_atualizacao": "2026-05-26"
     },
     {
@@ -130,8 +103,8 @@
       "categoria": "Ferramentas",
       "quantidade_atual": 5,
       "quantidade_movimentada_30d": 2,
-      "preco_custo": 15.0,
-      "preco_venda": 35.0,
+      "preco_custo": 15,
+      "preco_venda": 35,
       "ultima_atualizacao": "2026-02-15"
     },
     {
@@ -141,8 +114,8 @@
       "categoria": "Areia e Pedra",
       "quantidade_atual": 200,
       "quantidade_movimentada_30d": 100,
-      "preco_custo": 7.0,
-      "preco_venda": 14.0,
+      "preco_custo": 7,
+      "preco_venda": 14,
       "ultima_atualizacao": "2026-05-24"
     },
     {
@@ -152,12 +125,11 @@
       "categoria": "Elétrica",
       "quantidade_atual": 60,
       "quantidade_movimentada_30d": 300,
-      "preco_custo": 3.0,
+      "preco_custo": 3,
       "preco_venda": 6.5,
       "ultima_atualizacao": "2026-05-26"
     }
   ],
-
   "clientes": [
     {
       "id": "1",
@@ -184,7 +156,6 @@
       "classificacao": "Cliente Premium"
     }
   ],
-
   "vendas_pdvs": [
     {
       "id": "1",
@@ -237,7 +208,6 @@
       "status": "Aguardando Pagamento"
     }
   ],
-
   "financeiro_fluxos": [
     {
       "id": "1",
@@ -260,7 +230,6 @@
       "status": "Recebido"
     }
   ],
-
   "despesas": [
     {
       "nome": "Limpeza",
@@ -279,7 +248,6 @@
       "id": "njsGhwFewBM"
     }
   ],
-
   "receitas": [
     {
       "id": "1",
@@ -295,7 +263,6 @@
       "items": "Notebook Dell Inspiron 15"
     }
   ],
-
   "resultados_financeiros": [
     {
       "id": "1",
@@ -309,7 +276,6 @@
       }
     }
   ],
-
   "contatos": [
     {
       "nome": "Votorantim Cimentos",
@@ -350,7 +316,6 @@
       "id": "yC5WkH8LXmc"
     }
   ],
-
   "agendamentos": [
     {
       "id": "1",
@@ -365,6 +330,5 @@
       "status": "pendente"
     }
   ],
-
   "$schema": "./node_modules/json-server/schema.json"
 }

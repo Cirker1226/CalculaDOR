@@ -6,18 +6,85 @@
     <title>Gestão Estratégica de Estoque - Análise de Giro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .card-metric { transition: transform 0.2s; }
-        .card-metric:hover { transform: translateY(-3px); }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
 
+
+<div class="modal fade" id="modalProduto" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modal-titulo">Produto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body p-4">
+                <div id="form-produto">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-8">
+                            <label class="form-label">Produto <span class="text-danger">*</span></label>
+                            <input type="text" id="campo-produto" class="form-control" placeholder="Ex: Cimento CP II 50kg">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label class="form-label">SKU <span class="text-danger">*</span></label>
+                            <input type="text" id="campo-sku" class="form-control" placeholder="Ex: CIM-001">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Categoria <span class="text-danger">*</span></label>
+                            <input type="text" id="campo-categoria" class="form-control" placeholder="Ex: Cimento e Argamassa">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Última Movimentação <span class="text-danger">*</span></label>
+                            <input type="date" id="campo-data" class="form-control">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="form-label">Qtd. em Estoque</label>
+                            <input type="number" id="campo-qtd-atual" class="form-control" min="0" value="0">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="form-label">Movimentado (30d)</label>
+                            <input type="number" id="campo-qtd-30d" class="form-control" min="0" value="0">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="form-label">Preço de Custo (R$)</label>
+                            <input type="number" id="campo-preco-custo" class="form-control" min="0" step="0.01" value="0">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="form-label">Preço de Venda (R$)</label>
+                            <input type="number" id="campo-preco-venda" class="form-control" min="0" step="0.01" value="0">
+                        </div>
+                    </div>
+                    <p class="text-muted small mt-3 mb-0">
+                        <span class="text-danger">*</span> Campos obrigatórios
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-footer border-0 px-4 pb-4">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary fw-bold px-4" onclick="salvarProduto()">
+                    <i class="fa-solid fa-floppy-disk me-1"></i> Salvar Produto
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 <div class="container-fluid px-4 py-4">
     <div class="bg-white p-4 shadow-sm rounded-4">
-        <h2 class="mb-4 fw-bold text-dark">
-            Análise de Giro e Produtos Parados
-        </h2>
+
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <h2 class="fw-bold text-dark mb-0">
+                Análise de Giro e Produtos Parados
+            </h2>
+            <button class="btn btn-success fw-bold" onclick="abrirModalNovo()">
+                <i class="fa-solid fa-plus me-1"></i> Novo Produto
+            </button>
+        </div>
         
         <div class="row g-3 mb-4 align-items-end">
             <div class="col-12 col-md-4">
@@ -50,7 +117,7 @@
             </div>
             <div class="col-12 col-sm-6 col-xl-3">
                 <div class="card card-metric bg-light border-0 shadow-sm p-3">
-                    <div class="text-secondary small fw-bold text-uppercase text-danger">Colocar em Promoção (>30d)</div>
+                    <div class="text-secondary small fw-bold text-uppercase text-danger">Colocar em Promoção (&gt;30d)</div>
                     <div id="metric-produtos-promocao" class="fs-3 fw-bold text-danger">0 itens</div>
                 </div>
             </div>
@@ -82,10 +149,10 @@
                         <th class="text-center">Ações</th>
                     </tr>
                 </thead>
-                <tbody id="tabela-produtos">
-                    </tbody>
+                <tbody id="tabela-produtos"></tbody>
             </table>
         </div>
+
     </div>
 </div>
 
