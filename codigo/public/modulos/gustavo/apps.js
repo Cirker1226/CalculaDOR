@@ -1,6 +1,6 @@
-const apiUrl = 'http://localhost:3000/despesas';
+const resposta = await fetch('http://localhost:3000/despesas');
 
-function displayMessage(mensagem) {
+ async function displayMessage(mensagem) {
     const msgEl = document.getElementById('msg');
     if (msgEl) {
         msgEl.innerHTML = `<div class="alert alert-warning">${mensagem}</div>`;
@@ -33,7 +33,6 @@ function createDespesa(despesa, refreshFunction) {
         displayMessage("Erro ao criar despesa");
     });
 }
-
 function updateDespesa(id, despesa, refreshFunction) {
     
     fetch(`${apiUrl}/${id}`, { 
