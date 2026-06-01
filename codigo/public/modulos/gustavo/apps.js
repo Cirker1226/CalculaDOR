@@ -1,67 +1,49 @@
-const resposta = await fetch('http://localhost:3000/despesas');
+const apiUrl = 'http://localhost:3000/despesas';
 
- async function displayMessage(mensagem) {
+function displayMessage(mensagem) {
     const msgEl = document.getElementById('msg');
     if (msgEl) {
         msgEl.innerHTML = `<div class="alert alert-warning">${mensagem}</div>`;
     }
 }
 
-function readDespesa(processaDados) {
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => processaDados(data))
-        .catch(error => {
-            console.error('Erro ao ler as despesas:', error);
-            displayMessage("Erro ao ler despesas");
-        });
+async function readDespesa(processaDados) {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    
+    processaDados(data);
 }
 
-function createDespesa(despesa, refreshFunction) {
-    fetch(apiUrl, {
+async function createDespesa(despesa, refreshFunction) {
+    const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(despesa), 
-    })
-    .then(response => response.json())
-    .then(() => {
-        displayMessage("Despesa criada com sucesso");
-        if (refreshFunction) refreshFunction();
-    })
-    .catch(error => {
-        console.error('Erro ao criar despesa:', error);
-        displayMessage("Erro ao criar despesa");
     });
-}
-function updateDespesa(id, despesa, refreshFunction) {
+    await response.json();
     
-    fetch(`${apiUrl}/${id}`, { 
+    displayMessage("Despesa criada com sucesso");
+    if (refreshFunction) refreshFunction();
+}
+
+async function updateDespesa(id, despesa, refreshFunction) {
+    const response = await fetch(`${apiUrl}/${id}`, { 
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(despesa), 
-    })
-    .then(response => response.json())
-    .then(() => {
-        displayMessage("Despesa alterada com sucesso");
-        if (refreshFunction) refreshFunction();
-    })
-    .catch(error => {
-        console.error('Erro ao atualizar despesa:', error);
-        displayMessage("Erro ao atualizar despesa");
     });
+    await response.json();
+    
+    displayMessage("Despesa alterada com sucesso");
+    if (refreshFunction) refreshFunction();
 }
 
-function deleteDespesa(id, refreshFunction) {
-    fetch(`${apiUrl}/${id}`, { 
+async function deleteDespesa(id, refreshFunction) {
+    const response = await fetch(`${apiUrl}/${id}`, { 
         method: 'DELETE' 
-    })
-    .then(response => response.json())
-    .then(() => {
-        displayMessage("Despesa removida com sucesso");
-        if (refreshFunction) refreshFunction();
-    })
-    .catch(error => {
-        console.error('Erro ao remover despesa:', error);
-        displayMessage("Erro ao remover despesa");
     });
+    await response.json();
+    
+    displayMessage("Despesa removida com sucesso");
+    if (refreshFunction) refreshFunction();
 }

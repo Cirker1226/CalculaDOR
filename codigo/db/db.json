@@ -232,14 +232,6 @@
   ],
   "despesas": [
     {
-      "nome": "Limpeza",
-      "valor": 1000,
-      "data": "2026-05-09",
-      "obs": "Oi",
-      "tipo": "Outros",
-      "id": "i6L7hkNZlIE"
-    },
-    {
       "nome": "Aluguel",
       "valor": 1000,
       "data": "2026-05-16",
@@ -249,9 +241,9 @@
     },
     {
       "nome": "Coisas",
-      "valor": "1900",
+      "valor": "1",
       "data": "2026-06-20",
-      "obs": "Coisas teste",
+      "obs": "",
       "tipo": "Outros",
       "id": "17s8arOvahU"
     }
