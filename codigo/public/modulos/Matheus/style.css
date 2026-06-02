@@ -21,7 +21,6 @@
     background: #ffffff;
     border-right: 1px solid #e2eaf5;
     padding: 20px 12px;
-    box-shadow: 2px 0 8px rgba(37, 99, 235, 0.05);
 }
 
 .logo {
@@ -132,6 +131,8 @@
     flex-direction: column;
     overflow-y: auto;
 }
+
+/* ── MENU BAIXO ── */
 
 .menu-cima {
     display: flex;
