@@ -28,29 +28,28 @@ function processarERenderizar() {
     let totalProdutosPromocao = 0;
     let somaDiasSemMovimentacao = 0;
 
-    
-    let maiorGiroQuantidadeGeral = -1;
-    let produtoMaisVendidoNomeGeral = "Nenhum";
-
-    produtosOriginais.forEach((p) => {
-        const qtdMovimentadaGeral = p.quantidade_movimentada_30d || 0;
-        if (qtdMovimentadaGeral > maiorGiroQuantidadeGeral) {
-            maiorGiroQuantidadeGeral = qtdMovimentadaGeral;
-            produtoMaisVendidoNomeGeral = p.produto;
-        }
-    });
-
+    // Se não houver produtos após o filtro, limpa a tabela e zera as métricas
     if (produtosFiltrados.length === 0) {
         tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4">Nenhum produto encontrado com os filtros aplicados.</td></tr>`;
-        atualizarCardsMetricos(0, 0, 0, produtoMaisVendidoNomeGeral);
+        atualizarCardsMetricos(0, 0, 0, "Nenhum");
         return;
     }
+
+    // Variáveis para descobrir o mais vendido dinamicamente dentro do filtro aplicado
+    let maiorGiroQuantidadeGeral = -1;
+    let produtoMaisVendidoNomeGeral = "Nenhum";
 
     produtosFiltrados.forEach((p) => {
         const dataMovimentacao = p.ultima_atualizacao;
         const qtdMovimentada = p.quantidade_movimentada_30d || 0;
         const diasSemMvto = calcularDiasSemMovimentacao(dataMovimentacao);
         const valorParadoCalculado = (p.quantidade_atual || 0) * (p.preco_custo || 0);
+
+        // Verifica o produto campeão de vendas deste filtro
+        if (qtdMovimentada > maiorGiroQuantidadeGeral) {
+            maiorGiroQuantidadeGeral = qtdMovimentada;
+            produtoMaisVendidoNomeGeral = p.produto;
+        }
 
         somaDiasSemMovimentacao += diasSemMvto;
 
@@ -92,7 +91,7 @@ function processarERenderizar() {
 }
 
 
-//  CARDS DE MÉTRICAS
+// 3. CARDS DE MÉTRICAS
 
 function atualizarCardsMetricos(totalProd, totalPromocao, mediaDias, maisVendido) {
     document.getElementById('metric-total-produtos').innerText = totalProd;
@@ -127,7 +126,7 @@ function aplicarFiltros() {
 }
 
 
-// abrir para CRIAR ou EDITAR
+// 5. MODAIS (abrir para CRIAR ou EDITAR)
 
 function abrirModalNovo() {
     modoEdicao = false;
@@ -190,14 +189,12 @@ async function salvarProduto() {
         let res;
 
         if (!modoEdicao) {
-            
             res = await fetch('http://localhost:3000/estoques', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(novoProduto)
             });
         } else {
-            
             res = await fetch(`http://localhost:3000/estoques/${idEmEdicao}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -216,6 +213,7 @@ async function salvarProduto() {
         alert('Não foi possível conectar ao servidor. Verifique se o JSONServer está rodando na porta 3000.');
     }
 }
+
 
 // 7. DELETE
 
@@ -242,6 +240,7 @@ async function excluirProduto(id) {
     }
 }
 
+
 // 8. UTILITÁRIOS DE DATA
 
 function calcularDiasSemMovimentacao(dataString) {
@@ -259,4 +258,6 @@ function formatarDataBR(dataString) {
     if (partes.length !== 3) return dataString;
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
+
+
 carregarDados();
