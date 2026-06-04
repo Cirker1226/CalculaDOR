@@ -1,23 +1,30 @@
 /* Foi Utilizado o FullCalendar para criar o calendário,
 e o Bootstrap para estilizar os botões. */
 
-document.addEventListener('DOMContentLoaded', async function () {
+let calendar;
+
+document.addEventListener('DOMContentLoaded', function () {
 
     const calendarEl = document.getElementById('calendar');
-
-    const eventos = await fetch('http://localhost:3000/events');
-    const eventosResposta = await eventos.json();
 
     calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         locale: 'pt-br',
         displayEventTime: false,
         fixedWeekCount: false,
-        events: eventosResposta
     });
 
     calendar.render();
+    carregarEventos();
 });
+
+async function carregarEventos() {
+
+    const eventos = await fetch('http://localhost:3000/events');
+    const eventosResposta = await eventos.json();
+
+    calendar.addEventSource(eventosResposta);
+}
 
 document.getElementById('btnSalvarEvento').addEventListener('click', async function () {
 
