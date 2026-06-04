@@ -18,116 +18,16 @@
       }
     }
   ],
-  "estoques": [
+  "produtos": [
     {
-      "id": "1",
-      "produto": "Cimento CP II 50kg",
-      "sku": "CIM-001",
-      "categoria": "Cimento e Argamassa",
-      "quantidade_atual": 32,
-      "quantidade_movimentada_30d": 12,
-      "preco_custo": 35,
-      "preco_venda": 48.5,
-      "ultima_atualizacao": "2026-05-20"
-    },
-    {
-      "id": "2",
-      "produto": "Tijolo Cerâmico 9 Furos",
-      "sku": "TIJ-002",
-      "categoria": "Alvenaria",
-      "quantidade_atual": 40,
-      "quantidade_movimentada_30d": 4500,
-      "preco_custo": 0.9,
-      "preco_venda": 1.4,
-      "ultima_atualizacao": "2026-05-18"
-    },
-    {
-      "id": "3",
-      "produto": "Areia Lavada (Saco 20kg)",
-      "sku": "ARE-003",
-      "categoria": "Areia e Pedra",
-      "quantidade_atual": 150,
-      "quantidade_movimentada_30d": 600,
-      "preco_custo": 8,
-      "preco_venda": 15,
-      "ultima_atualizacao": "2026-05-25"
-    },
-    {
-      "id": "4",
-      "produto": "Tinta Látex Branco 18L",
-      "sku": "TIN-004",
-      "categoria": "Pintura",
-      "quantidade_atual": 10,
-      "quantidade_movimentada_30d": 5,
-      "preco_custo": 120,
-      "preco_venda": 190,
-      "ultima_atualizacao": "2026-03-10"
-    },
-    {
-      "id": "5",
-      "produto": "Piso Cerâmico 50x50",
-      "sku": "PIS-005",
-      "categoria": "Pisos e Revestimentos",
-      "quantidade_atual": 1200,
-      "quantidade_movimentada_30d": 1500,
-      "preco_custo": 22,
-      "preco_venda": 38,
-      "ultima_atualizacao": "2026-05-26"
-    },
-    {
-      "id": "6",
-      "produto": "Joelho PVC 90° 25mm",
-      "sku": "HID-006",
-      "categoria": "Hidráulica",
-      "quantidade_atual": 400,
-      "quantidade_movimentada_30d": 80,
-      "preco_custo": 1.2,
-      "preco_venda": 2.5,
-      "ultima_atualizacao": "2026-05-22"
-    },
-    {
-      "id": "7",
-      "produto": "Eletroduto Corrugado 3/4",
-      "sku": "ELE-007",
-      "categoria": "Elétrica",
-      "quantidade_atual": 80,
-      "quantidade_movimentada_30d": 1200,
-      "preco_custo": 0.5,
-      "preco_venda": 1.1,
-      "ultima_atualizacao": "2026-05-27"
-    },
-    {
-      "id": "8",
-      "produto": "Martelo de Borracha",
-      "sku": "FER-008",
-      "categoria": "Ferramentas",
-      "quantidade_atual": 5,
-      "quantidade_movimentada_30d": 2,
-      "preco_custo": 15,
-      "preco_venda": 35,
-      "ultima_atualizacao": "2026-02-15"
-    },
-    {
-      "id": "9",
-      "produto": "Brita Zero (Saco 20kg)",
-      "sku": "ARE-009",
-      "categoria": "Areia e Pedra",
-      "quantidade_atual": 200,
-      "quantidade_movimentada_30d": 100,
-      "preco_custo": 7,
-      "preco_venda": 14,
-      "ultima_atualizacao": "2026-05-24"
-    },
-    {
-      "id": "10",
-      "produto": "Fita Isolante 20m",
-      "sku": "ELE-010",
-      "categoria": "Elétrica",
-      "quantidade_atual": 60,
-      "quantidade_movimentada_30d": 300,
-      "preco_custo": 3,
-      "preco_venda": 6.5,
-      "ultima_atualizacao": "2026-05-26"
+      "id": "ZP84NVL21",
+      "produto": "Cadeira Gamer Thunder",
+      "sku": "CDR-205",
+      "categoria": "Móveis",
+      "quantidade": "40",
+      "fornecedor": "Moveis Prime",
+      "unidade": "unidade",
+      "descricao": "Cadeira gamer ergonômica com ajuste de altura e apoio lombar"
     }
   ],
   "clientes": [

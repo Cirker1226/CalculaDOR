@@ -126,7 +126,7 @@
 /* AREA PRINCIPAL*/
 
 .calendario-home {
-    background: #f0f6ff;
+    background: #0099ff29;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -211,6 +211,12 @@
 .menu-cima-text {
     display: flex;
     flex-direction: column;
+}
+
+.botao {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 /* Calendário */
