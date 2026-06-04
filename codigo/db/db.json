@@ -30,6 +30,15 @@
       "descricao": "Cadeira gamer ergonômica com ajuste de altura e apoio lombar"
     }
   ],
+  "events": [
+    {
+      "title": "Reunião de Organização",
+      "start": "2026-06-05",
+      "end": "2026-06-05",
+      "color": "#0dadfd",
+      "id": "S4yDZb1QMAk"
+    }
+  ],
   "clientes": [
     {
       "id": "1",

@@ -75,29 +75,29 @@
 
                         <div class="mb-3">
                             <label for="dataInicio" class="form-label">Data Inicial</label>
-                            <input type="datetime-local" class="form-control" id="dataInicio" required>
+                            <input type="date" class="form-control" id="dataInicio" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="dataFim" class="form-label">Data Final</label>
-                            <input type="datetime-local" class="form-control" id="dataFim" required>
+                            <input type="date" class="form-control" id="dataFim" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="descricaoEvento" class="form-label">Descrição</label>
-                            <textarea class="form-control" id="descricaoEvento" rows="4" placeholder="Descreva o evento"></textarea>
+                            <label for="corEvento" class="form-label">Cor</label>
+                            <input type="color" class="form-control form-control-color" id="corEvento" value="#0d6efd">
                         </div>
                     </form>
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" form="formEvento" class="btn btn-primary">Salvar Evento</button>
+                    <button id="btnSalvarEvento" type="button" class="btn btn-primary">Salvar Evento</button>
                 </div>
             </div>
         </div>
-
-    </body>
+    </main>
+</body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'></script>
     <script src="calendario.js"></script>
