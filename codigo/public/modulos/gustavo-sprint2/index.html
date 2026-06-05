@@ -20,11 +20,15 @@
         </a>
 
         <table class="table table-striped table-bordered">
-            <thead class="table-dark">
+            
+            <thead class="table-dark ">
+                <button onclick="carregarDespesas('barato')">Menor Preço</button>
+                <button onclick="carregarDespesas('caro')">Maior Preço</button>
+                <button onclick="carregarDespesas('recente')">Mais Recentes</button>
                 <tr>
                     <th scope="col">#ID</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Valor (R$)</th>
+                    <th scope="col">Valor</th>
                     <th scope="col">Data</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Observações</th>
@@ -32,7 +36,8 @@
             </thead>
             <tbody id="corpo-tabela"></tbody>
         </table>
-        
+
+
     </div>
 
 </body>

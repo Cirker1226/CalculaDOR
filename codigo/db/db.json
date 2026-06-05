@@ -162,6 +162,22 @@
       "obs": "",
       "tipo": "Outros",
       "id": "17s8arOvahU"
+    },
+    {
+      "nome": "Azulejo do banheiro ",
+      "valor": "250",
+      "data": "2026-06-20",
+      "obs": "Conserto do banheiro ",
+      "tipo": "Outros",
+      "id": "-QJ2BLngm-w"
+    },
+    {
+      "nome": "Teste ",
+      "valor": "569",
+      "data": "2026-06-27",
+      "obs": "Testa mais recente",
+      "tipo": "Outros",
+      "id": "dCycHXRBPRg"
     }
   ],
   "receitas": [
