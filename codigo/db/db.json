@@ -32,18 +32,18 @@
   ],
   "events": [
     {
-      "title": "Reunião de Organização",
+      "title": "Reunião de Negocios",
       "start": "2026-06-05",
       "end": "2026-06-05",
-      "color": "#0dadfd",
-      "id": "S4yDZb1QMAk"
+      "color": "#0d6efd",
+      "id": "sBB0bVwLmto"
     },
     {
       "title": "Entrega de Atividade",
-      "start": "2026-06-12",
-      "end": "2026-06-12",
-      "color": "#0d6efd",
-      "id": "mPrUVxo_sGU"
+      "start": "2026-06-17",
+      "end": "2026-06-17",
+      "color": "#910dfd",
+      "id": "mIcbVkWDVv0"
     }
   ],
   "clientes": [
