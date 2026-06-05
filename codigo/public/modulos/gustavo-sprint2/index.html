@@ -56,34 +56,49 @@
         </nav>
 
 
-        <div class="container mt-5">
+        <div class="container-fluid p-4" style="background-color: #eaf4fc; width: 100%;">
 
-            <h1 class="mb-4">Lista de Despesas</h1>
+            <div class="bg-white p-4 rounded shadow-sm">
 
-            <a href="/plf-es-2026-1-ti1-7620100-getech-1/codigo/public/modulos/gustavo/index.html"
-                class="btn btn-success mb-4">
-                + Criar Nova Despesa
-            </a>
+                <h6 class="text-uppercase fw-bold mb-4" style="color: #0d6efd; letter-spacing: 1px;">
+                    Lista de Despesas
+                </h6>
 
-            <table class="table table-striped table-bordered">
+                <div class="d-flex justify-content-between align-items-center mb-4">
 
-                <thead class="table-dark ">
-                    <button onclick="carregarDespesas('barato')">Menor Preço</button>
-                    <button onclick="carregarDespesas('caro')">Maior Preço</button>
-                    <button onclick="carregarDespesas('recente')">Mais Recentes</button>
-                    <tr>
-                        <th scope="col">#ID</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Valor</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Observações</th>
-                    </tr>
-                </thead>
-                <tbody id="corpo-tabela"></tbody>
-            </table>
+                    <a href="/plf-es-2026-1-ti1-7620100-getech-1/codigo/public/modulos/gustavo/index.html"
+                        class="btn btn-primary btn-sm px-4 py-2 rounded-1">
+                        + Criar Nova
+                    </a>
 
+                    <div class="btn-group border rounded-1 p-1" role="group">
+                        <button type="button" class="btn btn-light btn-sm text-secondary"
+                            onclick="carregarDespesas('barato')">Menor Preço</button>
+                        <button type="button" class="btn btn-light btn-sm text-secondary"
+                            onclick="carregarDespesas('caro')">Maior Preço</button>
+                        <button type="button" class="btn btn-light btn-sm text-secondary"
+                            onclick="carregarDespesas('recente')">Mais Recentes</button>
+                    </div>
+                </div>
 
+                <div class="table-responsive">
+                    <table class="table table-borderless table-striped align-middle text-secondary">
+                        <thead style="border-bottom: 2px solid #f1f5f9; color: #1e293b;">
+                            <tr>
+                                <th scope="col" class="py-3">#ID</th>
+                                <th scope="col" class="py-3">Nome</th>
+                                <th scope="col" class="py-3">Valor</th>
+                                <th scope="col" class="py-3">Data</th>
+                                <th scope="col" class="py-3">Tipo</th>
+                                <th scope="col" class="py-3">Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-tabela">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
         </div>
     </main>
 
