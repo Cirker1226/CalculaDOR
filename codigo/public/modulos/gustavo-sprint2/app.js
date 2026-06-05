@@ -1,9 +1,22 @@
 async function carregarDespesas(tipoOrdenacao = 'recente') {
     
+    
     const resposta = await fetch('http://localhost:3000/despesas');
     let dados = await resposta.json();
     
+    const quantidadeTotal = dados.length;
+    document.getElementById('qtd-total-despesas').innerText = `Qtd: ${quantidadeTotal}`;
 
+
+    const valorTotal = dados.reduce((acumulador, despesa) => acumulador + Number(despesa.valor), 0);
+    const totalFormatadoGeral = valorTotal.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+    document.getElementById('valor-total-despesas').innerText = `Total: ${totalFormatadoGeral}`;
+
+
+   
     dados.sort((a,b) => {
         switch(tipoOrdenacao) {
             case 'recente':
@@ -19,10 +32,10 @@ async function carregarDespesas(tipoOrdenacao = 'recente') {
         }
     });
     
+    
+    
     const tbody = document.getElementById('corpo-tabela');
-    
-    
-    tbody.innerHTML = '';
+    tbody.innerHTML = ''; 
     
     dados.forEach(despesa => {
         
@@ -39,14 +52,13 @@ async function carregarDespesas(tipoOrdenacao = 'recente') {
         }
 
         
-        let corBadge = 'bg-secondary'; 
+        let corBadge = 'bg-secondary';
         if (despesa.tipo === 'Aluguel') {
             corBadge = 'bg-primary'; 
         } else if (despesa.tipo === 'Outros') {
             corBadge = 'bg-warning text-dark'; 
         }
 
-        
         const observacao = despesa.obs ? despesa.obs : '-';
 
         
@@ -57,7 +69,7 @@ async function carregarDespesas(tipoOrdenacao = 'recente') {
                 <td class="text-success fw-bold align-middle">${valorFormatado}</td>
                 <td class="align-middle">${dataFormatada}</td>
                 <td class="align-middle">
-                    <span class="badge ${corBadge} rounded-pill px-3 py-2 shadow-sm">
+                    <span class="badge ${corBadge} rounded-pill px-3 py-2 shadow-sm" style="font-weight: 500;">
                         ${despesa.tipo}
                     </span>
                 </td>
@@ -66,5 +78,6 @@ async function carregarDespesas(tipoOrdenacao = 'recente') {
         `;
     });
 }
+
 
 carregarDespesas();

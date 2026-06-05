@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -55,42 +55,58 @@
             </div>
         </nav>
 
+        <div class="container-fluid p-4" style="background-color: #eaf4fc; overflow-y: auto;">
 
-        <div class="container-fluid p-4" style="background-color: #eaf4fc; width: 100%;">
+            <div class="bg-white p-4 rounded shadow-sm border">
 
-            <div class="bg-white p-4 rounded shadow-sm">
+                <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+                    <h6 class="text-uppercase fw-bold mb-0" style="color: #0d6efd; letter-spacing: 1px;">
+                        Lista de Despesas
+                    </h6>
 
-                <h6 class="text-uppercase fw-bold mb-4" style="color: #0d6efd; letter-spacing: 1px;">
-                    Lista de Despesas
-                </h6>
+                    <div class="d-flex gap-3">
+                        <div
+                            class="bg-primary bg-opacity-10 px-3 py-2 rounded border border-primary border-opacity-25 shadow-sm">
+                            <span class="text-primary fw-bold" style="font-size: 0.95rem;" id="qtd-total-despesas">
+                                Qtd: 0
+                            </span>
+                        </div>
 
-                <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div
+                            class="bg-success bg-opacity-10 px-3 py-2 rounded border border-success border-opacity-25 shadow-sm">
+                            <span class="text-success fw-bold" style="font-size: 0.95rem;" id="valor-total-despesas">
+                                Total: R$ 0,00
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="d-flex justify-content-between align-items-center mb-3">
                     <a href="/plf-es-2026-1-ti1-7620100-getech-1/codigo/public/modulos/gustavo/index.html"
-                        class="btn btn-primary btn-sm px-4 py-2 rounded-1">
+                        class="btn btn-primary btn-sm px-3 py-2 rounded-1 shadow-sm">
                         + Criar Nova
                     </a>
 
-                    <div class="btn-group border rounded-1 p-1" role="group">
-                        <button type="button" class="btn btn-light btn-sm text-secondary"
+                    <div class="btn-group border rounded-1 p-0 shadow-sm" role="group">
+                        <button type="button" class="btn btn-light btn-sm text-secondary px-3"
                             onclick="carregarDespesas('barato')">Menor Preço</button>
-                        <button type="button" class="btn btn-light btn-sm text-secondary"
+                        <button type="button" class="btn btn-light btn-sm text-secondary px-3"
                             onclick="carregarDespesas('caro')">Maior Preço</button>
-                        <button type="button" class="btn btn-light btn-sm text-secondary"
+                        <button type="button" class="btn btn-light btn-sm text-secondary px-3"
                             onclick="carregarDespesas('recente')">Mais Recentes</button>
                     </div>
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-borderless table-striped align-middle text-secondary">
+                    <table class="table table-sm table-borderless table-striped align-middle text-secondary mb-0">
                         <thead style="border-bottom: 2px solid #f1f5f9; color: #1e293b;">
                             <tr>
-                                <th scope="col" class="py-3">#ID</th>
-                                <th scope="col" class="py-3">Nome</th>
-                                <th scope="col" class="py-3">Valor</th>
-                                <th scope="col" class="py-3">Data</th>
-                                <th scope="col" class="py-3">Tipo</th>
-                                <th scope="col" class="py-3">Observações</th>
+                                <th scope="col" class="py-2">#ID</th>
+                                <th scope="col" class="py-2">Nome</th>
+                                <th scope="col" class="py-2">Valor</th>
+                                <th scope="col" class="py-2">Data</th>
+                                <th scope="col" class="py-2">Tipo</th>
+                                <th scope="col" class="py-2">Observações</th>
                             </tr>
                         </thead>
                         <tbody id="corpo-tabela">
@@ -101,7 +117,6 @@
             </div>
         </div>
     </main>
-
 
 </body>
 
