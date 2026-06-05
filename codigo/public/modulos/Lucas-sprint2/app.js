@@ -1,7 +1,7 @@
 let produtosOriginais = [];
 let produtosFiltrados = [];
-let modoEdicao = false;   // false = CREATE  |  true = UPDATE
-let idEmEdicao = null;    // guarda o id do produto sendo editado
+let modoEdicao = false;   
+let idEmEdicao = null;    
 
 
 // 1. CARGA DE DADOS
@@ -28,14 +28,14 @@ function processarERenderizar() {
     let totalProdutosPromocao = 0;
     let somaDiasSemMovimentacao = 0;
 
-    // Se não houver produtos após o filtro, limpa a tabela e zera as métricas
+    
     if (produtosFiltrados.length === 0) {
         tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4">Nenhum produto encontrado com os filtros aplicados.</td></tr>`;
         atualizarCardsMetricos(0, 0, 0, "Nenhum");
         return;
     }
 
-    // Variáveis para descobrir o mais vendido dinamicamente dentro do filtro aplicado
+    
     let maiorGiroQuantidadeGeral = -1;
     let produtoMaisVendidoNomeGeral = "Nenhum";
 
@@ -45,7 +45,7 @@ function processarERenderizar() {
         const diasSemMvto = calcularDiasSemMovimentacao(dataMovimentacao);
         const valorParadoCalculado = (p.quantidade_atual || 0) * (p.preco_custo || 0);
 
-        // Verifica o produto campeão de vendas deste filtro
+        
         if (qtdMovimentada > maiorGiroQuantidadeGeral) {
             maiorGiroQuantidadeGeral = qtdMovimentada;
             produtoMaisVendidoNomeGeral = p.produto;
