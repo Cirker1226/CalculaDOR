@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         locale: 'pt-br',
         displayEventTime: false,
         fixedWeekCount: false,
+        eventClick: removerEvento
     });
 
     calendar.render();
@@ -24,6 +25,15 @@ async function carregarEventos() {
     const eventosResposta = await eventos.json();
 
     calendar.addEventSource(eventosResposta);
+}
+
+async function removerEvento(evento) {
+
+    await fetch(`http://localhost:3000/events/${evento.event.id}`, {
+        method: 'DELETE'
+    });
+
+    evento.event.remove();
 }
 
 document.getElementById('btnSalvarEvento').addEventListener('click', async function () {
