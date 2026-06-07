@@ -18,6 +18,118 @@
       }
     }
   ],
+  "estoques": [
+    {
+      "id": "1",
+      "produto": "Cimento CP II 50kg Votoran",
+      "sku": "CIM-001",
+      "categoria": "Cimento e Argamassa",
+      "quantidade_atual": 150,
+      "quantidade_movimentada_30d": 45,
+      "preco_custo": 28.5,
+      "preco_venda": 36.9,
+      "ultima_atualizacao": "2026-05-28"
+    },
+    {
+      "id": "2",
+      "produto": "Argamassa ACIII 20kg Quartzolit",
+      "sku": "ARG-003",
+      "categoria": "Cimento e Argamassa",
+      "quantidade_atual": 80,
+      "quantidade_movimentada_30d": 12,
+      "preco_custo": 22.1,
+      "preco_venda": 31.5,
+      "ultima_atualizacao": "2026-05-15"
+    },
+    {
+      "id": "3",
+      "produto": "Tijolo Cerâmico 9 Furos 14x19x29",
+      "sku": "TIJ-009",
+      "categoria": "Alvenaria",
+      "quantidade_atual": 2500,
+      "quantidade_movimentada_30d": 1200,
+      "preco_custo": 1.1,
+      "preco_venda": 1.8,
+      "ultima_atualizacao": "2026-06-02"
+    },
+    {
+      "id": "4",
+      "produto": "Telha Americana Natural",
+      "sku": "TEL-042",
+      "categoria": "Cobertura",
+      "quantidade_atual": 400,
+      "quantidade_movimentada_30d": 0,
+      "preco_custo": 2.2,
+      "preco_venda": 3.9,
+      "ultima_atualizacao": "2026-03-10"
+    },
+    {
+      "id": "5",
+      "produto": "Tubo Esgoto 100mm 6 Metros Tigre",
+      "sku": "HID-100",
+      "categoria": "Hidráulica",
+      "quantidade_atual": 35,
+      "quantidade_movimentada_30d": 18,
+      "preco_custo": 42,
+      "preco_venda": 64.9,
+      "ultima_atualizacao": "2026-05-20"
+    },
+    {
+      "id": "6",
+      "produto": "Cabo Elétrico Flexível 2,5mm Corfio 100m",
+      "sku": "ELE-025",
+      "categoria": "Elétrica",
+      "quantidade_atual": 15,
+      "quantidade_movimentada_30d": 30,
+      "preco_custo": 135,
+      "preco_venda": 189,
+      "ultima_atualizacao": "2026-06-04"
+    },
+    {
+      "id": "7",
+      "produto": "Tinta Acrílica Fosca Rende Muito Branco 18L",
+      "sku": "PIN-018",
+      "categoria": "Pintura",
+      "quantidade_atual": 20,
+      "quantidade_movimentada_30d": 5,
+      "preco_custo": 210,
+      "preco_venda": 299.9,
+      "ultima_atualizacao": "2026-05-01"
+    },
+    {
+      "id": "8",
+      "produto": "Fechadura Digital de Embutir Intelbras",
+      "sku": "FER-701",
+      "categoria": "Ferragens",
+      "quantidade_atual": 8,
+      "quantidade_movimentada_30d": 1,
+      "preco_custo": 280,
+      "preco_venda": 420,
+      "ultima_atualizacao": "2026-04-12"
+    },
+    {
+      "id": "9",
+      "produto": "Torneira Gourmet Monocomando Extensível",
+      "sku": "HID-505",
+      "categoria": "Hidráulica",
+      "quantidade_atual": 12,
+      "quantidade_movimentada_30d": 0,
+      "preco_custo": 115,
+      "preco_venda": 199,
+      "ultima_atualizacao": "2026-02-15"
+    },
+    {
+      "id": "10",
+      "produto": "Disjuntor Monofolar DIN 20A Tramontina",
+      "sku": "ELE-020",
+      "categoria": "Elétrica",
+      "quantidade_atual": 60,
+      "quantidade_movimentada_30d": 45,
+      "preco_custo": 7.5,
+      "preco_venda": 14.9,
+      "ultima_atualizacao": "2026-06-01"
+    }
+  ],
   "produtos": [
     {
       "id": "ZP84NVL21",
@@ -223,7 +335,7 @@
       "id_original": "QF0iFpQBJDI"
     },
     {
-      "nome": "PUC Minas - Portal",
+      "name": "PUC Minas - Portal",
       "telefone": "3133194444",
       "valor": "1200",
       "vencimento": "2026-06-05",
