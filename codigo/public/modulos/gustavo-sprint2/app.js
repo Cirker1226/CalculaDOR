@@ -1,7 +1,7 @@
 async function carregarDespesas(tipoOrdenacao = 'recente') {
     
     
-    const resposta = await fetch('http://localhost:3000/despesas');
+    const resposta = await fetch('/despesas');
     let dados = await resposta.json();
     
     const quantidadeTotal = dados.length;

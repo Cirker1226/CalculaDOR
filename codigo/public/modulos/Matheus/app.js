@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/produtos';
+const apiUrl = '/produtos';
 
 function cadastrarProduto() {
     const produto = document.getElementById('nome').value;

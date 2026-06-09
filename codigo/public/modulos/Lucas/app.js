@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/contatos';
+const apiUrl = '/contatos';
 // Exibe alertas para o usuário
 function displayMessage(mensagem) {
     let msg = document.getElementById('msg');

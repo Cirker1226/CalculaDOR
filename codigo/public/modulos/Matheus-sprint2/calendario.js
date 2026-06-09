@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function carregarEventos() {
 
-    const eventos = await fetch('http://localhost:3000/events');
+    const eventos = await fetch('/events');
     const eventosResposta = await eventos.json();
 
     calendar.addEventSource(eventosResposta);
@@ -29,7 +29,7 @@ async function carregarEventos() {
 
 async function removerEvento(evento) {
 
-    await fetch(`http://localhost:3000/events/${evento.event.id}`, {
+    await fetch(`/events/${evento.event.id}`, {
         method: 'DELETE'
     });
 
@@ -43,7 +43,7 @@ document.getElementById('btnSalvarEvento').addEventListener('click', async funct
     const end = document.getElementById('dataFim').value;
     const color = document.getElementById('corEvento').value;
 
-    await fetch('http://localhost:3000/events', {
+    await fetch('/events', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({title,start,end,color})

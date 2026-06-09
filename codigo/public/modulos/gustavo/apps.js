@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/despesas';
+const apiUrl = '/despesas';
 
 function displayMessage(mensagem) {
     const msgEl = document.getElementById('msg');

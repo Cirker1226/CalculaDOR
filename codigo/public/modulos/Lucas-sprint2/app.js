@@ -8,7 +8,7 @@ let idEmEdicao = null;
 
 async function carregarDados() {
     try {
-        const res = await fetch('http://localhost:3000/estoques');
+        const res = await fetch('/estoques');
         const dados = await res.json();
         produtosOriginais = Array.isArray(dados) ? dados : [];
         produtosFiltrados = [...produtosOriginais];
@@ -189,13 +189,13 @@ async function salvarProduto() {
         let res;
 
         if (!modoEdicao) {
-            res = await fetch('http://localhost:3000/estoques', {
+            res = await fetch('/estoques', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(novoProduto)
             });
         } else {
-            res = await fetch(`http://localhost:3000/estoques/${idEmEdicao}`, {
+            res = await fetch(`/estoques/${idEmEdicao}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...novoProduto, id: idEmEdicao })
@@ -220,7 +220,7 @@ async function salvarProduto() {
 async function excluirProduto(id) {
     if (confirm("Deseja realmente excluir esta amostragem do registro?")) {
         try {
-            const res = await fetch(`http://localhost:3000/estoques/${id}`, {
+            const res = await fetch(`/estoques/${id}`, {
                 method: 'DELETE'
             });
 
