@@ -10,9 +10,8 @@ function cadastrarProduto() {
     const custo = document.getElementById('custo').value;
     const venda = document.getElementById('venda').value;
     const descricao = document.getElementById('descricao').value;
-    const imagem = document.getElementById('imagem').files[0];
 
-    const dados = { id: Date.now(), produto, sku, categoria, quantidade, fornecedor, unidade, venda, custo, descricao };
+    const dados = { id: Date.now(), produto, sku, categoria, quantidade, fornecedor, unidade, venda, custo, descricao};
 
     fetch(apiUrl, {
         method: 'POST',
