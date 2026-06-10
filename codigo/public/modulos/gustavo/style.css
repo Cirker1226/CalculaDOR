@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* LAYOUT */
+
+.conteudo {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+/* AREA PRINCIPAL*/
+
+.despesas-home {
+    background: #f8f9fb;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* MENU CIMA DESPESAS */
+
+.menu-cima {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 32px 0;
+    gap: 16px;
+}
+
+.menu-cima h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.menu-cima p {
+    font-size: 0.82rem;
+    color: #94a3b8;
+}
+
+/* FORM CARD */
+
+.cadastrar-despesas {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 32px 32px;
+    padding: 28px 30px;
+    gap: 20px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #e2eaf5;
+}
+
+.form-control {
+    border: 1px solid #dbe4ee;
+    border-radius: 8px;
+    padding: .75rem;
+}
+
+.form-check-input:checked {
+    background-color: #1ca34b;
+    border-color: #1ca34b;
+}
+
+label {
+    color: #334155;
+    font-weight: 500;
+    margin-bottom: .3rem;
+}
+
+.table {
+    margin-top: 1rem;
+}
