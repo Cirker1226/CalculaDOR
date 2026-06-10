@@ -1,0 +1,110 @@
+/* MENU LATERAL */
+
+.menu-lateral{
+    display:flex;
+    flex-direction:column;
+    width:15rem;
+    background:#ffffff;
+    border-right:1px solid #e8edf3;
+    padding:20px;
+}
+
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:1rem 0 1.5rem;
+    margin-bottom:1rem;
+    border-bottom:1px solid #edf2f7;
+}
+
+.logo img{
+    width:12rem;
+    height: auto;
+}
+
+.opcoes ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.opcoes a{
+    text-decoration:none;
+}
+
+.opcoes li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 16px;
+    border-radius:8px;
+    color:#475569;
+    font-size:.95rem;
+    font-weight:500;
+    transition:.2s;
+}
+
+.opcoes li i{
+    font-size:1rem;
+    width:18px;
+}
+
+.opcoes li:hover{
+    background:#f4f8fc;
+    color:#000000;
+}
+
+.opcoes li.ativo{
+    background:#eefbf3;
+    color:#1ca34b;
+    font-weight:600;
+}
+
+/* ── MENU BAIXO ── */
+
+.menu-baixo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:auto;
+    border-top:1px solid #edf2f7;
+    padding-top:1rem;
+}
+
+.perfil{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.perfil img{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border: 2px solid #edf2f7;
+    object-fit:cover;
+}
+
+.perfil p{
+    margin:0;
+    font-size:.9rem;
+    font-weight:600;
+    color:#22520f;
+}
+
+.perfil span{
+    font-size:.75rem;
+    color:#94a3b8;
+}
+
+#config{
+    width:18px;
+    opacity:.5;
+    cursor:pointer;
+    transition:.2s;
+}
+
+#config:hover{
+    opacity:1;
+}
