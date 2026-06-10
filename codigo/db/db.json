@@ -334,16 +334,6 @@
       "id_original": "EPmO4RCHn2Q"
     },
     {
-      "id": "G7H8I9",
-      "nome": "Garrafas Plásticas S.A.",
-      "telefone": "31971019524",
-      "valor": "500.00",
-      "vencimento": "2026-05-05",
-      "categoria": "Vencido",
-      "website": "https://www.plasticosbh.com.br/produtos",
-      "id_original": "QF0iFpQBJDI"
-    },
-    {
       "name": "PUC Minas - Portal",
       "telefone": "3133194444",
       "valor": "1200",
@@ -351,6 +341,15 @@
       "categoria": "A Pagar",
       "website": "https://pucminas.instructure.com/courses/268510/pages/criterios-de-avaliacao-sprints-1-e-2",
       "id": "yC5WkH8LXmc"
+    },
+    {
+      "nome": "Votorantim Cimentos",
+      "telefone": "31971019524",
+      "valor": "200.00",
+      "vencimento": "2026-05-09",
+      "categoria": "Pago",
+      "website": "https://www.votorantimcimentos.com.br/",
+      "id": "wAtvGKk"
     }
   ],
   "agendamentos": [
