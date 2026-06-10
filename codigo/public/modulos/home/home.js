@@ -41,7 +41,6 @@ function carregarDashboard() {
         let alertasHTML = "";
 
         estoques.forEach(p => {
-            // Filtra produtos com estoque baixo (ex: menos de 30 unidades)
             if (p.quantidade_atual !== undefined && p.quantidade_atual < 30) {
                 itensCriticos++;
                 alertasHTML += `
@@ -54,7 +53,7 @@ function carregarDashboard() {
         });
         document.getElementById('card-estoque').innerText = `${itensCriticos} itens`;
 
-        // 4. Contas a Pagar / Pendentes
+        // 4. Contas a Pagar / Pendentes (Fornecedores)
         let totalPendente = 0;
         contatos.forEach(c => {
             if (c.categoria === 'A Pagar' || c.categoria === 'Vencido') {
@@ -64,8 +63,8 @@ function carregarDashboard() {
                     alertasHTML += `
                         <tr class="border-bottom">
                             <td class="py-3"><span class="badge bg-light-warning text-warning border border-warning-subtle p-2 rounded-3">Financeiro</span></td>
-                            <td class="py-3"><span class="fw-bold text-dark d-block small">${c.nome || 'Fornecedor'}</span><small class="text-muted">Boleto Vencido</small></td>
-                            <td class="text-end py-3 text-muted fw-semibold small">Pendente</td>
+                            <td class="py-3"><span class="fw-bold text-dark d-block small">${c.nome || c.name || 'Fornecedor'}</span><small class="text-muted">Boleto Vencido</small></td>
+                            <td class="text-end py-3 text-danger fw-semibold small">Vencido</td>
                         </tr>`;
                 }
             }
@@ -80,7 +79,7 @@ function carregarDashboard() {
             tabela.innerHTML = `<tr><td class="text-center text-muted py-4 small">Tudo sob controle no sistema! ✨</td></tr>`;
         }
 
-        // 5. Configuração do Gráfico de Linha (Chart.js) com visual moderno
+        // 5. Configuração do Gráfico de Linha (Chart.js)
         const ctx = document.getElementById('graficoVendas').getContext('2d');
         if(valoresGrafico.length === 0) {
             labelsGrafico = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
@@ -94,7 +93,7 @@ function carregarDashboard() {
                 datasets: [{
                     label: 'Faturamento por Pedido',
                     data: valoresGrafico,
-                    borderColor: '#7239ea', /* Cor roxa combinando com o destaque */
+                    borderColor: '#7239ea',
                     backgroundColor: 'rgba(114, 57, 234, 0.06)',
                     borderWidth: 3,
                     pointRadius: 4,
