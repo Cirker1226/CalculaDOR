@@ -1,17 +1,19 @@
-const apiUrl = '/produtos';
+const apiUrl = '/estoques';
 
 function cadastrarProduto() {
     const produto = document.getElementById('nome').value;
     const sku = document.getElementById('sku').value;
     const categoria = document.getElementById('categoria').value;
-    const quantidade = document.getElementById('quantidade').value;
+    const quantidade_atual = document.getElementById('quantidade').value;
     const fornecedor = document.getElementById('fornecedor').value;
     const unidade = document.querySelector('input[name="embalagem"]:checked')?.value;
-    const custo = document.getElementById('custo').value;
-    const venda = document.getElementById('venda').value;
+    const preco_custo = document.getElementById('custo').value;
+    const preco_venda = document.getElementById('venda').value;
     const descricao = document.getElementById('descricao').value;
 
-    const dados = { id: Date.now(), produto, sku, categoria, quantidade, fornecedor, unidade, venda, custo, descricao};
+    const dados = {
+        id: Date.now(), produto,sku,categoria,quantidade_atual,fornecedor,unidade,preco_custo,preco_venda,descricao};
+
 
     fetch(apiUrl, {
         method: 'POST',
@@ -29,54 +31,52 @@ function cadastrarProduto() {
 }
 
 function limparInputs() {
-    const inputs = document.querySelectorAll("input");
+    const inputs = document.querySelectorAll("input, textarea");
     inputs.forEach(input => input.value = "");
 }
 
 function exibeProdutos() {
     const tableProdutos = document.getElementById("table-produtos");
-
     tableProdutos.innerHTML = "";
 
-    readProdutos(produtos => {
-        for (let i = 0; i < produtos.length; i++) {
-            let produto = produtos[i];
+    readProdutos(estoques => {
+        estoques.forEach(estoque => {
             tableProdutos.innerHTML += `
-                <tr data-id="${produto.id}" onclick="selecionarLinha(this)">
-                    <td>${produto.id}</td>
-                    <td>${produto.produto}</td>
-                    <td>${produto.sku}</td>
-                    <td>${produto.categoria}</td>
-                    <td>${produto.quantidade}</td>
-                    <td>${produto.fornecedor}</td>
-                    <td>${produto.unidade}</td>
-                    <td>R$${produto.custo}</td>
-                    <td>R$${produto.venda}</td>
-                    <td>${produto.descricao}</td>
+                <tr data-id="${estoque.id}" onclick="selecionarLinha(this)">
+                    <td>${estoque.id}</td>
+                    <td>${estoque.produto}</td>
+                    <td>${estoque.sku}</td>
+                    <td>${estoque.categoria}</td>
+                    <td>${estoque.quantidade_atual}</td>
+                    <td>${estoque.fornecedor}</td>
+                    <td>${estoque.unidade}</td>
+                    <td>R$ ${estoque.preco_custo}</td>
+                    <td>R$ ${estoque.preco_venda}</td>
+                    <td>${estoque.descricao}</td>
                 </tr>`;
-        }
+        });
     });
 }
 
 function selecionarLinha(linha) {
-    document.querySelectorAll('#table-produtos tr').forEach(tr => tr.classList.remove('table-active'));
+    document.querySelectorAll('#table-produtos tr')
+        .forEach(tr => tr.classList.remove('table-active'));
     linha.classList.add('table-active');
 }
 
 function excluirProduto() {
     const linhaSelecionada = document.querySelector('#table-produtos tr.table-active');
 
-    if (linhaSelecionada == null) {
+    if (!linhaSelecionada) {
         alert('Selecione um produto na tabela antes de apagar.');
         return;
     }
 
     const id = linhaSelecionada.dataset.id;
 
-    fetch(apiUrl + "/" + id, {
+    fetch(`${apiUrl}/${id}`, {
         method: 'DELETE'
-    })
-    .then(resposta => {
+    }).then(resposta => {
         if (resposta.ok) {
             exibeProdutos();
         } else {
@@ -88,11 +88,9 @@ function excluirProduto() {
 function readProdutos(processaDados) {
     fetch(apiUrl)
         .then(db => db.json())
-        .then(data => {
-            processaDados(data);
-        })
+        .then(data => processaDados(data))
         .catch(error => {
-            console.error('Erro ao ler os produtos via API JSONServer:', error);
+            console.error('Erro ao ler produtos:', error);
         });
 }
 
@@ -101,7 +99,7 @@ let produtoEditandoId = null;
 function editarProduto() {
     const linhaSelecionada = document.querySelector('#table-produtos tr.table-active');
 
-    if (linhaSelecionada == null) {
+    if (!linhaSelecionada) {
         alert('Selecione um produto para editar.');
         return;
     }
@@ -109,16 +107,14 @@ function editarProduto() {
     produtoEditandoId = linhaSelecionada.dataset.id;
 
     const colunas = linhaSelecionada.querySelectorAll('td');
-    const custo = colunas[7].textContent;
-    const venda = colunas[8].textContent;    
 
     document.getElementById('nome').value = colunas[1].textContent;
     document.getElementById('sku').value = colunas[2].textContent;
     document.getElementById('categoria').value = colunas[3].textContent;
     document.getElementById('quantidade').value = colunas[4].textContent;
     document.getElementById('fornecedor').value = colunas[5].textContent;
-    document.getElementById('custo').value = custo.replace("R$", "").trim();
-    document.getElementById('venda').value = venda.replace("R$", "").trim();
+    document.getElementById('custo').value = colunas[7].textContent.replace("R$", "").trim();
+    document.getElementById('venda').value = colunas[8].textContent.replace("R$", "").trim();
     document.getElementById('descricao').value = colunas[9].textContent;
 
     const botao = document.getElementById("botao-dinamico");
@@ -127,7 +123,7 @@ function editarProduto() {
 }
 
 function salvarEdicao() {
-    if (produtoEditandoId == null) {
+    if (!produtoEditandoId) {
         alert('Nenhum produto selecionado para edição.');
         return;
     }
@@ -137,11 +133,11 @@ function salvarEdicao() {
         produto: document.getElementById('nome').value,
         sku: document.getElementById('sku').value,
         categoria: document.getElementById('categoria').value,
-        quantidade: document.getElementById('quantidade').value,
+        quantidade_atual: document.getElementById('quantidade').value,
         fornecedor: document.getElementById('fornecedor').value,
         unidade: document.querySelector('input[name="embalagem"]:checked')?.value,
-        custo: document.getElementById('custo').value,
-        venda: document.getElementById('venda').value,
+        preco_custo: document.getElementById('custo').value,
+        preco_venda: document.getElementById('venda').value,
         descricao: document.getElementById('descricao').value
     };
 
@@ -151,12 +147,9 @@ function salvarEdicao() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(dadosAtualizados)
-    })
-    .then(resposta => {
+    }).then(resposta => {
         if (resposta.ok) {
-
             const botao = document.getElementById("botao-dinamico");
-
             botao.textContent = "Cadastrar Produto";
             botao.onclick = cadastrarProduto;
 
@@ -167,4 +160,4 @@ function salvarEdicao() {
     });
 }
 
-exibeProdutos()
+exibeProdutos();
