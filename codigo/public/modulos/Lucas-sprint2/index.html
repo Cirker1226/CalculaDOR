@@ -1,162 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Estratégica de Estoque - Análise de Giro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/style_menu.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light">
-
-
-<div class="modal fade" id="modalProduto" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="modal-titulo">Produto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<body>
+    <main class="conteudo">
+        <nav class="menu-lateral">
+            <div class="logo">
+                <img src="../../assets/images/logo.png" alt="logo calculaDOR">
             </div>
 
-            <div class="modal-body p-4">
-                <div id="form-produto">
-                    <div class="row g-3">
-                        <div class="col-12 col-md-8">
-                            <label class="form-label">Produto <span class="text-danger">*</span></label>
-                            <input type="text" id="campo-produto" class="form-control" placeholder="Ex: Cimento CP II 50kg">
-                        </div>
+            <div class="opcoes">
+                <ul>
+                    <a href="#">
+                        <li><i class="bi bi-house"></i> Home</li>
+                    </a>
+                    <a href="#">
+                        <li><i class="bi bi-calendar3"></i> Calendário</li>
+                    </a>
+                    <a href="#">
+                        <li class="ativo"><i class="bi bi-cash-stack"></i> Financeiro</li>
+                    </a>
+                    <a href="#">
+                        <li><i class="bi bi-box"></i> Estoque</li>
+                    </a>
+                    <a href="#">
+                        <li><i class="bi bi-bar-chart"></i> Relatórios</li>
+                    </a>
+                    <a href="#">
+                        <li><i class="bi bi-people"></i> CRM</li>
+                    </a>
+                </ul>
+            </div>
+
+            <div class="menu-baixo">
+                <div class="perfil">
+                    <img src="../../assets/images/perfil.png" alt="foto de perfil">
+                    <div class="perfil-txt">
+                        <p>Marçal</p>
+                        <span>Adiministrador</span>
+                    </div>
+                </div>
+                <div class="config">
+                    <img id="config" src="../../assets/images/config.png" alt="configurações">
+                </div>
+            </div>
+        </nav>
+
+        <section class="produtos-home">
+            <div class="container-fluid px-4 py-4">
+                <div class="bg-white p-4 shadow-sm rounded-4">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+                        <h2 class="fw-bold text-dark mb-0">
+                            Análise de Giro e Produtos Parados
+                        </h2>
+                        <button class="btn btn-success fw-bold" onclick="abrirModalNovo()">
+                            <i class="fa-solid fa-plus me-1"></i> Novo Produto
+                        </button>
+                    </div>
+
+                    <div class="row g-3 mb-4 align-items-end">
                         <div class="col-12 col-md-4">
-                            <label class="form-label">SKU <span class="text-danger">*</span></label>
-                            <input type="text" id="campo-sku" class="form-control" placeholder="Ex: CIM-001">
+                            <label class="form-label fw-semibold text-secondary">Período sem Movimentação</label>
+                            <select id="filtro-periodo" class="form-select">
+                                <option value="todos">Todos (Sempre)</option>
+                                <option value="7">Últimos 7 dias</option>
+                                <option value="30">Últimos 30 dias</option>
+                                <option value="90">Últimos 90 dias</option>
+                                <option value="custom">Personalizado (Mais de 90 dias)</option>
+                            </select>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label">Categoria <span class="text-danger">*</span></label>
-                            <input type="text" id="campo-categoria" class="form-control" placeholder="Ex: Cimento e Argamassa">
+                        <div class="col-12 col-md-5">
+                            <label class="form-label fw-semibold text-secondary">Pesquisar</label>
+                            <input type="text" id="input-busca" class="form-control"
+                                placeholder="Buscar por Nome ou SKU...">
                         </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label">Última Movimentação <span class="text-danger">*</span></label>
-                            <input type="date" id="campo-data" class="form-control">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <label class="form-label">Qtd. em Estoque</label>
-                            <input type="number" id="campo-qtd-atual" class="form-control" min="0" value="0">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <label class="form-label">Movimentado (30d)</label>
-                            <input type="number" id="campo-qtd-30d" class="form-control" min="0" value="0">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <label class="form-label">Preço de Custo (R$)</label>
-                            <input type="number" id="campo-preco-custo" class="form-control" min="0" step="0.01" value="0">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <label class="form-label">Preço de Venda (R$)</label>
-                            <input type="number" id="campo-preco-venda" class="form-control" min="0" step="0.01" value="0">
+                        <div class="col-12 col-md-3">
+                            <button class="btn btn-primary w-100 fw-bold" onclick="aplicarFiltros()">
+                                <i class="fa-solid fa-filter me-1"></i> Filtrar Dados
+                            </button>
                         </div>
                     </div>
-                    <p class="text-muted small mt-3 mb-0">
-                        <span class="text-danger">*</span> Campos obrigatórios
-                    </p>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="card card-metric bg-light border-0 shadow-sm p-3">
+                                <div class="text-secondary small fw-bold text-uppercase">Total de Produtos</div>
+                                <div id="metric-total-produtos" class="fs-3 fw-bold text-dark">0</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="card card-metric bg-light border-0 shadow-sm p-3">
+                                <div class="text-secondary small fw-bold text-uppercase text-danger">Colocar em Promoção
+                                    (&gt;30d)</div>
+                                <div id="metric-produtos-promocao" class="fs-3 fw-bold text-danger">0 itens</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="card card-metric bg-light border-0 shadow-sm p-3">
+                                <div class="text-secondary small fw-bold text-uppercase">Média Dias Sem Movimentação</div>
+                                <div id="metric-media-dias" class="fs-3 fw-bold text-warning">0 dias</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="card card-metric bg-light border-0 shadow-sm p-3">
+                                <div class="text-secondary small fw-bold text-uppercase text-success">Produto que Mais Sai
+                                </div>
+                                <div id="metric-mais-vendido" class="fs-5 fw-bold text-success text-truncate"
+                                    style="max-width: 100%;">Nenhum</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle border border-light-subtle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>SKU</th>
+                                    <th>Categoria</th>
+                                    <th>Quantidade Movimentada</th>
+                                    <th>Última Movimentação</th>
+                                    <th>Dias sem Movimentação</th>
+                                    <th class="text-end">Valor Total Parado</th>
+                                    <th class="text-center">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-produtos"></tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
+        </section>
 
-            <div class="modal-footer border-0 px-4 pb-4">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary fw-bold px-4" onclick="salvarProduto()">
-                    <i class="fa-solid fa-floppy-disk me-1"></i> Salvar Produto
-                </button>
-            </div>
+        <div class="modal fade" id="modalProduto" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
 
-        </div>
-    </div>
-</div>
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="modal-titulo">Produto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
 
+                    <div class="modal-body p-4">
+                        <div id="form-produto">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-8">
+                                    <label class="form-label">Produto <span class="text-danger">*</span></label>
+                                    <input type="text" id="campo-produto" class="form-control"
+                                        placeholder="Ex: Cimento CP II 50kg">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label">SKU <span class="text-danger">*</span></label>
+                                    <input type="text" id="campo-sku" class="form-control" placeholder="Ex: CIM-001">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Categoria <span class="text-danger">*</span></label>
+                                    <input type="text" id="campo-categoria" class="form-control"
+                                        placeholder="Ex: Cimento e Argamassa">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Última Movimentação <span class="text-danger">*</span></label>
+                                    <input type="date" id="campo-data" class="form-control">
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <label class="form-label">Qtd. em Estoque</label>
+                                    <input type="number" id="campo-qtd-atual" class="form-control" min="0" value="0">
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <label class="form-label">Movimentado (30d)</label>
+                                    <input type="number" id="campo-qtd-30d" class="form-control" min="0" value="0">
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <label class="form-label">Preço de Custo (R$)</label>
+                                    <input type="number" id="campo-preco-custo" class="form-control" min="0" step="0.01"
+                                        value="0">
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <label class="form-label">Preço de Venda (R$)</label>
+                                    <input type="number" id="campo-preco-venda" class="form-control" min="0" step="0.01"
+                                        value="0">
+                                </div>
+                            </div>
+                            <p class="text-muted small mt-3 mb-0">
+                                <span class="text-danger">*</span> Campos obrigatórios
+                            </p>
+                        </div>
+                    </div>
 
-<div class="container-fluid px-4 py-4">
-    <div class="bg-white p-4 shadow-sm rounded-4">
+                    <div class="modal-footer border-0 px-4 pb-4">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary fw-bold px-4" onclick="salvarProduto()">
+                            <i class="fa-solid fa-floppy-disk me-1"></i> Salvar Produto
+                        </button>
+                    </div>
 
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-            <h2 class="fw-bold text-dark mb-0">
-                Análise de Giro e Produtos Parados
-            </h2>
-            <button class="btn btn-success fw-bold" onclick="abrirModalNovo()">
-                <i class="fa-solid fa-plus me-1"></i> Novo Produto
-            </button>
-        </div>
-        
-        <div class="row g-3 mb-4 align-items-end">
-            <div class="col-12 col-md-4">
-                <label class="form-label fw-semibold text-secondary">Período sem Movimentação</label>
-                <select id="filtro-periodo" class="form-select">
-                    <option value="todos">Todos (Sempre)</option>
-                    <option value="7">Últimos 7 dias</option>
-                    <option value="30">Últimos 30 dias</option>
-                    <option value="90">Últimos 90 dias</option>
-                    <option value="custom">Personalizado (Mais de 90 dias)</option>
-                </select>
-            </div>
-            <div class="col-12 col-md-5">
-                <label class="form-label fw-semibold text-secondary">Pesquisar</label>
-                <input type="text" id="input-busca" class="form-control" placeholder="Buscar por Nome ou SKU...">
-            </div>
-            <div class="col-12 col-md-3">
-                <button class="btn btn-primary w-100 fw-bold" onclick="aplicarFiltros()">
-                    <i class="fa-solid fa-filter me-1"></i> Filtrar Dados
-                </button>
-            </div>
-        </div>
-
-        <div class="row g-3 mb-4">
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card card-metric bg-light border-0 shadow-sm p-3">
-                    <div class="text-secondary small fw-bold text-uppercase">Total de Produtos</div>
-                    <div id="metric-total-produtos" class="fs-3 fw-bold text-dark">0</div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card card-metric bg-light border-0 shadow-sm p-3">
-                    <div class="text-secondary small fw-bold text-uppercase text-danger">Colocar em Promoção (&gt;30d)</div>
-                    <div id="metric-produtos-promocao" class="fs-3 fw-bold text-danger">0 itens</div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card card-metric bg-light border-0 shadow-sm p-3">
-                    <div class="text-secondary small fw-bold text-uppercase">Média Dias Sem Movimentação</div>
-                    <div id="metric-media-dias" class="fs-3 fw-bold text-warning">0 dias</div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card card-metric bg-light border-0 shadow-sm p-3">
-                    <div class="text-secondary small fw-bold text-uppercase text-success">Produto que Mais Sai</div>
-                    <div id="metric-mais-vendido" class="fs-5 fw-bold text-success text-truncate" style="max-width: 100%;">Nenhum</div>
                 </div>
             </div>
         </div>
-
-        <div class="table-responsive">
-            <table class="table table-hover align-middle border border-light-subtle">
-                <thead class="table-light">
-                    <tr>
-                        <th>Produto</th>
-                        <th>SKU</th>
-                        <th>Categoria</th>
-                        <th>Quantidade Movimentada</th>
-                        <th>Última Movimentação</th>
-                        <th>Dias sem Movimentação</th>
-                        <th class="text-end">Valor Total Parado</th>
-                        <th class="text-center">Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela-produtos"></tbody>
-            </table>
-        </div>
-
-    </div>
-</div>
-
+    </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="app.js"></script>
 </body>
+
 </html>

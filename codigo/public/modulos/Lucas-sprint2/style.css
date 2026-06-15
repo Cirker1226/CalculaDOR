@@ -9,6 +9,23 @@ body {
     color: #2d3436;
 }
 
+/* LAYOUT */
+
+.conteudo {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+/* AREA PRINCIPAL*/
+
+.produtos-home {
+    background: #f8f9fb;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
 .card {
     border-radius: 12px;
 }
