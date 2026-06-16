@@ -20,18 +20,15 @@
   ],
   "estoques": [
     {
-      "id": "1",
       "produto": "Cimento CP II 50kg Votoran",
       "sku": "CIM-001",
       "categoria": "Cimento e Argamassa",
-      "quantidade_atual": 150,
-      "quantidade_movimentada_30d": 18,
-      "fornecedor": "Votoran",
-      "unidade": "saco 50kg",
+      "quantidade_atual": 155,
+      "quantidade_movimentada_30d": 25,
       "preco_custo": 28.5,
       "preco_venda": 36.9,
       "ultima_atualizacao": "2026-06-05",
-      "descricao": "Cimento CP II usado em obras gerais."
+      "id": "1"
     },
     {
       "id": "2",
