@@ -56,7 +56,7 @@
             border: none;
             border-radius: 12px;
             background-color: #ffffff;
-            box-shadow: 0 0 20px 0 rgba(202, 206, 223, 0.02);
+            box-shadow: 0 0 20px 0 rgba(202, 206, 223, 0.05);
         }
         .icon-circle {
             width: 48px;
@@ -66,6 +66,25 @@
             align-items: center;
             justify-content: center;
             font-size: 1.4rem;
+        }
+        /* Scroll customizado elegante para listas longas */
+        .custom-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
     </style>
 </head>
@@ -82,7 +101,7 @@
                 </a>
                 
                 <div class="px-3 pt-3 pb-1 text-uppercase text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">Operações</div>
-                <a href="/codigo/public/modulos/Lucas-sprint2/index.html" class="nav-link">
+                <a href="../Lucas-sprint2/index.html" class="nav-link">
                     <i class="bi bi-boxes"></i> Estoque
                 </a>
                 <a href="../Clientes/index.html" class="nav-link">
@@ -129,7 +148,7 @@
                     <div class="card card-custom p-4 h-100">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted fs-7 fw-semibold text-uppercase" style="font-size: 0.8rem;">Faturamento</span>
+                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Faturamento</span>
                                 <h3 id="card-faturamento" class="fw-bold text-dark m-0 mt-1">R$ 0,00</h3>
                             </div>
                             <div class="icon-circle text-primary" style="background-color: #e1f0ff;">
@@ -143,7 +162,7 @@
                     <div class="card card-custom p-4 h-100">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted fs-7 fw-semibold text-uppercase" style="font-size: 0.8rem;">Clientes</span>
+                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Clientes</span>
                                 <h3 id="card-clientes" class="fw-bold text-dark m-0 mt-1">0</h3>
                             </div>
                             <div class="icon-circle text-success" style="background-color: #c9f7f5;">
@@ -157,7 +176,7 @@
                     <div class="card card-custom p-4 h-100">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted fs-7 fw-semibold text-uppercase" style="font-size: 0.8rem;">Estoque Crítico</span>
+                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Estoque Crítico</span>
                                 <h3 id="card-estoque" class="fw-bold text-dark m-0 mt-1">0 itens</h3>
                             </div>
                             <div class="icon-circle text-danger" style="background-color: #ffe2e5;">
@@ -171,7 +190,7 @@
                     <div class="card card-custom p-4 h-100">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted fs-7 fw-semibold text-uppercase" style="font-size: 0.8rem;">Contas Pendentes</span>
+                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Contas Pendentes</span>
                                 <h3 id="card-pendente" class="fw-bold text-dark m-0 mt-1">R$ 0,00</h3>
                             </div>
                             <div class="icon-circle text-warning" style="background-color: #fff4de;">
@@ -182,9 +201,9 @@
                 </div>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4 mb-4">
                 <div class="col-lg-8">
-                    <div class="card card-custom p-4">
+                    <div class="card card-custom p-4 h-100">
                         <h6 class="fw-bold text-dark mb-4">Fluxo de Faturamento Recente</h6>
                         <div style="position: relative; height: 320px;">
                             <canvas id="graficoVendas"></canvas>
@@ -204,9 +223,51 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="card card-custom p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h6 class="fw-bold text-dark m-0">Últimos Pedidos Processados</h6>
+                                <p class="text-muted small m-0">Movimentações mais recentes feitas no PDV</p>
+                            </div>
+                            <a href="../Vendas/index.html" class="btn btn-sm btn-light text-primary fw-semibold text-decoration-none">Ver Histórico</a>
+                        </div>
+                        <div class="table-responsive custom-scroll">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light small text-uppercase">
+                                    <tr>
+                                        <th class="py-2">Pedido ID</th>
+                                        <th class="py-2">Cliente / Produtos Comprados</th>
+                                        <th class="py-2">Data</th>
+                                        <th class="py-2 text-end">Valor Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabela-ultimas-vendas" class="small">
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card card-custom p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h6 class="fw-bold text-dark m-0">Cronograma de Entregas do Dia</h6>
+                                <p class="text-muted small m-0">Acompanhamento de saída de materiais pesados</p>
+                            </div>
+                        </div>
+                        <div class="custom-scroll d-flex flex-column gap-2" id="lista-agendamentos">
+                            </div>
+                    </div>
+                </div>
+            </div>
+            
         </main>
     </div>
 
-    <script src="app.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>

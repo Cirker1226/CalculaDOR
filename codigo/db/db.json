@@ -1,4 +1,20 @@
 {
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Lucas Ferdinando",
+      "login": "lucas",
+      "email": "lucas@lucasmateriais.com.br",
+      "senha": "123"
+    },
+    {
+      "nome": "admin",
+      "login": "admin",
+      "email": "Lucasasth3@outlook.com",
+      "senha": "123",
+      "id": "Oo4Ca3W"
+    }
+  ],
   "configuracoes_sistemas": [
     {
       "id": "1",
@@ -273,7 +289,7 @@
       "id": "njsGhwFewBM"
     },
     {
-      "nome": "Coisas",
+      "name": "Coisas",
       "valor": "1",
       "data": "2026-06-20",
       "obs": "",
