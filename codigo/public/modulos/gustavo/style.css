@@ -13,7 +13,22 @@
     grid-template-columns: 1fr 7fr;
 }
 
-/* AREA PRINCIPAL*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* LAYOUT */
+
+.conteudo {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+/* ÁREA PRINCIPAL */
 
 .despesas-home {
     background: #f8f9fb;
@@ -22,7 +37,7 @@
     overflow-y: auto;
 }
 
-/* MENU CIMA DESPESAS */
+/* MENU CIMA PRODUTOS */
 
 .menu-cima {
     display: flex;
@@ -43,7 +58,7 @@
     color: #94a3b8;
 }
 
-/* FORM CARD */
+/* CARD */
 
 .cadastrar-despesas {
     display: flex;
@@ -56,23 +71,154 @@
     border: 1px solid #e2eaf5;
 }
 
-.form-control {
-    border: 1px solid #dbe4ee;
+/* TITULOS DE SEÇÃO */
+
+.titulo {
+    border-bottom: 1.5px solid #dbeafe;
+    padding-bottom: 8px;
+}
+
+.titulo p {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #1ca34b;
+}
+
+/* GRID DOS CAMPOS */
+
+.campos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.campos-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+}
+
+/* LABELS */
+
+.form-despesa {
+    gap: 20px;
+}
+
+.campos label,
+.tipo-despesa label,
+.obs label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 5px;
+}
+
+/* INPUTS */
+
+.campos input,
+.obs textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #e2eaf5;
     border-radius: 8px;
-    padding: .75rem;
+    background: #f0f6ff;
+    outline: none;
 }
 
-.form-check-input:checked {
-    background-color: #1ca34b;
-    border-color: #1ca34b;
+/* OBS */
+
+.obs textarea {
+    resize: none;
+    min-height: 100px;
 }
 
-label {
-    color: #334155;
+/* RADIO */
+
+/* EMBALAGEM */
+
+.tipo-despesa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.tipo-despesa label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1.5px solid #e2eaf5;
+    border-radius: 8px;
+    font-size: 0.83rem;
     font-weight: 500;
-    margin-bottom: .3rem;
+    color: #475569;
+    background: #f0f6ff;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s;
 }
 
-.table {
-    margin-top: 1rem;
+.tipo-despesa input:checked {
+  accent-color: #048b0f;
+}
+
+
+/* BOTÕES */
+
+.acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e2eaf5;
+}
+
+.acoes-esquerda,
+.acoes-direita {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.acoes .btn:hover {
+    transform: scale(1.05);
+}
+
+/* TABELA */
+
+.tabela h1 {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #1ca34b;
+    padding: 1rem;
+}
+
+.tabela-fundo {
+    background: white;
+    border-radius: 16px;
+}
+
+.tabela {
+    padding: 0rem 3rem;
+    margin-bottom: 1rem;
+}
+
+.table-btn {    
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
+    width: 98%;
+    margin: 0.5rem;
+}
+
+.table-btn button:hover{
+    transform: scale(1.05);
 }
