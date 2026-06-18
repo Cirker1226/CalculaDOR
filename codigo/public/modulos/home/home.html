@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style_menu.css">
+    <link rel="stylesheet" href="home.css">
     
     <style>
         body {
@@ -89,184 +91,177 @@
     </style>
 </head>
 <body onload="initHome()">
-
-    <div class="wrapper">
-        <aside class="sidebar shadow">
-            <div class="brand text-white fw-bold d-flex align-items-center">
-                <i class="bi bi-box-seam-fill text-primary me-2 fs-4"></i> CALCULADOR
+    <main class="conteudo">
+        <nav class="menu-lateral">
+            <div class="logo">
+                <img src="../../assets/images/logo.png" alt="logo calculaDOR">
             </div>
-            <div class="py-2">
-                <a href="#" class="nav-link active">
-                    <i class="bi bi-grid-1x2-fill"></i> Dashboard
-                </a>
+
+            <div class="opcoes">
+                <ul>
+                    <a href="../home/home.html"><li class="ativo"><i class="bi bi-house"></i> Dashboard</li></a>
+                    <a href="#"><li><i class="bi bi-people"></i> Clientes</li></a>
+                    <a href="#"><li><i class="bi bi-cart4"></i> Vendas</li></a>
+                    <a href="../Lucas-sprint2/index.html"><li><i class="bi bi-box"></i> Estoque</li></a>
+                    <a href="../gustavo-sprint2/index.html"><li><i class="bi bi-cash-stack"></i> Financeiro</li></a>
+                    <a href="#"><li><i class="bi bi-bar-chart"></i> Relatórios</li></a>
+                    <a href="../Lucas/index.html"><li><i class="bi bi-truck"></i> Fornecedor</li></a>
+                    <a href="../Matheus-sprint2/calendario.html"><li><i class="bi bi-calendar3"></i> Calendário</li></a>
+                </ul>
+            </div>
+
+            <div class="menu-baixo">
+                <div class="perfil">
+                    <img src="../../assets/images/perfil.png" alt="foto de perfil">
+                    <div class="perfil-txt">
+                        <p>Marçal</p>
+                        <span>Adiministrador</span>
+                    </div>
+                </div>
+
+                <div class="config">
+                    <img id="config" src="../../assets/images/config.png" alt="configurações">
+                </div>
+            </div>
+        </nav>
+
+        <section class="dashboard-home">
+            <div class="content-page">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h4 class="fw-bold text-dark m-0">Dashboard Geral</h4>
+                        <small class="text-muted">Resumo de movimentações e inteligência do negócio</small>
+                    </div>
+                    <span class="badge bg-white text-dark shadow-sm px-3 py-2 border rounded-pill">
+                        <i class="bi bi-calendar3 me-2 text-primary"></i> Visão Geral do Sistema
+                    </span>
+                </div>
+    
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="card card-custom p-4 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Faturamento</span>
+                                    <h3 id="card-faturamento" class="fw-bold text-dark m-0 mt-1">R$ 0,00</h3>
+                                </div>
+                                <div class="icon-circle text-primary" style="background-color: #e1f0ff;">
+                                    <i class="bi bi-graph-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-3">
+                        <div class="card card-custom p-4 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Clientes</span>
+                                    <h3 id="card-clientes" class="fw-bold text-dark m-0 mt-1">0</h3>
+                                </div>
+                                <div class="icon-circle text-success" style="background-color: #c9f7f5;">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-3">
+                        <div class="card card-custom p-4 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Estoque Crítico</span>
+                                    <h3 id="card-estoque" class="fw-bold text-dark m-0 mt-1">0 itens</h3>
+                                </div>
+                                <div class="icon-circle text-danger" style="background-color: #ffe2e5;">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-3">
+                        <div class="card card-custom p-4 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Contas Pendentes</span>
+                                    <h3 id="card-pendente" class="fw-bold text-dark m-0 mt-1">R$ 0,00</h3>
+                                </div>
+                                <div class="icon-circle text-warning" style="background-color: #fff4de;">
+                                    <i class="bi bi-wallet2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="card card-custom p-4 h-100">
+                            <h6 class="fw-bold text-dark mb-4">Fluxo de Faturamento Recente</h6>
+                            <div style="position: relative; height: 320px;">
+                                <canvas id="graficoVendas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-4">
+                        <div class="card card-custom p-4 h-100">
+                            <h6 class="fw-bold text-dark mb-3">Avisos de Atenção</h6>
+                            <div class="table-responsive">
+                                <table class="table table-borderless align-middle m-0">
+                                    <tbody id="tabela-alertas">
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="card card-custom p-4 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h6 class="fw-bold text-dark m-0">Últimos Pedidos Processados</h6>
+                                    <p class="text-muted small m-0">Movimentações mais recentes feitas no PDV</p>
+                                </div>
+                                <a href="../Vendas/index.html" class="btn btn-sm btn-light text-primary fw-semibold text-decoration-none">Ver Histórico</a>
+                            </div>
+                            <div class="table-responsive custom-scroll">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-light small text-uppercase">
+                                        <tr>
+                                            <th class="py-2">Pedido ID</th>
+                                            <th class="py-2">Cliente / Produtos Comprados</th>
+                                            <th class="py-2">Data</th>
+                                            <th class="py-2 text-end">Valor Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabela-ultimas-vendas" class="small">
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-5">
+                        <div class="card card-custom p-4 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h6 class="fw-bold text-dark m-0">Cronograma de Entregas do Dia</h6>
+                                    <p class="text-muted small m-0">Acompanhamento de saída de materiais pesados</p>
+                                </div>
+                            </div>
+                            <div class="custom-scroll d-flex flex-column gap-2" id="lista-agendamentos">
+                                </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="px-3 pt-3 pb-1 text-uppercase text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">Operações</div>
-                <a href="../Lucas-sprint2/index.html" class="nav-link">
-                    <i class="bi bi-boxes"></i> Estoque
-                </a>
-                <a href="../Clientes/index.html" class="nav-link">
-                    <i class="bi bi-people-fill"></i> Clientes
-                </a>
-                <a href="../Vendas/index.html" class="nav-link">
-                    <i class="bi bi-cart-fill"></i> Vendas (PDV)
-                </a>
-
-                <div class="px-3 pt-3 pb-1 text-uppercase text-white-50 fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">Financeiro</div>
-                <a href="../Receitas/index.html" class="nav-link">
-                    <i class="bi bi-graph-up-arrow"></i> Receitas
-                </a>
-                <a href="../Despesas/index.html" class="nav-link">
-                    <i class="bi bi-graph-down-arrow"></i> Despesas
-                </a>
-                <a href="../Gestao-de-fornecedores/index.html" class="nav-link">
-                    <i class="bi bi-person-lines-fill"></i> Fornecedores
-                </a>
-
-                <div class="px-3 pt-3 pb-1 text-uppercase text-white-50 fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">Planejamento</div>
-                <a href="../Agendamentos/index.html" class="nav-link">
-                    <i class="bi bi-calendar-check"></i> Agendamentos
-                </a>
-                <a href="../Calendario/index.html" class="nav-link">
-                    <i class="bi bi-calendar3"></i> Eventos
-                </a>
             </div>
-        </aside>
-
-        <main class="content-page">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h4 class="fw-bold text-dark m-0">Dashboard Geral</h4>
-                    <small class="text-muted">Resumo de movimentações e inteligência do negócio</small>
-                </div>
-                <span class="badge bg-white text-dark shadow-sm px-3 py-2 border rounded-pill">
-                    <i class="bi bi-calendar3 me-2 text-primary"></i> Visão Geral do Sistema
-                </span>
-            </div>
-
-            <div class="row g-4 mb-4">
-                <div class="col-md-3">
-                    <div class="card card-custom p-4 h-100">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div>
-                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Faturamento</span>
-                                <h3 id="card-faturamento" class="fw-bold text-dark m-0 mt-1">R$ 0,00</h3>
-                            </div>
-                            <div class="icon-circle text-primary" style="background-color: #e1f0ff;">
-                                <i class="bi bi-graph-up"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card card-custom p-4 h-100">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div>
-                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Clientes</span>
-                                <h3 id="card-clientes" class="fw-bold text-dark m-0 mt-1">0</h3>
-                            </div>
-                            <div class="icon-circle text-success" style="background-color: #c9f7f5;">
-                                <i class="bi bi-people"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card card-custom p-4 h-100">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div>
-                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Estoque Crítico</span>
-                                <h3 id="card-estoque" class="fw-bold text-dark m-0 mt-1">0 itens</h3>
-                            </div>
-                            <div class="icon-circle text-danger" style="background-color: #ffe2e5;">
-                                <i class="bi bi-exclamation-triangle"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card card-custom p-4 h-100">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div>
-                                <span class="text-muted fw-semibold text-uppercase" style="font-size: 0.8rem;">Contas Pendentes</span>
-                                <h3 id="card-pendente" class="fw-bold text-dark m-0 mt-1">R$ 0,00</h3>
-                            </div>
-                            <div class="icon-circle text-warning" style="background-color: #fff4de;">
-                                <i class="bi bi-wallet2"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 mb-4">
-                <div class="col-lg-8">
-                    <div class="card card-custom p-4 h-100">
-                        <h6 class="fw-bold text-dark mb-4">Fluxo de Faturamento Recente</h6>
-                        <div style="position: relative; height: 320px;">
-                            <canvas id="graficoVendas"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="card card-custom p-4 h-100">
-                        <h6 class="fw-bold text-dark mb-3">Avisos de Atenção</h6>
-                        <div class="table-responsive">
-                            <table class="table table-borderless align-middle m-0">
-                                <tbody id="tabela-alertas">
-                                    </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-7">
-                    <div class="card card-custom p-4 h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div>
-                                <h6 class="fw-bold text-dark m-0">Últimos Pedidos Processados</h6>
-                                <p class="text-muted small m-0">Movimentações mais recentes feitas no PDV</p>
-                            </div>
-                            <a href="../Vendas/index.html" class="btn btn-sm btn-light text-primary fw-semibold text-decoration-none">Ver Histórico</a>
-                        </div>
-                        <div class="table-responsive custom-scroll">
-                            <table class="table table-hover align-middle mb-0">
-                                <thead class="table-light small text-uppercase">
-                                    <tr>
-                                        <th class="py-2">Pedido ID</th>
-                                        <th class="py-2">Cliente / Produtos Comprados</th>
-                                        <th class="py-2">Data</th>
-                                        <th class="py-2 text-end">Valor Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabela-ultimas-vendas" class="small">
-                                    </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5">
-                    <div class="card card-custom p-4 h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div>
-                                <h6 class="fw-bold text-dark m-0">Cronograma de Entregas do Dia</h6>
-                                <p class="text-muted small m-0">Acompanhamento de saída de materiais pesados</p>
-                            </div>
-                        </div>
-                        <div class="custom-scroll d-flex flex-column gap-2" id="lista-agendamentos">
-                            </div>
-                    </div>
-                </div>
-            </div>
-            
-        </main>
-    </div>
+        </section>
+    </main>
 
     <script src="home.js"></script>
 </body>

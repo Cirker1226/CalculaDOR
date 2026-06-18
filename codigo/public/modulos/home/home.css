@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* LAYOUT */
+
+.conteudo {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+/* AREA PRINCIPAL*/
+
+.dashboard-home {
+    background: #f8f9fb;
+    display: flex;
+    flex-direction: column;
+}
