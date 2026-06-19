@@ -19,7 +19,6 @@
     background: #f8f9fb;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
 }
 
 /* MENU CIMA CALENDARIO */

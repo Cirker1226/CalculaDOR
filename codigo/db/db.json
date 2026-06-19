@@ -172,11 +172,25 @@
   ],
   "events": [
     {
-      "title": "Reunião de segunda",
-      "start": "2026-06-14",
-      "end": "2026-06-25",
-      "color": "#fd0d0d",
+      "title": "Reunião de Negocios",
+      "start": "2026-06-12",
+      "end": "",
+      "color": "#bc1010",
       "id": 1
+    },
+    {
+      "title": "Apresentação de Projeto",
+      "start": "2026-06-30",
+      "end": "",
+      "color": "#5510bc",
+      "id": 2
+    },
+    {
+      "title": "Reunião de Planejamento",
+      "start": "2026-06-16",
+      "end": "",
+      "color": "#bcad10",
+      "id": 3
     }
   ],
   "clientes": [
@@ -311,6 +325,14 @@
       "obs": "Testa mais recente",
       "tipo": "Outros",
       "id": "dCycHXRBPRg"
+    },
+    {
+      "nome": "Financiamento",
+      "valor": "25",
+      "data": "2026-06-14",
+      "obs": "Financiamento da Loja",
+      "tipo": "Outros",
+      "id": "6BpuONK"
     }
   ],
   "receitas": [

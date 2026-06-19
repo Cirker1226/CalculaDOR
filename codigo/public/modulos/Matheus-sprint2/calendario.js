@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     calendar.render();
     carregarEventos();
+    carregarDespesas();
 });
 
 async function carregarEventos() {
@@ -25,6 +26,21 @@ async function carregarEventos() {
     const eventosResposta = await eventos.json();
 
     calendar.addEventSource(eventosResposta);
+}
+
+async function carregarDespesas() {
+
+    const response = await fetch('/despesas');
+    const despesas = await response.json();
+
+    despesas.forEach((despesa) => {
+        calendar.addEvent({
+            id: `despesa-${despesa.id}`,
+            title: `Despesas - ${despesa.nome}`,
+            start: despesa.data,
+            color: '#34bb4a'
+        });
+    });
 }
 
 async function removerEvento(evento) {
@@ -51,3 +67,4 @@ document.getElementById('btnSalvarEvento').addEventListener('click', async funct
 
     calendar.addEvent({title,start,end,color});
 });
+
