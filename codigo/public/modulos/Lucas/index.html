@@ -50,12 +50,12 @@
                 <p>Gestão de Pagamentos e Fornecedores</p>
             </div>
             
-            <section class="gestao">
-                <div id="msg"></div>
+            <div id="msg"></div>
 
+            <section class="gestao">
                 <div class="row mb-4">
                     <div class="col-md-4">
-                        <div class="card border-0 shadow-sm bg-primary text-white p-3">
+                        <div class="resumo-card">
                             <small>A Pagar</small>
                             <h2 id="total-apagar">R$ 0,00</h2>
                         </div>
@@ -74,28 +74,51 @@
                     </div>
                 </div>
 
-                <form id="form-contato" class="bg-white p-4 shadow-sm rounded-4 border-0 mb-5">
+                <form id="form-contato" class="cadastrar-fornecedor">
+
+                    <div class="titulo">
+                        <p>INFORMAÇÕES BÁSICAS</p>
+                    </div>
+
                     <div class="row g-3">
+
                         <div class="col-md-1">
                             <label class="form-label">ID</label>
-                            <input type="text" class="form-control bg-light" id="inputId" disabled>
+                            <input type="text" class="form-control" id="inputId" disabled>
                         </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Fornecedor (*)</label>
-                            <input type="text" class="form-control" id="inputNome" placeholder="Nome da Empresa" required>
+
+                        <div class="col-md-5">
+                            <label class="form-label">Fornecedor</label>
+                            <input type="text" class="form-control" id="inputNome"
+                                placeholder="Nome da Empresa" required>
                         </div>
+
                         <div class="col-md-3">
-                            <label class="form-label">WhatsApp/Telefone</label>
-                            <input type="text" class="form-control" id="inputTelefone" placeholder="Ex: 31988887777">
+                            <label class="form-label">WhatsApp / Telefone</label>
+                            <input type="text" class="form-control" id="inputTelefone"
+                                placeholder="Ex: 31988887777">
                         </div>
-                        <div class="col-md-4">
+
+                        <div class="col-md-3">
                             <label class="form-label">Valor (R$)</label>
-                            <input type="number" step="0.01" class="form-control" id="inputValor" required>
+                            <input type="number" step="0.01" class="form-control"
+                                id="inputValor" required>
                         </div>
+
+                    </div>
+
+                    <div class="titulo">
+                        <p>PAGAMENTO</p>
+                    </div>
+
+                    <div class="row g-3">
+
                         <div class="col-md-4">
-                            <label class="form-label">Vencimento</label>
-                            <input type="date" class="form-control" id="inputVencimento" required>
+                            <label class="form-label">Data de Vencimento</label>
+                            <input type="date" class="form-control"
+                                id="inputVencimento" required>
                         </div>
+
                         <div class="col-md-4">
                             <label class="form-label">Status</label>
                             <select class="form-select" id="inputCategoria">
@@ -104,40 +127,50 @@
                                 <option value="Vencido">Vencido</option>
                             </select>
                         </div>
+
                         <div class="col-md-4">
-                            <label class="form-label">Link da pagina fornecedor</label>
-                            <input type="url" class="form-control" id="inputLink" placeholder="http://...">
+                            <label class="form-label">Página do Fornecedor</label>
+                            <input type="url" class="form-control"
+                                id="inputLink"
+                                placeholder="https://site.com">
                         </div>
+
                     </div>
-                    <div class="mt-4 d-flex gap-2">
-                        <button type="button" class="btn btn-success px-4" id="btnInsert"><i class="bi bi-save"></i> Salvar</button>
-                        <button type="button" class="btn btn-warning px-4" id="btnUpdate">Alterar</button>
-                        <button type="button" class="btn btn-danger px-4" id="btnDelete">Excluir</button>
-                        <button type="button" class="btn btn-light px-4 border" id="btnClear">Limpar</button>
+
+                    <div class="acoes">
+
+                        <div class="acoes-esquerda">
+                            <input type="text" id="filtroBusca" class="form-control" placeholder="Buscar fornecedor..." style="width: 280px;">
+                        </div>
+
+                        <div class="acoes-direita">
+                            <button type="button" class="btn btn-secondary" id="btnClear">Limpar</button>
+                            <button type="button" class="btn btn-success" id="btnInsert">Salvar</button>
+                            <button type="button" class="btn btn-warning" id="btnUpdate">Alterar</button>
+                            <button type="button" class="btn btn-danger" id="btnDelete">Excluir</button>
+                        </div>
                     </div>
                 </form>
 
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="m-0 text-secondary">Registros</h4>
-                    <div class="d-flex gap-2">
-                        <input type="text" id="filtroBusca" class="form-control" placeholder="Buscar fornecedor...">
+                <div class="tabela">
+                    <div class="row tabela-fundo">
+                        <h1>FORNECEDORES CADASTRADOS</h1>
+                        <div class="col-sm-12">
+                            <table class="table table-striped" id="grid-contatos">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Fornecedor</th>
+                                        <th>Vencimento</th>
+                                        <th>Valor</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-contatos"></tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-
-                <div class="table-responsive bg-white rounded-4 shadow-sm">
-                    <table class="table table-hover mb-0 align-middle" id="grid-contatos">
-                        <thead class="table-dark text-uppercase">
-                            <tr>
-                                <th class="ps-4">#</th>
-                                <th>Fornecedor</th>
-                                <th>Vencimento</th>
-                                <th>Valor</th>
-                                <th>Status</th>
-                                <th class="pe-4 text-center">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-contatos"></tbody>
-                    </table>
                 </div>
             </section>
         </div>

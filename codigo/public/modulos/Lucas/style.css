@@ -13,7 +13,7 @@
     grid-template-columns: 1fr 7fr;
 }
 
-/* AREA PRINCIPAL*/
+/* ÁREA PRINCIPAL */
 
 .gestao-home {
     background: #f8f9fb;
@@ -21,7 +21,7 @@
     flex-direction: column;
 }
 
-/* MENU CIMA PRODUTOS */
+/* MENU SUPERIOR */
 
 .menu-cima {
     display: flex;
@@ -42,26 +42,145 @@
     color: #94a3b8;
 }
 
+/* CONTEÚDO */
+
 .gestao {
+    padding: 20px 32px;
+}
+
+/* CARDS DE RESUMO */
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.resumo-card {
+    background: #ffffff;
+    border: 1px solid #e2eaf5;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.resumo-card small {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.resumo-card h2 {
+    margin-top: 8px;
+    color: #1ca34b;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* CARD FORMULÁRIO */
+
+.cadastrar-fornecedor {
     display: flex;
     flex-direction: column;
-    margin: 20px 32px 32px;
-    padding: 28px 30px;
     gap: 20px;
-    border-radius: 16px;
+    padding: 28px 30px;
+    margin-bottom: 25px;
     background: #ffffff;
+    border: 1px solid #e2eaf5;
+    border-radius: 16px;
+}
+
+/* TÍTULOS DAS SEÇÕES */
+
+.titulo {
+    border-bottom: 1.5px solid #dbeafe;
+    padding-bottom: 8px;
+}
+
+.titulo p {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #1ca34b;
+}
+
+/* LABELS */
+
+.form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 5px;
+}
+
+/* INPUTS */
+
+.form-control,
+.form-select {
+    width: 100%;
+    border: 1.5px solid #e2eaf5;
+    border-radius: 8px;
+    background: #f0f6ff;
+    outline: none;
+}
+
+/* AÇÕES */
+
+.acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e2eaf5;
+}
+
+.acoes-direita {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acoes .btn:hover {
+    transform: scale(1.05);
+}
+
+/* TABELA */
+
+.tabela {
+    margin-bottom: 1rem;
+}
+
+.tabela-fundo {
+    background: white;
+    border-radius: 16px;
     border: 1px solid #e2eaf5;
 }
 
-label { font-weight: bold; font-size: 0.9rem; }
+.tabela h1 {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #1ca34b;
+    padding: 1rem;
+    margin: 0;
+}
 
-::placeholder { color: lightskyblue !important; }
+.table {
+    margin-bottom: 0;
+}
 
-#msg { height: 60px; }
+.table thead th {
+    background: #f8fafc;
+    color: #000000;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e2eaf5;
+}
 
-#grid-contatos tbody tr { cursor: pointer; }
-
-
-.bg-pago { background-color: #198754 !important; color: white; padding: 5px; border-radius: 5px; }
-.bg-apagar { background-color: #ffc107 !important; color: black; padding: 5px; border-radius: 5px; }
-.bg-vencido { background-color: #dc3545 !important; color: white; padding: 5px; border-radius: 5px; }
+.table tbody td {
+    vertical-align: middle;
+}
