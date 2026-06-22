@@ -35,9 +35,11 @@ async function carregarTabela() {
     const respostaClientes = await fetch(apiUrl);
     const clientes = await respostaClientes.json();
 
+    document.getElementById('total-clientes').innerText = clientes.length;
+
     clientes.forEach(cliente => {
         tabelaClientes.innerHTML += `
-            <tr data-id="${cliente.id}">
+            <tr data-id="${cliente.id}" onclick="selecionarLinha(this)">
                 <td>${cliente.id}</td>
                 <td>${cliente.nome}</td>
                 <td>${cliente.cpf}</td>
@@ -47,6 +49,24 @@ async function carregarTabela() {
                 <td>${cliente.tag}</td>
             </tr>`;
         });
+}
+
+function selecionarLinha(linha) {
+    document.querySelectorAll('#table-clientes tr')
+        .forEach(tr => tr.classList.remove('table-active'));
+    linha.classList.add('table-active');
+}
+
+function excluirCliente() {
+    const linhaSelecionada = document.querySelector('#table-clientes tr.table-active');
+
+    const id = linhaSelecionada.dataset.id;
+
+    fetch(`${apiUrl}/${id}`, {
+        method: 'DELETE'
+    })
+
+    carregarTabela()
 }
 
 carregarTabela()
