@@ -205,18 +205,6 @@
       "quantidade_pedidos": 12,
       "ultima_compra": "2025-04-10",
       "classificacao": "Cliente Fiel"
-    },
-    {
-      "id": "2",
-      "nome": "Construtora Horizonte LTDA",
-      "whatsapp": "31977775555",
-      "email": "construtorahorizonte@email.com",
-      "endereco": "Av. do Contorno, 500 - Funcionários, BH",
-      "cep": "30110080",
-      "total_comprado_historico": 87600,
-      "quantidade_pedidos": 54,
-      "ultima_compra": "2025-04-22",
-      "classificacao": "Cliente Premium"
     }
   ],
   "vendas_pdvs": [
