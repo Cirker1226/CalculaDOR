@@ -18,9 +18,35 @@ function cadastrarCliente() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(dados)
     })
+
+    limparInputs()
+    carregarTabela()
 }
 
 function limparInputs() {
     const inputs = document.querySelectorAll("input, textarea");
     inputs.forEach(input => input.value = "");
 }
+
+async function carregarTabela() {
+    const tabelaClientes = document.getElementById('table-clientes');
+    tabelaClientes.innerHTML = "";
+
+    const respostaClientes = await fetch(apiUrl);
+    const clientes = await respostaClientes.json();
+
+    clientes.forEach(cliente => {
+        tabelaClientes.innerHTML += `
+            <tr data-id="${cliente.id}">
+                <td>${cliente.id}</td>
+                <td>${cliente.nome}</td>
+                <td>${cliente.cpf}</td>
+                <td>${cliente.telefone}</td>
+                <td>${cliente.email}</td>
+                <td>${cliente.endereco}</td>
+                <td>${cliente.tag}</td>
+            </tr>`;
+        });
+}
+
+carregarTabela()
