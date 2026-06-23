@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* LAYOUT */
+
+.conteudo {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+/* AREA PRINCIPAL*/
+
+.relatorio-home {
+    background: #f8f9fb;
+    display: flex;
+    flex-direction: column;
+}
+
+.relatorio {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 32px 32px;
+    padding: 28px 30px;
+    gap: 20px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow:0 5px 10px rgba(0,0,0,.10);
+}
