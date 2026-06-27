@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../../assets/css/style_menu.css">
     <link rel="stylesheet" href="style.css">
     <script defer src="../../assets/js/menu.js"></script>
-    
 </head>
 <body onload="init()" class="bg-light">
     <main class="conteudo">
@@ -35,7 +34,7 @@
                     <img src="../../assets/images/perfil.png" alt="foto de perfil">
                     <div class="perfil-txt">
                         <p id="nome-usuario">Usuário</p>
-                        <span>Adiministrador</span>
+                        <span>Administrador</span>
                     </div>
                 </div>
 
@@ -56,21 +55,21 @@
             <section class="gestao">
                 <div class="row mb-4">
                     <div class="col-md-4">
-                        <div class="card border-0 shadow-sm p-3">
+                        <div class="card border-0 p-3">
                             <small>A Pagar</small>
                             <h2 id="total-apagar">R$ 0,00</h2>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card border-0 shadow-sm bg-success text-white p-3">
+                        <div class="card border-0 bg-success-card p-3">
                             <small>Total Pago</small>
-                            <h2 id="total-pago">R$ 0,00</h2>
+                            <h2 id="total-pago" style="color: #1ca34b;">R$ 0,00</h2>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card border-0 shadow-sm bg-danger text-white p-3">
+                        <div class="card border-0 bg-danger-card p-3">
                             <small>Vencidos</small>
-                            <h2 id="total-vencidos">R$ 0,00</h2>
+                            <h2 id="total-vencidos" style="color: #ef4444;">R$ 0,00</h2>
                         </div>
                     </div>
                 </div>
@@ -82,7 +81,6 @@
                     </div>
 
                     <div class="row g-3">
-
                         <div class="col-md-1">
                             <label class="form-label">ID</label>
                             <input type="text" class="form-control" id="inputId" disabled>
@@ -90,22 +88,18 @@
 
                         <div class="col-md-5">
                             <label class="form-label">Fornecedor</label>
-                            <input type="text" class="form-control" id="inputNome"
-                                placeholder="Nome da Empresa" required>
+                            <input type="text" class="form-control" id="inputNome" placeholder="Nome da Empresa" required>
                         </div>
 
                         <div class="col-md-3">
                             <label class="form-label">WhatsApp / Telefone</label>
-                            <input type="text" class="form-control" id="inputTelefone"
-                                placeholder="Ex: 31988887777">
+                            <input type="text" class="form-control" id="inputTelefone" placeholder="Ex: 31988887777">
                         </div>
 
                         <div class="col-md-3">
                             <label class="form-label">Valor (R$)</label>
-                            <input type="number" step="0.01" class="form-control"
-                                id="inputValor" required>
+                            <input type="number" step="0.01" class="form-control" id="inputValor" required>
                         </div>
-
                     </div>
 
                     <div class="titulo">
@@ -113,11 +107,9 @@
                     </div>
 
                     <div class="row g-3">
-
                         <div class="col-md-4">
                             <label class="form-label">Data de Vencimento</label>
-                            <input type="date" class="form-control"
-                                id="inputVencimento" required>
+                            <input type="date" class="form-control" id="inputVencimento" required>
                         </div>
 
                         <div class="col-md-4">
@@ -131,15 +123,11 @@
 
                         <div class="col-md-4">
                             <label class="form-label">Página do Fornecedor</label>
-                            <input type="url" class="form-control"
-                                id="inputLink"
-                                placeholder="https://site.com">
+                            <input type="url" class="form-control" id="inputLink" placeholder="https://site.com">
                         </div>
-
                     </div>
 
                     <div class="acoes">
-
                         <div class="acoes-esquerda">
                             <input type="text" id="filtroBusca" class="form-control" placeholder="Buscar fornecedor..." style="width: 280px;">
                         </div>
@@ -154,18 +142,18 @@
                 </form>
 
                 <div class="tabela">
-                    <div class="row tabela-fundo">
+                    <div class="row tabela-fundo m-0">
                         <h1>FORNECEDORES CADASTRADOS</h1>
-                        <div class="col-sm-12">
-                            <table class="table table-striped" id="grid-contatos">
+                        <div class="col-sm-12 p-0">
+                            <table class="table table-hover" id="grid-contatos">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th class="ps-4">#</th>
                                         <th>Fornecedor</th>
                                         <th>Vencimento</th>
                                         <th>Valor</th>
                                         <th>Status</th>
-                                        <th>Ações</th>
+                                        <th class="pe-4 text-center">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody id="table-contatos"></tbody>
@@ -197,8 +185,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script src="app.js"></script>
-
 </body>
 </html>

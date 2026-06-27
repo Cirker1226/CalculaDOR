@@ -3,9 +3,7 @@ let produtosFiltrados = [];
 let modoEdicao = false;   
 let idEmEdicao = null;    
 
-
 // 1. CARGA DE DADOS
-
 async function carregarDados() {
     try {
         const res = await fetch('/estoques');
@@ -18,9 +16,7 @@ async function carregarDados() {
     }
 }
 
-
 // 2. PROCESSAMENTO E RENDERIZAÇÃO DA TABELA
-
 function processarERenderizar() {
     const tbody = document.getElementById('tabela-produtos');
     tbody.innerHTML = '';
@@ -28,14 +24,12 @@ function processarERenderizar() {
     let totalProdutosPromocao = 0;
     let somaDiasSemMovimentacao = 0;
 
-    
     if (produtosFiltrados.length === 0) {
         tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4">Nenhum produto encontrado com os filtros aplicados.</td></tr>`;
         atualizarCardsMetricos(0, 0, 0, "Nenhum");
         return;
     }
 
-    
     let maiorGiroQuantidadeGeral = -1;
     let produtoMaisVendidoNomeGeral = "Nenhum";
 
@@ -45,7 +39,6 @@ function processarERenderizar() {
         const diasSemMvto = calcularDiasSemMovimentacao(dataMovimentacao);
         const valorParadoCalculado = (p.quantidade_atual || 0) * (p.preco_custo || 0);
 
-        
         if (qtdMovimentada > maiorGiroQuantidadeGeral) {
             maiorGiroQuantidadeGeral = qtdMovimentada;
             produtoMaisVendidoNomeGeral = p.produto;
@@ -55,30 +48,28 @@ function processarERenderizar() {
 
         if (diasSemMvto > 30) totalProdutosPromocao++;
 
-        let classeCorDias = 'text-dark';
+        let classeCorDias = '';
         if (diasSemMvto > 60)       classeCorDias = 'text-danger fw-bold';
         else if (diasSemMvto >= 30) classeCorDias = 'text-warning fw-bold';
 
         tbody.innerHTML += `
             <tr data-id="${p.id}">
                 <td class="fw-semibold text-dark">${p.produto}</td>
-                <td><code class="text-secondary">${p.sku || 'N/A'}</code></td>
-                <td><span class="badge bg-secondary-subtle text-secondary-emphasis">${p.categoria}</span></td>
+                <td><span class="text-muted small">${p.sku || 'N/A'}</span></td>
+                <td><span class="badge bg-secondary-subtle">${p.categoria}</span></td>
                 <td>${qtdMovimentada} un</td>
                 <td>${formatarDataBR(dataMovimentacao)}</td>
-                <td><span class="fw-bold ${classeCorDias}">${diasSemMvto} dias</span></td>
+                <td><span class="${classeCorDias}">${diasSemMvto} dias</span></td>
                 <td class="text-end fw-bold text-dark">
                     R$ ${valorParadoCalculado.toLocaleString('pt-BR', {minimumFractionDigits: 2})}
                 </td>
                 <td class="text-center">
-                    <div class="d-flex gap-1 justify-content-center">
-                        <button class="btn btn-sm btn-outline-primary shadow-sm"
-                                onclick="abrirModalEdicao('${p.id}')">
-                            <i class="fa-solid fa-pen-to-square me-1"></i>Editar
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-sm btn-outline-primary" onclick="abrirModalEdicao('${p.id}')">
+                            Editar
                         </button>
-                        <button class="btn btn-sm btn-outline-danger shadow-sm"
-                                onclick="excluirProduto('${p.id}')">
-                            <i class="fa-solid fa-trash-can me-1"></i>Excluir
+                        <button class="btn btn-sm btn-outline-danger" onclick="excluirProduto('${p.id}')">
+                            Excluir
                         </button>
                     </div>
                 </td>
@@ -90,9 +81,7 @@ function processarERenderizar() {
     atualizarCardsMetricos(produtosFiltrados.length, totalProdutosPromocao, mediaDias, produtoMaisVendidoNomeGeral);
 }
 
-
 // 3. CARDS DE MÉTRICAS
-
 function atualizarCardsMetricos(totalProd, totalPromocao, mediaDias, maisVendido) {
     document.getElementById('metric-total-produtos').innerText = totalProd;
     document.getElementById('metric-produtos-promocao').innerText = `${totalPromocao} ${totalPromocao === 1 ? 'item' : 'itens'}`;
@@ -100,9 +89,7 @@ function atualizarCardsMetricos(totalProd, totalPromocao, mediaDias, maisVendido
     document.getElementById('metric-mais-vendido').innerText = maisVendido;
 }
 
-
 // 4. FILTROS
-
 function aplicarFiltros() {
     const periodoSelecionado = document.getElementById('filtro-periodo').value;
     const termoBusca = document.getElementById('input-busca').value.toLowerCase().trim();
@@ -125,14 +112,12 @@ function aplicarFiltros() {
     processarERenderizar();
 }
 
-
 // 5. MODAIS (abrir para CRIAR ou EDITAR)
-
 function abrirModalNovo() {
     modoEdicao = false;
     idEmEdicao = null;
 
-    document.getElementById('modal-titulo').innerText = '➕ Novo Produto';
+    document.getElementById('modal-titulo').innerText = 'Novo Produto';
     document.getElementById('campo-produto').value    = '';
     document.getElementById('campo-sku').value        = '';
     document.getElementById('campo-categoria').value  = '';
@@ -152,7 +137,7 @@ function abrirModalEdicao(id) {
     modoEdicao = true;
     idEmEdicao = id;
 
-    document.getElementById('modal-titulo').innerText    = '✏️ Editar Produto';
+    document.getElementById('modal-titulo').innerText    = 'Editar Produto';
     document.getElementById('campo-produto').value       = produto.produto || '';
     document.getElementById('campo-sku').value           = produto.sku || '';
     document.getElementById('campo-categoria').value     = produto.categoria || '';
@@ -165,9 +150,7 @@ function abrirModalEdicao(id) {
     new bootstrap.Modal(document.getElementById('modalProduto')).show();
 }
 
-
 // 6. SALVAR 
-
 async function salvarProduto() {
     const novoProduto = {
         produto:                    document.getElementById('campo-produto').value.trim(),
@@ -214,9 +197,7 @@ async function salvarProduto() {
     }
 }
 
-
 // 7. DELETE
-
 async function excluirProduto(id) {
     if (confirm("Deseja realmente excluir esta amostragem do registro?")) {
         try {
@@ -240,9 +221,7 @@ async function excluirProduto(id) {
     }
 }
 
-
 // 8. UTILITÁRIOS DE DATA
-
 function calcularDiasSemMovimentacao(dataString) {
     if (!dataString) return 0;
     const dataAlvo = new Date(dataString);
@@ -258,6 +237,5 @@ function formatarDataBR(dataString) {
     if (partes.length !== 3) return dataString;
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
-
 
 carregarDados();
