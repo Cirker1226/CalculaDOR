@@ -126,9 +126,9 @@ async function carregarVendas() {
     tabela.innerHTML = '';
 
     const res = await fetch(apiVendas);
-    const vendas = await res.json();
+    const vendas = (await res.json()) || [];
 
-    document.getElementById('total-vendas').innerText = vendas.length;
+    document.getElementById('total-vendas').innerText = vendas.length || 0;
 
     vendas.forEach(v => {
 
