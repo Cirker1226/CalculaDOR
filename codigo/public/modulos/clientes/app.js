@@ -3,7 +3,6 @@ const apiUrl = '/clientes';
 let clienteEditandoId = null;
 
 function cadastrarCliente() {
-
     if (clienteEditandoId) {
         alert("Você está editando um cliente. Use o botão ALTERAR para salvar as mudanças.");
         return;
@@ -42,9 +41,18 @@ async function carregarTabela() {
     const resposta = await fetch(apiUrl);
     const clientes = await resposta.json();
 
-    document.getElementById('total-clientes').innerText = clientes.length;
+    let ativos = 0;
+    let inativos = 0;
 
     clientes.forEach(cliente => {
+        // Verifica se a tag existe e se contém a palavra "inativo"
+        const tag = cliente.tag ? cliente.tag.toLowerCase() : "";
+        if (tag.includes("inativo")) {
+            inativos++;
+        } else {
+            ativos++;
+        }
+
         tabelaClientes.innerHTML += `
             <tr data-id="${cliente.id}" onclick="selecionarLinha(this)">
                 <td>${cliente.id}</td>
@@ -56,6 +64,11 @@ async function carregarTabela() {
                 <td>${cliente.tag}</td>
             </tr>`;
     });
+
+    // Atualiza os cartões do dashboard
+    document.getElementById('total-clientes').innerText = clientes.length;
+    document.getElementById('total-ativos').innerText = ativos;
+    document.getElementById('total-inativos').innerText = inativos;
 }
 
 function selecionarLinha(linha) {
@@ -77,7 +90,6 @@ function selecionarLinha(linha) {
 }
 
 function excluirCliente() {
-
     const linhaSelecionada = document.querySelector('#table-clientes tr.table-active');
 
     if (!linhaSelecionada) {
@@ -99,7 +111,6 @@ function excluirCliente() {
 document.getElementById("btnUpdate").addEventListener("click", salvarEdicaoCliente);
 
 function salvarEdicaoCliente() {
-
     if (!clienteEditandoId) {
         alert("Selecione um cliente para alterar.");
         return;

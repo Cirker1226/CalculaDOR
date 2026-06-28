@@ -36,6 +36,7 @@
   ],
   "estoques": [
     {
+      "id": "1",
       "produto": "Cimento CP II 50kg Votoran",
       "sku": "CIM-001",
       "categoria": "Cimento e Argamassa",
@@ -43,8 +44,7 @@
       "quantidade_movimentada_30d": 25,
       "preco_custo": 28.5,
       "preco_venda": 36.9,
-      "ultima_atualizacao": "2026-06-05",
-      "id": "1"
+      "ultima_atualizacao": "2026-06-05"
     },
     {
       "id": "2",
@@ -103,6 +103,7 @@
       "descricao": "Tubo PVC para sistemas de esgoto e drenagem."
     },
     {
+      "id": "6",
       "produto": "Cabo Elétrico Flexível 2,5mm Corfio 100m",
       "sku": "ELE-025",
       "categoria": "Elétrica",
@@ -110,15 +111,14 @@
       "quantidade_movimentada_30d": 4,
       "preco_custo": 135,
       "preco_venda": 189,
-      "ultima_atualizacao": "2026-06-10",
-      "id": "6"
+      "ultima_atualizacao": "2026-06-10"
     },
     {
       "id": "7",
       "produto": "Tinta Acrílica Fosca Rende Muito Branco 18L",
       "sku": "PIN-018",
       "categoria": "Pintura",
-      "quantidade_atual": 20,
+      "quantidade_atual": 12,
       "quantidade_movimentada_30d": 6,
       "fornecedor": "Suvinil",
       "unidade": "lata 18L",
@@ -146,7 +146,7 @@
       "produto": "Torneira Gourmet Monocomando Extensível",
       "sku": "HID-505",
       "categoria": "Hidráulica",
-      "quantidade_atual": 12,
+      "quantidade_atual": 5,
       "quantidade_movimentada_30d": 3,
       "fornecedor": "Deca",
       "unidade": "unidade",
@@ -157,7 +157,7 @@
     },
     {
       "id": "10",
-      "produto": "Disjuntor Monofolar DIN 20A Tramontina",
+      "produto": "Disjuntor Monopolar DIN 20A Tramontina",
       "sku": "ELE-020",
       "categoria": "Elétrica",
       "quantidade_atual": 60,
@@ -172,7 +172,7 @@
   ],
   "events": [
     {
-      "title": "Reunião de Negocios",
+      "title": "Reunião de Negócios",
       "start": "2026-06-12",
       "end": "",
       "color": "#bc1010",
@@ -197,20 +197,74 @@
     {
       "id": "1",
       "nome": "Dona Neuza Souza",
-      "whatsapp": "31988887777",
+      "cpf": "111.111.111-11",
+      "cnpj": "111.111.111-11",
+      "cpf_cnpj": "111.111.111-11",
+      "telefone": "(31) 91111-1111",
       "email": "neuza@email.com",
       "endereco": "Rua das Flores, 45 - Santa Efigênia, BH",
-      "cep": "30260060",
-      "total_comprado_historico": 4780.5,
-      "quantidade_pedidos": 12,
-      "ultima_compra": "2025-04-10",
-      "classificacao": "Cliente Fiel"
+      "tag": "VIP",
+      "tags": "VIP",
+      "ultimaCompra": "20/06/2026"
+    },
+    {
+      "id": "2",
+      "nome": "Carlos Machado (Construtora)",
+      "cpf": "22.222.222/0001-22",
+      "cnpj": "22.222.222/0001-22",
+      "cpf_cnpj": "22.222.222/0001-22",
+      "telefone": "(31) 92222-2222",
+      "email": "carlos@construtora.com",
+      "endereco": "Av. Brasil, 1500 - BH",
+      "tag": "Ativo",
+      "tags": "Ativo",
+      "ultimaCompra": "22/06/2026"
+    },
+    {
+      "id": "3",
+      "nome": "Marcos Silva",
+      "cpf": "333.333.333-33",
+      "cnpj": "333.333.333-33",
+      "cpf_cnpj": "333.333.333-33",
+      "telefone": "(31) 93333-3333",
+      "email": "marcos@email.com",
+      "endereco": "Rua Contorno, 800 - Centro",
+      "tag": "Ativo",
+      "tags": "Ativo",
+      "ultimaCompra": "24/06/2026"
+    },
+    {
+      "id": "4",
+      "nome": "Construtora Silva",
+      "cpf": "11.222.333/0001-44",
+      "cnpj": "11.222.333/0001-44",
+      "cpf_cnpj": "11.222.333/0001-44",
+      "telefone": "(31) 98888-7777",
+      "email": "contato@silva.com",
+      "endereco": "Av. Afonso Pena, 1500 - BH",
+      "tag": "VIP",
+      "tags": "VIP",
+      "ultimaCompra": "25/06/2026"
+    },
+    {
+      "id": "5",
+      "nome": "João Pedro Santos",
+      "cpf": "123.456.789-00",
+      "cnpj": "123.456.789-00",
+      "cpf_cnpj": "123.456.789-00",
+      "telefone": "(31) 97777-6666",
+      "email": "joao.pedro@email.com",
+      "endereco": "Rua Timbiras, 200 - BH",
+      "tag": "Inativo",
+      "tags": "Inativo",
+      "ultimaCompra": "10/01/2025"
     }
   ],
   "vendas_pdvs": [
     {
       "id": "1",
-      "data_hora": "2025-05-23T14:30:00Z",
+      "data_hora": "2026-06-20T14:30:00Z",
+      "data_resumida": "20/06",
       "cliente_id": 1,
       "vendedor": "Matheus Henrique",
       "itens": [
@@ -235,7 +289,8 @@
     },
     {
       "id": "2",
-      "data_hora": "2025-04-23T14:40:00-03:00",
+      "data_hora": "2026-06-22T10:40:00-03:00",
+      "data_resumida": "22/06",
       "cliente_id": 2,
       "vendedor": "Lucas Ash",
       "itens": [
@@ -257,12 +312,109 @@
       "valor_total": 6101,
       "metodo_pagamento": "Boleto 30 dias",
       "status": "Aguardando Pagamento"
+    },
+    {
+      "id": "3",
+      "data_hora": "2026-06-24T09:15:00Z",
+      "data_resumida": "24/06",
+      "cliente_id": 3,
+      "vendedor": "Matheus Henrique",
+      "itens": [
+        {
+          "produto_id": 5,
+          "produto_nome": "Tubo Esgoto 100mm Tigre",
+          "quantidade": 15,
+          "preco_unitario": 64.9,
+          "subtotal": 973.5
+        },
+        {
+          "produto_id": 7,
+          "produto_nome": "Tinta Acrílica Fosca 18L",
+          "quantidade": 2,
+          "preco_unitario": 299.9,
+          "subtotal": 599.8
+        }
+      ],
+      "valor_total": 1573.3,
+      "metodo_pagamento": "PIX",
+      "status": "Concluída"
+    },
+    {
+      "id": "4",
+      "data_hora": "2026-06-25T14:20:00Z",
+      "data_resumida": "25/06",
+      "cliente_id": 1,
+      "vendedor": "Lucas Ash",
+      "itens": [
+        {
+          "produto_id": 8,
+          "produto_nome": "Fechadura Digital Intelbras",
+          "quantidade": 1,
+          "preco_unitario": 420,
+          "subtotal": 420
+        },
+        {
+          "produto_id": 9,
+          "produto_nome": "Torneira Gourmet",
+          "quantidade": 2,
+          "preco_unitario": 199,
+          "subtotal": 398
+        }
+      ],
+      "valor_total": 818,
+      "metodo_pagamento": "Cartão de Crédito",
+      "status": "Concluída"
+    },
+    {
+      "id": "5",
+      "data_hora": "2026-06-26T16:45:00Z",
+      "data_resumida": "26/06",
+      "cliente_id": 2,
+      "vendedor": "Matheus Henrique",
+      "itens": [
+        {
+          "produto_id": 4,
+          "produto_nome": "Telha Americana Natural",
+          "quantidade": 500,
+          "preco_unitario": 3.9,
+          "subtotal": 1950
+        },
+        {
+          "produto_id": 10,
+          "produto_nome": "Disjuntor DIN 20A",
+          "quantidade": 10,
+          "preco_unitario": 14.9,
+          "subtotal": 149
+        }
+      ],
+      "valor_total": 2099,
+      "metodo_pagamento": "Boleto 15 dias",
+      "status": "Concluída"
+    },
+    {
+      "id": "6",
+      "data_hora": "2026-06-27T11:30:00Z",
+      "data_resumida": "27/06",
+      "cliente_id": 3,
+      "vendedor": "Lucas Ash",
+      "itens": [
+        {
+          "produto_id": 6,
+          "produto_nome": "Cabo Elétrico 2,5mm 100m",
+          "quantidade": 5,
+          "preco_unitario": 189,
+          "subtotal": 945
+        }
+      ],
+      "valor_total": 945,
+      "metodo_pagamento": "PIX",
+      "status": "Concluída"
     }
   ],
   "financeiro_fluxos": [
     {
       "id": "1",
-      "data": "2025-04-10",
+      "data": "2026-06-10",
       "descricao": "Pagamento Fornecedor (Votorantim)",
       "valor": 1500,
       "tipo": "Saída",
@@ -272,7 +424,7 @@
     },
     {
       "id": "2",
-      "data": "2025-04-23",
+      "data": "2026-06-23",
       "descricao": "Recebimento Venda (Neuza Souza)",
       "valor": 625,
       "tipo": "Entrada",
@@ -283,44 +435,44 @@
   ],
   "despesas": [
     {
+      "id": "njsGhwFewBM",
       "nome": "Aluguel",
       "valor": 1000,
-      "data": "2026-05-16",
-      "obs": "Aluguel da máquina",
-      "tipo": "Aluguel",
-      "id": "njsGhwFewBM"
+      "data": "2026-06-05",
+      "obs": "Aluguel da Loja",
+      "tipo": "Aluguel"
     },
     {
-      "name": "Coisas",
-      "valor": "1",
+      "id": "17s8arOvahU",
+      "nome": "Conta de Energia",
+      "valor": 350.50,
+      "data": "2026-06-10",
+      "obs": "Fatura CEMIG",
+      "tipo": "Outros"
+    },
+    {
+      "id": "-QJ2BLngm-w",
+      "nome": "Manutenção",
+      "valor": 250,
       "data": "2026-06-20",
-      "obs": "",
-      "tipo": "Outros",
-      "id": "17s8arOvahU"
+      "obs": "Conserto da porta de entrada",
+      "tipo": "Outros"
     },
     {
-      "nome": "Azulejo do banheiro ",
-      "valor": "250",
-      "data": "2026-06-20",
-      "obs": "Conserto do banheiro ",
-      "tipo": "Outros",
-      "id": "-QJ2BLngm-w"
+      "id": "6BpuONK",
+      "nome": "Material de Limpeza",
+      "valor": 85.90,
+      "data": "2026-06-22",
+      "obs": "Compras do mês",
+      "tipo": "Outros"
     },
     {
-      "nome": "Teste ",
-      "valor": "569",
-      "data": "2026-06-27",
-      "obs": "Testa mais recente",
-      "tipo": "Outros",
-      "id": "dCycHXRBPRg"
-    },
-    {
-      "nome": "Financiamento",
-      "valor": "25",
-      "data": "2026-06-14",
-      "obs": "Financiamento da Loja",
-      "tipo": "Outros",
-      "id": "6BpuONK"
+      "id": "dCycHXRBPRg",
+      "nome": "Internet Empresarial",
+      "valor": 159.90,
+      "data": "2026-06-25",
+      "obs": "Plano Vivo Fibra",
+      "tipo": "Outros"
     }
   ],
   "receitas": [
@@ -329,8 +481,8 @@
       "tipo": "receita",
       "descricao": "Venda de produto / serviço",
       "valor": 1500,
-      "data_emissao": "2025-05-01",
-      "data_recebimento": "2025-05-10",
+      "data_emissao": "2026-05-01",
+      "data_recebimento": "2026-05-10",
       "status": "recebido",
       "categoria": "venda",
       "forma_pagamento": "pix",
@@ -353,55 +505,78 @@
   ],
   "contatos": [
     {
+      "id": "A1B2C3",
       "nome": "Votorantim Cimentos",
       "telefone": "31971019524",
-      "valor": "200.00",
-      "vencimento": "2026-05-09",
-      "categoria": "Pago",
-      "website": "https://www.votorantimcimentos.com.br/",
-      "id": "A1B2C3"
+      "valor": "4500.00",
+      "vencimento": "2026-07-15",
+      "categoria": "A Pagar",
+      "website": "https://www.votorantimcimentos.com.br/"
     },
     {
       "id": "D4E5F6",
-      "nome": "Lucas caixas",
+      "nome": "Gerdau S.A.",
       "telefone": "31971019524",
-      "valor": "300.00",
-      "vencimento": "2026-05-10",
-      "categoria": "Pago",
-      "website": "https://www.lojadocaixote.com.br/",
-      "id_original": "EPmO4RCHn2Q"
+      "valor": "3200.50",
+      "vencimento": "2026-06-25",
+      "categoria": "Vencido",
+      "website": "https://www.gerdau.com.br/"
     },
     {
-      "name": "PUC Minas - Portal",
+      "id": "wAtvGKk",
+      "nome": "Tigre Tubos e Conexões",
+      "telefone": "31971019524",
+      "valor": "1850.00",
+      "vencimento": "2026-06-20",
+      "categoria": "Vencido",
+      "website": "https://www.tigre.com.br/"
+    },
+    {
+      "id": "yC5WkH8LXmc",
+      "nome": "PUC Minas - Portal",
       "telefone": "3133194444",
-      "valor": "1200",
-      "vencimento": "2026-06-05",
+      "valor": "1200.00",
+      "vencimento": "2026-07-05",
       "categoria": "A Pagar",
-      "website": "https://pucminas.instructure.com/courses/268510/pages/criterios-de-avaliacao-sprints-1-e-2",
-      "id": "yC5WkH8LXmc"
-    },
-    {
-      "nome": "Votorantim Cimentos",
-      "telefone": "31971019524",
-      "valor": "200.00",
-      "vencimento": "2026-05-09",
-      "categoria": "Pago",
-      "website": "https://www.votorantimcimentos.com.br/",
-      "id": "wAtvGKk"
+      "website": "https://pucminas.instructure.com/courses/268510/pages/criterios-de-avaliacao-sprints-1-e-2"
     }
   ],
   "agendamentos": [
     {
       "id": "1",
-      "titulo": "Artesanato em Crochê",
-      "descricao": "Entrega de peça artesanal personalizada.",
-      "cliente": "Maria Souza",
-      "dataEntrega": "2026-06-15",
-      "horarioEntrega": "14:00",
-      "localEntrega": "Rua das Flores, 120",
-      "categoria": "Artesanato",
-      "responsavel": "Ateliê Criativo",
-      "status": "pendente"
+      "titulo": "Entrega: 40 sacos de Cimento (Caminhão 01)",
+      "cliente": "Carlos Machado (Construtora)",
+      "data": "2026-06-28",
+      "horario": "08:30h",
+      "local": "Obra - Setor Sul",
+      "status": "Em Rota"
+    },
+    {
+      "id": "2",
+      "titulo": "Retirada em Loja: Palete de Tijolos",
+      "cliente": "Marcos Silva",
+      "data": "2026-06-28",
+      "horario": "10:15h",
+      "local": "Depósito Central",
+      "status": "Pronto"
+    },
+    {
+      "id": "3",
+      "titulo": "Carga: 15 barras de Ferro 3/8 (Caminhão 02)",
+      "cliente": "Construtora Alfa",
+      "data": "2026-06-29",
+      "horario": "13:00h",
+      "local": "Zona Industrial",
+      "status": "Pendente"
+    },
+    {
+      "id": "4",
+      "titulo": "Entrega: Tubos PVC Tigre 100mm",
+      "cliente": "Condomínio Vila Rica",
+      "data": "2026-06-29",
+      "horario": "15:45h",
+      "local": "Portaria Principal",
+      "status": "Pendente"
     }
   ]
 }

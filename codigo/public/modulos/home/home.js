@@ -32,7 +32,7 @@ function carregarDashboard() {
     .then(([vendas, clientes, estoques, contatos, agendamentos]) => {
         
         // ==========================================
-        // 1. SUA PARTE: Processamento de Últimos Pedidos (Ajustado ao seu db.json)
+        // 1. Processamento de Últimos Pedidos (Ajustado ao seu db.json)
         // ==========================================
         let totalFaturado = 0;
         let valoresGrafico = [];
@@ -43,12 +43,14 @@ function carregarDashboard() {
             const val = parseFloat(v.valor_total) || 0;
             totalFaturado += val;
             
+            // CORREÇÃO 1: Trocado de "Pedido #X" para usar a "data_resumida" no gráfico
             if(idx < 6) {
                 valoresGrafico.push(val);
-                labelsGrafico.push(`Pedido #${v.id ? v.id.toString().substring(0,4) : idx+1}`);
+                labelsGrafico.push(v.data_resumida || `Pedido #${v.id ? v.id.toString().substring(0,4) : idx+1}`);
             }
 
-            if(idx < 5) {
+            // CORREÇÃO 2: Alterado de (idx < 5) para (idx < 6) para listar o sexto pedido na tabela
+            if(idx < 6) {
                 // Mapeia os itens lendo exatamente 'produto_nome' e 'quantidade' do seu db.json
                 let itensHTML = "";
                 if (v.itens && Array.isArray(v.itens)) {
@@ -66,7 +68,7 @@ function carregarDashboard() {
                     }
                 }
 
-                // Busca o nome do cliente associado pelo id se necessário (ou mantém fixo se não houver a string do nome)
+                // Busca o nome do cliente associado pelo id se necessário
                 let nomeCliente = "Consumidor Final";
                 if (v.cliente_id) {
                     const clienteEncontrado = clientes.find(c => c.id === v.cliente_id || c.id === String(v.cliente_id));
@@ -142,7 +144,7 @@ function carregarDashboard() {
         }
 
         // ==========================================
-        // 4. SUA PARTE: Agenda Logística de Entregas
+        // 4. Agenda Logística de Entregas
         // ==========================================
         let agendamentosHTML = "";
         if (agendamentos.length > 0) {
