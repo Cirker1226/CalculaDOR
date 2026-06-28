@@ -1,13 +1,12 @@
 const apiClientes = '/clientes';
 const apiProdutos = '/estoques';
-const apiVendas = '/vendas';
+const apiVendas = '/vendas_pdvs';
 
 let listaClientes = [];
 let listaProdutos = [];
 let vendaEditandoId = null;
 
 async function carregarDados() {
-
     const resClientes = await fetch(apiClientes);
     listaClientes = await resClientes.json();
 
@@ -19,73 +18,83 @@ async function carregarDados() {
 }
 
 function carregarClientes(clientes) {
-
     const select = document.getElementById('cliente');
     select.innerHTML = `<option value="" disabled selected>Selecione um cliente</option>`;
 
-    clientes.forEach((c, i) => {
-        select.innerHTML += `<option value="${i}">${c.nome}</option>`;
+    clientes.forEach((c) => {
+        select.innerHTML += `<option value="${c.id}">${c.nome}</option>`;
     });
 
     select.onchange = () => {
-
-        const cliente = clientes[select.value];
-
+        const cliente = clientes.find(c => String(c.id) === String(select.value));
         document.getElementById('cpf').value = cliente?.cpf || '';
         document.getElementById('ultimaCompra').value = cliente?.ultimaCompra || '';
     };
 }
 
 function carregarProdutos(produtos) {
-
     const select = document.getElementById('produto');
     select.innerHTML = `<option value="" disabled selected>Selecione um produto</option>`;
 
-    produtos.forEach((p, i) => {
-        select.innerHTML += `<option value="${i}">${p.produto}</option>`;
+    produtos.forEach((p) => {
+        select.innerHTML += `<option value="${p.id}">${p.produto}</option>`;
     });
 
     select.onchange = () => {
-        const produto = produtos[select.value];
+        const produto = produtos.find(p => String(p.id) === String(select.value));
         document.getElementById('preco').value = produto?.preco_venda || 0;
         calcularTotal();
     };
 }
 
 function calcularTotal() {
-
-    const produtoIndex = document.getElementById('produto').value;
+    const produtoId = document.getElementById('produto').value;
     const quantidade = Number(document.getElementById('quantidade').value);
-
-    const produto = listaProdutos[produtoIndex];
+    const produto = listaProdutos.find(p => String(p.id) === String(produtoId));
 
     if (!produto || !quantidade) return;
 
     const total = produto.preco_venda * quantidade;
-
     document.getElementById('total').value = total.toFixed(2);
 }
 
 async function registrarVenda() {
+    const clienteId = document.getElementById('cliente').value;
+    const produtoId = document.getElementById('produto').value;
 
-    const clienteIndex = document.getElementById('cliente').value;
-    const produtoIndex = document.getElementById('produto').value;
-
-    const cliente = listaClientes[clienteIndex];
-    const produto = listaProdutos[produtoIndex];
+    const cliente = listaClientes.find(c => String(c.id) === String(clienteId));
+    const produto = listaProdutos.find(p => String(p.id) === String(produtoId));
 
     if (!cliente || !produto) return;
 
-    const dataCompra = document.getElementById('dataVenda').value || new Date().toLocaleDateString('pt-BR');
+    const quantidade = Number(document.getElementById('quantidade').value);
+    const precoUnitario = produto.preco_venda;
+    const subtotal = precoUnitario * quantidade;
+    const dataVenda = document.getElementById('dataVenda').value;
+
+    const dataHora = dataVenda ? new Date(dataVenda).toISOString() : new Date().toISOString();
+    const dataResuimida = dataVenda
+        ? new Date(dataVenda + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
+        : new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
 
     const dados = {
-        cliente: cliente.nome,
-        produto: produto.produto,
-        quantidade: document.getElementById('quantidade').value,
-        total: document.getElementById('total').value,
-        pagamento: document.getElementById('pagamento').value,
+        data_hora: dataHora,
+        data_resumida: dataResuimida,
+        cliente_id: cliente.id,
+        vendedor: document.getElementById('nome-usuario')?.innerText || 'Vendedor',
+        itens: [
+            {
+                produto_id: produto.id,
+                produto_nome: produto.produto,
+                quantidade: quantidade,
+                preco_unitario: precoUnitario,
+                subtotal: subtotal
+            }
+        ],
+        valor_total: subtotal,
+        metodo_pagamento: document.getElementById('pagamento').value,
         status: document.getElementById('status').value,
-        data: dataCompra
+        observacoes: document.getElementById('observacoes').value
     };
 
     await fetch(apiVendas, {
@@ -97,9 +106,7 @@ async function registrarVenda() {
     await fetch(`${apiClientes}/${cliente.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            ultimaCompra: dataCompra
-        })
+        body: JSON.stringify({ ultimaCompra: dataResuimida })
     });
 
     limparCampos();
@@ -107,107 +114,147 @@ async function registrarVenda() {
 }
 
 function limparCampos() {
-
     document.getElementById('quantidade').value = 1;
     document.getElementById('total').value = '';
-
     document.getElementById('cpf').value = '';
     document.getElementById('ultimaCompra').value = '';
-
     document.getElementById('cliente').value = '';
     document.getElementById('produto').value = '';
-
+    document.getElementById('preco').value = '';
+    document.getElementById('dataVenda').value = '';
+    document.getElementById('observacoes').value = '';
+    document.getElementById('codigoVenda').value = '';
     vendaEditandoId = null;
 }
 
 async function carregarVendas() {
-
     const tabela = document.getElementById('table-vendas');
     tabela.innerHTML = '';
 
     const res = await fetch(apiVendas);
     const vendas = (await res.json()) || [];
 
-    document.getElementById('total-vendas').innerText = vendas.length || 0;
+    document.getElementById('total-vendas').innerText = vendas.length;
+
+    const hoje = new Date().toDateString();
+    const vendasHoje = vendas.filter(v => new Date(v.data_hora).toDateString() === hoje);
+    document.getElementById('vendas-hoje').innerText = vendasHoje.length;
+
+    // Card: faturamento do mês
+    const mesAtual = new Date().getMonth();
+    const anoAtual = new Date().getFullYear();
+    const faturamento = vendas
+        .filter(v => {
+            const d = new Date(v.data_hora);
+            return d.getMonth() === mesAtual && d.getFullYear() === anoAtual;
+        })
+        .reduce((acc, v) => acc + Number(v.valor_total), 0);
+
+    document.getElementById('faturamento').innerText =
+        faturamento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     vendas.forEach(v => {
+        const cliente = listaClientes.find(c => String(c.id) === String(v.cliente_id));
+        const nomeCliente = cliente?.nome || `Cliente #${v.cliente_id}`;
+
+        const resumoItens = v.itens?.map(i => `${i.produto_nome} (${i.quantidade}x)`).join(', ') || '-';
+        const qtdTotal = v.itens?.reduce((acc, i) => acc + i.quantidade, 0) || 0;
+
+        const dataFormatada = v.data_resumida || new Date(v.data_hora).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
 
         const tr = document.createElement('tr');
         tr.dataset.id = v.id;
 
         tr.innerHTML = `
-            <td>${v.id || ''}</td>
-            <td>${v.cliente}</td>
-            <td>${v.produto}</td>
-            <td>${v.quantidade}</td>
-            <td>${v.total}</td>
-            <td>${v.pagamento}</td>
+            <td>${v.id}</td>
+            <td>${nomeCliente}</td>
+            <td title="${resumoItens}">${resumoItens.length > 40 ? resumoItens.slice(0, 40) + '…' : resumoItens}</td>
+            <td>${qtdTotal}</td>
+            <td>R$ ${Number(v.valor_total).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+            <td>${v.metodo_pagamento}</td>
             <td>${v.status}</td>
-            <td>${v.data}</td>
+            <td>${dataFormatada}</td>
         `;
 
-        tr.addEventListener('click', () => selecionarLinha(tr));
-
+        tr.addEventListener('click', () => selecionarLinha(tr, v));
         tabela.appendChild(tr);
     });
 }
 
-function selecionarLinha(linha) {
-
-    document.querySelectorAll('#table-vendas tr')
-        .forEach(tr => tr.classList.remove('table-active'));
-
+function selecionarLinha(linha, venda) {
+    document.querySelectorAll('#table-vendas tr').forEach(tr => tr.classList.remove('table-active'));
     linha.classList.add('table-active');
 
-    const colunas = linha.querySelectorAll('td');
+    vendaEditandoId = venda.id;
 
-    vendaEditandoId = linha.dataset.id;
-
-    const clienteNome = colunas[1].textContent;
-    const produtoNome = colunas[2].textContent;
-
-    const cliente = listaClientes.find(c => c.nome === clienteNome);
-    const produto = listaProdutos.find(p => p.produto === produtoNome);
-
-    const clienteIndex = listaClientes.findIndex(c => c.nome === clienteNome);
-    const produtoIndex = listaProdutos.findIndex(p => p.produto === produtoNome);
-
-    document.getElementById('cliente').value = clienteIndex;
+    const cliente = listaClientes.find(c => String(c.id) === String(venda.cliente_id));
+    document.getElementById('cliente').value = cliente?.id || '';
     document.getElementById('cpf').value = cliente?.cpf || '';
     document.getElementById('ultimaCompra').value = cliente?.ultimaCompra || '';
 
-    document.getElementById('produto').value = produtoIndex;
-    document.getElementById('preco').value = produto?.preco_venda || 0;
+    // Carrega o primeiro item no formulário
+    const primeiroItem = venda.itens?.[0];
+    if (primeiroItem) {
+        const produto = listaProdutos.find(p => String(p.id) === String(primeiroItem.produto_id));
+        document.getElementById('produto').value = produto?.id || '';
+        document.getElementById('preco').value = primeiroItem.preco_unitario;
+        document.getElementById('quantidade').value = primeiroItem.quantidade;
+        document.getElementById('total').value = Number(venda.valor_total).toFixed(2);
+    }
 
-    document.getElementById('quantidade').value = colunas[3].textContent;
-    document.getElementById('total').value = colunas[4].textContent;
-    document.getElementById('pagamento').value = colunas[5].textContent;
-    document.getElementById('status').value = colunas[6].textContent;
-    document.getElementById('dataVenda').value = colunas[7].textContent;
+    document.getElementById('pagamento').value = venda.metodo_pagamento;
+    document.getElementById('status').value = venda.status;
+    document.getElementById('codigoVenda').value = venda.id;
+    document.getElementById('observacoes').value = venda.observacoes || '';
 
-    calcularTotal();
+    if (venda.data_hora) {
+        const d = new Date(venda.data_hora);
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        document.getElementById('dataVenda').value = `${yyyy}-${mm}-${dd}`;
+    }
 }
 
 async function salvarEdicaoVenda() {
-
     if (!vendaEditandoId) return;
 
-    const clienteIndex = document.getElementById('cliente').value;
-    const produtoIndex = document.getElementById('produto').value;
+    const clienteId = document.getElementById('cliente').value;
+    const produtoId = document.getElementById('produto').value;
 
-    const cliente = listaClientes[clienteIndex];
-    const produto = listaProdutos[produtoIndex];
+    const cliente = listaClientes.find(c => String(c.id) === String(clienteId));
+    const produto = listaProdutos.find(p => String(p.id) === String(produtoId));
 
     if (!cliente || !produto) return;
 
+    const quantidade = Number(document.getElementById('quantidade').value);
+    const precoUnitario = produto.preco_venda;
+    const subtotal = precoUnitario * quantidade;
+    const dataVenda = document.getElementById('dataVenda').value;
+
+    const dataHora = dataVenda ? new Date(dataVenda).toISOString() : new Date().toISOString();
+    const dataResuimida = dataVenda
+        ? new Date(dataVenda + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
+        : '';
+
     const dadosAtualizados = {
-        cliente: cliente.nome,
-        produto: produto.produto,
-        quantidade: document.getElementById('quantidade').value,
-        total: document.getElementById('total').value,
-        pagamento: document.getElementById('pagamento').value,
+        data_hora: dataHora,
+        data_resumida: dataResuimida,
+        cliente_id: cliente.id,
+        vendedor: document.getElementById('nome-usuario')?.innerText || 'Vendedor',
+        itens: [
+            {
+                produto_id: produto.id,
+                produto_nome: produto.produto,
+                quantidade: quantidade,
+                preco_unitario: precoUnitario,
+                subtotal: subtotal
+            }
+        ],
+        valor_total: subtotal,
+        metodo_pagamento: document.getElementById('pagamento').value,
         status: document.getElementById('status').value,
-        data: document.getElementById('dataVenda').value
+        observacoes: document.getElementById('observacoes').value
     };
 
     const res = await fetch(`${apiVendas}/${vendaEditandoId}`, {
@@ -217,23 +264,18 @@ async function salvarEdicaoVenda() {
     });
 
     if (res.ok) {
-        vendaEditandoId = null;
         limparCampos();
         carregarVendas();
     }
 }
 
-function excluirVenda() {
-
+async function excluirVenda() {
     const linhaSelecionada = document.querySelector('#table-vendas tr.table-active');
     if (!linhaSelecionada) return;
 
     const id = linhaSelecionada.dataset.id;
 
-    fetch(`${apiVendas}/${id}`, {
-        method: 'DELETE'
-    });
-
+    await fetch(`${apiVendas}/${id}`, { method: 'DELETE' });
     carregarVendas();
 }
 
