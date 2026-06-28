@@ -305,7 +305,7 @@ Permite cadastrar, alterar e excluir fornecedores com dados de contato, valor, d
   * Acesse o menu principal e escolha a opção Fornecedores
 * **Tela da funcionalidade**:
 
-![Tela de Funcionalidade](images/fornecedores.png)
+![Tela de Funcionalidade](images/fornecedor.png)
 
 ---
 
@@ -320,7 +320,7 @@ Permite visualizar e gerenciar eventos no calendário mensal da empresa. Suporta
   * Clique em **Novo Evento** para cadastrar
 * **Tela da funcionalidade**:
 
-![Tela de Funcionalidade](images/eventos.png)
+![Tela de Funcionalidade](images/evento.png)
 
 ## Estruturas de Dados
 
