@@ -204,12 +204,9 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 | Membro | Responsabilidades |
 | ------ | ----------------- |
-| Lucas Araujo Asth | Etapa de Entendimento e Exploração, Ideia do Projeto, PDF e Apresentação, Projeto de Interface, Cadastro de Fornecedor, Amostragem dos produtos |
-| Gustavo Fernandes Vieira | Etapa de Entendimento e Exploração, Ideia do Projeto, Projeto de Interface, Cadastro de Despesas,  Amostragem das despesas | 
-| Matheus Henrique | Etapa de Entendimento e Exploração, Documentação, Projeto de Interface, Cadastro de Produtos, Cadastro de evento no calendario |
-| Gabriel Lima Cotta | — |
-| Caio Olimpo | — |
-| Bernardo Guerra | — |
+| Lucas Araujo Asth | Etapa de Entendimento e Exploração, Ideia do Projeto, PDF e Apresentação, Projeto de Interface, CRUD de Fornecedor, Amostragem dos produtos, Estilização da aplicação, Dashboard da pagina inicial, Painel de Login e Cadastro, Relatorios, Apresentação em Video |
+| Gustavo Fernandes Vieira | Etapa de Entendimento e Exploração, Ideia do Projeto, Projeto de Interface, CRUD de Despesas,  Amostragem das despesas, Estilização da aplicação, Apresentação em Video | 
+| Matheus Henrique | Etapa de Entendimento e Exploração, Documentação, Projeto de Interface, CRUD de Produtos, Calendario Corporativo, Cadastro de evento no calendario, CRUD de Vendas, Estilização da aplicação, Apresentação em Video |
 
 ![Kanban](images/kanban.png)
 
@@ -237,28 +234,276 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 ## Funcionalidades
 
-Esta seção apresenta as funcionalidades da solução.Info
+Esta seção apresenta as funcionalidades da solução.
 
-##### Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️
+---
 
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
+##### Funcionalidade 1 - Relacionamento com Clientes
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+Permite o cadastro, consulta, alteração e exclusão de clientes, com suporte a CPF/CNPJ, telefone, e-mail, endereço e tags (ex: VIP). Exibe totais de clientes ativos e inativos.
+
+* **Estrutura de dados:** [Clientes](#ti_ed_clientes)
 * **Instruções de acesso:**
   * Abra o site e efetue o login
-  * Acesse o menu principal e escolha a opção Cadastros
-  * Em seguida, escolha a opção Contatos
+  * Acesse o menu principal e escolha a opção Clientes
 * **Tela da funcionalidade**:
 
-![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
+![Tela de Funcionalidade](images/clientes.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+---
+
+##### Funcionalidade 2 - Registro de Vendas
+
+Permite registrar, consultar, alterar e excluir vendas vinculadas a clientes e produtos. Inclui controle de pagamento, status, data e código gerado automaticamente. Exibe total de vendas, vendas do dia e faturamento do mês.
+
+* **Estrutura de dados:** [Vendas](#ti_ed_vendas)
+* **Instruções de acesso:**
+  * Abra o site e efetue o login
+  * Acesse o menu principal e escolha a opção de Vendas
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/vendas.png)
+
+---
+
+##### Funcionalidade 3 - Análise de Giro e Produtos Parados
+
+Permite cadastrar, editar e excluir produtos com informações de SKU, categoria, estoque, movimentação e preços. Exibe análise de produtos com baixo giro e valor total parado em estoque.
+
+* **Estrutura de dados:** [Produtos](#ti_ed_produtos)
+* **Instruções de acesso:**
+  * Abra o site e efetue o login
+  * Acesse o menu principal e escolha a opção de Produtos
+  * Clique em **Novo Produto** para cadastrar
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/produtos.png)
+
+---
+
+##### Funcionalidade 4 - Cadastrar Despesas
+
+Permite inserir, alterar e excluir despesas com nome, valor, data, observações e tipo (Funcionário, Aluguel ou Outros). Lista as despesas cadastradas para consulta.
+
+* **Estrutura de dados:** [Despesas](#ti_ed_despesas)
+* **Instruções de acesso:**
+  * Abra o site e efetue o login
+  * Acesse o menu principal e escolha a opção Financeiro
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/despesas.png)
+
+---
+
+##### Funcionalidade 5 - Gestão Empresarial (Fornecedores e Pagamentos)
+
+Permite cadastrar, alterar e excluir fornecedores com dados de contato, valor, data de vencimento e status de pagamento. Exibe totais de valores a pagar, pagos e vencidos.
+
+* **Estrutura de dados:** [Fornecedores](#ti_ed_fornecedores)
+* **Instruções de acesso:**
+  * Abra o site e efetue o login
+  * Acesse o menu principal e escolha a opção Fornecedores
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/fornecedores.png)
+
+---
+
+##### Funcionalidade 6 - Calendário Corporativo
+
+Permite visualizar e gerenciar eventos no calendário mensal da empresa. Suporta cadastro de eventos com título, data inicial, data final e cor personalizada.
+
+* **Estrutura de dados:** [Eventos](#ti_ed_eventos)
+* **Instruções de acesso:**
+  * Abra o site e efetue o login
+  * Acesse o menu principal e escolha a opção Calendário Corporativo
+  * Clique em **Novo Evento** para cadastrar
+* **Tela da funcionalidade**:
+
+![Tela de Funcionalidade](images/eventos.png)
 
 ## Estruturas de Dados
+
+Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.
+
+---
+
+##### Estrutura de Dados - Usuários
+
+Registro dos usuários do sistema utilizados para login e acesso à plataforma.
+
+```json
+{
+  "id": "1",
+  "nome": "Lucas Ferdinando",
+  "login": "lucas",
+  "email": "lucas@lucasmateriais.com.br",
+  "senha": "123"
+}
+```
+
+---
+
+##### Estrutura de Dados - Clientes
+
+Cadastro de clientes da loja com dados de contato, documento e classificação por tag.
+
+```json
+{
+  "id": "1",
+  "nome": "Dona Neuza Souza",
+  "cpf_cnpj": "111.111.111-11",
+  "telefone": "(31) 91111-1111",
+  "email": "neuza@email.com",
+  "endereco": "Rua das Flores, 45 - Santa Efigênia, BH",
+  "tags": "VIP",
+  "ultimaCompra": "2026-08-22"
+}
+```
+
+---
+
+##### Estrutura de Dados - Vendas (PDV)
+
+Registro das vendas realizadas, vinculando cliente, produtos, pagamento e status.
+
+```json
+{
+  "id": "1",
+  "data_hora": "2026-06-20T00:00:00.000Z",
+  "data_resumida": "20/06",
+  "cliente_id": "1",
+  "vendedor": "Lucas Ferdinando",
+  "itens": [
+    {
+      "produto_id": "1",
+      "produto_nome": "Cimento CP II 50kg Votoran",
+      "quantidade": 10,
+      "preco_unitario": 36.9,
+      "subtotal": 369
+    }
+  ],
+  "valor_total": 369,
+  "metodo_pagamento": "PIX",
+  "status": "Pendente",
+  "observacoes": ""
+}
+```
+
+---
+
+##### Estrutura de Dados - Estoques
+
+Cadastro de produtos em estoque com SKU, categoria, preços, quantidade e movimentação.
+
+```json
+{
+  "id": "1",
+  "produto": "Cimento CP II 50kg Votoran",
+  "sku": "CIM-001",
+  "categoria": "Cimento e Argamassa",
+  "quantidade_atual": 155,
+  "quantidade_movimentada_30d": 25,
+  "preco_custo": 28.5,
+  "preco_venda": 36.9,
+  "ultima_atualizacao": "2026-06-05"
+}
+```
+
+---
+
+##### Estrutura de Dados - Despesas
+
+Registro de despesas da empresa com nome, valor, data, tipo e observações.
+
+```json
+{
+  "id": "njsGhwFewBM",
+  "nome": "Aluguel",
+  "valor": 1000,
+  "data": "2026-06-05",
+  "obs": "Aluguel da Loja",
+  "tipo": "Aluguel"
+}
+```
+
+---
+
+##### Estrutura de Dados - Contatos (Fornecedores)
+
+Cadastro de fornecedores com dados de contato, valor a pagar, vencimento e status.
+
+```json
+{
+  "id": "A1B2C3",
+  "nome": "Votorantim Cimentos",
+  "telefone": "31971019524",
+  "valor": "4500.00",
+  "vencimento": "2026-07-15",
+  "categoria": "A Pagar",
+  "website": "https://www.votorantimcimentos.com.br/"
+}
+```
+
+---
+
+##### Estrutura de Dados - Eventos (Calendário)
+
+Registro de eventos corporativos com título, datas e cor de identificação.
+
+```json
+{
+  "id": 1,
+  "title": "Reunião de Negócios",
+  "start": "2026-06-12",
+  "end": "",
+  "color": "#bc1010"
+}
+```
+
+---
+
+##### Estrutura de Dados - Agendamentos
+
+Registro de entregas e retiradas agendadas, com cliente, data, horário, local e status.
+
+```json
+{
+  "id": "1",
+  "titulo": "Entrega: 40 sacos de Cimento (Caminhão 01)",
+  "cliente": "Carlos Machado (Construtora)",
+  "data": "2026-06-28",
+  "horario": "08:30h",
+  "local": "Obra - Setor Sul",
+  "status": "Em Rota"
+}
+```
+
+---
+
+##### Estrutura de Dados - Configurações do Sistema
+
+Dados de configuração da empresa e preferências do sistema.
+
+```json
+{
+  "id": "1",
+  "proprietario": "Lucas Ferdinando",
+  "empresa": {
+    "nome_fantasia": "Lucas Materiais de Construção",
+    "cnpj": "12.345.678/0001-90",
+    "endereco": "Av. Principal, 1000 - Bairro Industrial",
+    "cidade": "Belo Horizonte - MG",
+    "segmento": "Materiais de Construção e Ferramentas",
+    "telefone_comercial": "3133334444",
+    "site_oficial": "https://www.lucasmateriais.com.br"
+  },
+  "preferencias": {
+    "estoque_critico": true,
+    "integracao_whatsapp": true
+  }
+}
+```
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
@@ -307,36 +552,22 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 
 ## Módulos e APIs
 
-Esta seção apresenta os módulos e APIs utilizados na solução
+Esta seção apresenta os módulos e APIs utilizados na solução.
 
-**Images**:
+**Fonts e Icons:**
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
-
-**Fonts:**
-
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+* Bootstrap Icons - [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/)
 
 **Scripts:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+* Bootstrap 5 - [https://getbootstrap.com/](https://getbootstrap.com/)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
+* Bootstrap Bundle JS - [https://getbootstrap.com/docs/5.0/getting-started/introduction/](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
-# Referências
+* FullCalendar - [https://fullcalendar.io/](https://fullcalendar.io/)
 
-As referências utilizadas no trabalho foram:
+* Chart.js - [https://www.chartjs.org/](https://www.chartjs.org/)
 
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
+**APIs:**
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
-> **Orientações**:
->
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+* WhatsApp API - [https://api.whatsapp.com/](https://api.whatsapp.com/)
