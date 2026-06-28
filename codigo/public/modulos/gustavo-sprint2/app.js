@@ -70,14 +70,6 @@ function renderizarTabela(dados, tipoOrdenacao = 'recente') {
                     </span>
                 </td>
                 <td class="text-muted fst-italic align-middle text-truncate" style="max-width: 150px;">${observacao}</td>
-                <td class="align-middle text-center">
-                    <button class="btn btn-sm btn-outline-secondary border-0" title="Editar" onclick="editarDespesa('${despesa.id}')">
-                        <i class="bi bi-pencil-square"></i>
-                    </button>
-                    <button class="btn btn-sm btn-outline-danger border-0" title="Excluir" onclick="excluirDespesa('${despesa.id}')">
-                        <i class="bi bi-trash"></i>
-                    </button>
-                </td>
             </tr>
         `;
     });
@@ -92,14 +84,4 @@ function filtrarDespesas() {
     );
     renderizarTabela(dadosFiltrados);
 }
-
-// Funções prontas para quando você for integrar a API para editar/deletar
-function editarDespesa(id) {
-    alert("Função de editar despesa ID: " + id);
-}
-
-function excluirDespesa(id) {
-    alert("Função de excluir despesa ID: " + id);
-}
-
 carregarDespesas();

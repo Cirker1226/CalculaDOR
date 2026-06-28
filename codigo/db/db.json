@@ -443,12 +443,12 @@
       "tipo": "Aluguel"
     },
     {
-      "id": "17s8arOvahU",
       "nome": "Conta de Energia",
-      "valor": 350.50,
+      "valor": "350.0",
       "data": "2026-06-10",
-      "obs": "Fatura CEMIG",
-      "tipo": "Outros"
+      "obs": "",
+      "tipo": "Outros",
+      "id": "17s8arOvahU"
     },
     {
       "id": "-QJ2BLngm-w",
@@ -461,7 +461,7 @@
     {
       "id": "6BpuONK",
       "nome": "Material de Limpeza",
-      "valor": 85.90,
+      "valor": 85.9,
       "data": "2026-06-22",
       "obs": "Compras do mês",
       "tipo": "Outros"
@@ -469,10 +469,18 @@
     {
       "id": "dCycHXRBPRg",
       "nome": "Internet Empresarial",
-      "valor": 159.90,
+      "valor": 159.9,
       "data": "2026-06-25",
       "obs": "Plano Vivo Fibra",
       "tipo": "Outros"
+    },
+    {
+      "nome": "Conta de Energia",
+      "valor": "350.0",
+      "data": "2026-06-10",
+      "obs": "",
+      "tipo": "Outros",
+      "id": "fGCq_f3"
     }
   ],
   "receitas": [
