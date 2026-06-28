@@ -70,6 +70,39 @@ function deleteContato(id, refreshFunction) {
 
 let modalSuporte;
 
+// --- FUNÇÃO AUXILIAR PARA EVITAR DUPLICADOS ---
+function normalizarTexto(texto) {
+    return texto
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") 
+        .replace(/[^a-z0-9 ]/g, "");     
+}
+
+function verificarDuplicado(nome, idIgnorar = null, callback) {
+    const nomeNovoNormalizado = normalizarTexto(nome);
+    
+    readContato(dados => {
+        const duplicado = dados.find(c => {
+            const nomeExistente = c.nome || c.name || "";
+            const nomeExistenteNormalizado = normalizarTexto(nomeExistente);
+            
+            if (idIgnorar && c.id.toString() === idIgnorar.toString()) {
+                return false;
+            }
+            return nomeExistenteNormalizado === nomeNovoNormalizado;
+        });
+        
+        callback(duplicado);
+    });
+}
+
+// --- REDIRECIONAMENTO PARA OS PRODUTOS DA EMPRESA ---
+function irParaProdutos(nomeFornecedor) {
+    window.location.href = `../Lucas-sprint2/index.html?fornecedor=${encodeURIComponent(nomeFornecedor.trim())}`;
+}
+
 // Renderiza a tabela e atualiza os cards do dashboard
 function exibeContatos() {
     let table = document.getElementById("table-contatos");
@@ -82,51 +115,47 @@ function exibeContatos() {
         dados.forEach(c => {
             const v = parseFloat(c.valor) || 0;
             
-            // Lógica de acumuladores corrigida para bater com o Select do HTML
             if (c.categoria === 'Pago') {
                 sPago += v;
             } else if (c.categoria === 'Vencido') {
                 sVencido += v;
             } else {
-                sPagar += v; // Tudo que for "A Pagar" cai aqui
+                sPagar += v;
             }
 
-            // Garante que o nome existe antes de fazer o filtro de busca
             const nomeContato = c.nome ? c.nome : (c.name ? c.name : "Sem Nome");
 
             if (nomeContato.toLowerCase().includes(busca)) {
                 let corBadge = c.categoria === 'Pago' ? 'bg-success' : (c.categoria === 'Vencido' ? 'bg-danger' : 'bg-warning text-dark');
                 
-                // Converte ID para string seguro para evitar erros de substring
                 let idString = c.id ? c.id.toString() : "";
                 let idExibicao = idString.length > 5 ? idString.substring(0, 5) + "..." : idString;
 
                 table.innerHTML += `
                     <tr>
-                        <td class="ps-4 text-muted small">${idExibicao}</td>
-                        <td class="fw-bold text-primary" onclick="preencherForm('${c.id}')" style="cursor:pointer">
-                            <i class="bi bi-pencil-square me-2"></i>${nomeContato}
+                        <td class="ps-4 text-muted small" onclick="preencherForm('${c.id}')" style="cursor:pointer">${idExibicao}</td>
+                        <td class="fw-bold text-primary" onclick="abrirDetalhes('${c.id}')" style="cursor:pointer">
+                            <i class="bi bi-search me-2 small"></i>${nomeContato}
                         </td>
                         <td>${c.vencimento ? new Date(c.vencimento).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : '-'}</td>
                         <td class="fw-bold text-dark">${v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                         <td><span class="badge ${corBadge}">${c.categoria || 'A Pagar'}</span></td>
                         <td class="pe-4 text-center">
-                            <button type="button" class="btn btn-sm btn-outline-secondary border-0" onclick="abrirDetalhes('${c.id}')">
-                                <i class="bi bi-person-lines-fill fs-5"></i>
+                            <button type="button" class="btn btn-sm btn-outline-secondary border-0" onclick="irParaProdutos('${nomeContato}')" title="Ver produtos deste fornecedor">
+                                <i class="bi bi-box-seam fs-5"></i>
                             </button>
                         </td>
                     </tr>`;
             }
         });
 
-        // Atualiza os valores nos cards do Dashboard
         document.getElementById('total-apagar').innerText = sPagar.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         document.getElementById('total-pago').innerText = sPago.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         document.getElementById('total-vencidos').innerText = sVencido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     });
 }
 
-// Abre o Modal de detalhes
+// Abre o Modal contendo os detalhes e a API do WhatsApp integrado
 function abrirDetalhes(id) {
     fetch(`${apiUrl}/${id}`).then(res => res.json()).then(c => {
         const nomeContato = c.nome ? c.nome : (c.name ? c.name : "Sem Nome");
@@ -144,7 +173,7 @@ function abrirDetalhes(id) {
                 <h2 class="mb-3 fw-bold text-primary">${(parseFloat(c.valor) || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
                 <hr>
                 <p class="mb-1"><strong>Vencimento:</strong> ${c.vencimento ? new Date(c.vencimento).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : '-'}</p>
-                <p class="mb-1"><strong>Link pagina com fornecedor:</strong></p>
+                <p class="mb-1"><strong>Link página com fornecedor:</strong></p>
                 <div class="mb-3">${linkHTML}</div>
             </div>
         `;
@@ -152,7 +181,7 @@ function abrirDetalhes(id) {
         const btnZap = document.getElementById('btnZap');
         if (c.telefone) {
             const telLimpo = c.telefone.replace(/\D/g, '');
-            btnZap.href = `https://wa.me/55${telLimpo}?text=Olá ${nomeContato}...`;
+            btnZap.href = `https://wa.me/55${telLimpo}?text=Olá ${encodeURIComponent(nomeContato)}, gostaria de tratar sobre nossa pendência/faturamento.`;
             btnZap.style.display = 'inline-block';
         } else {
             btnZap.style.display = 'none';
@@ -182,24 +211,33 @@ function preencherForm(id) {
 function init() {
     modalSuporte = new bootstrap.Modal(document.getElementById('modalContato'));
     
-    // Evento de busca em tempo real
     document.getElementById("filtroBusca").oninput = exibeContatos;
 
     // Ação: Botão SALVAR
     document.getElementById("btnInsert").onclick = () => {
-        const c = {
-            nome: document.getElementById('inputNome').value,
-            telefone: document.getElementById('inputTelefone').value,
-            valor: document.getElementById('inputValor').value,
-            vencimento: document.getElementById('inputVencimento').value,
-            categoria: document.getElementById('inputCategoria').value,
-            website: document.getElementById('inputLink').value
-        };
+        const nomeInput = document.getElementById('inputNome').value;
+        const valorInput = document.getElementById('inputValor').value;
         
-        if(c.nome && c.valor) {
-            createContato(c, () => {
-                exibeContatos();
-                document.getElementById("form-contato").reset();
+        if(nomeInput && valorInput) {
+            verificarDuplicado(nomeInput, null, (existe) => {
+                if (existe) {
+                    alert(`O fornecedor "${nomeInput.trim()}" já está cadastrado sob a variação/nome: "${existe.nome}".`);
+                    return;
+                }
+
+                const c = {
+                    nome: nomeInput.trim(),
+                    telefone: document.getElementById('inputTelefone').value,
+                    valor: valorInput,
+                    vencimento: document.getElementById('inputVencimento').value,
+                    categoria: document.getElementById('inputCategoria').value,
+                    website: document.getElementById('inputLink').value
+                };
+                
+                createContato(c, () => {
+                    exibeContatos();
+                    document.getElementById("form-contato").reset();
+                });
             });
         } else {
             alert("Preencha Fornecedor e Valor.");
@@ -209,21 +247,30 @@ function init() {
     // Ação: Botão ALTERAR
     document.getElementById("btnUpdate").onclick = () => {
         let id = document.getElementById("inputId").value;
-        if(!id) return alert("Selecione um registro na tabela clicando no nome.");
+        if(!id) return alert("Selecione o ID na tabela correspondente para preencher o formulário antes de alterar.");
         
-        const c = {
-            nome: document.getElementById('inputNome').value,
-            telefone: document.getElementById('inputTelefone').value,
-            valor: document.getElementById('inputValor').value,
-            vencimento: document.getElementById('inputVencimento').value,
-            categoria: document.getElementById('inputCategoria').value,
-            website: document.getElementById('inputLink').value
-        };
+        const nomeInput = document.getElementById('inputNome').value;
         
-        updateContato(id, c, () => {
-            exibeContatos();
-            document.getElementById("form-contato").reset();
-            document.getElementById("inputId").value = "";
+        verificarDuplicado(nomeInput, id, (existe) => {
+            if (existe) {
+                alert(`Conflito de duplicidade: Outro fornecedor já utiliza o nome "${existe.nome}".`);
+                return;
+            }
+
+            const c = {
+                nome: nomeInput.trim(),
+                telefone: document.getElementById('inputTelefone').value,
+                valor: document.getElementById('inputValor').value,
+                vencimento: document.getElementById('inputVencimento').value,
+                categoria: document.getElementById('inputCategoria').value,
+                website: document.getElementById('inputLink').value
+            };
+            
+            updateContato(id, c, () => {
+                exibeContatos();
+                document.getElementById("form-contato").reset();
+                document.getElementById("inputId").value = "";
+            });
         });
     };
 
@@ -237,7 +284,7 @@ function init() {
                 document.getElementById("inputId").value = "";
             });
         } else if (!id) {
-            alert("Selecione um registro na tabela primeiro.");
+            alert("Selecione um registro carregando seu ID na tabela primeiro.");
         }
     };
 
